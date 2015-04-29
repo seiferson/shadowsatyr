@@ -2,6 +2,7 @@ package com.seifernet.shadowsatyr.servlet;
 
 import javax.servlet.annotation.WebServlet;
 
+import com.seifernet.shadowsatyr.dispatcher.Dispatcher;
 import com.seifernet.snwf.helper.DispatcherHelper;
 import com.seifernet.snwf.servlet.ContextServlet;
 
@@ -22,7 +23,7 @@ public class Servlet extends ContextServlet{
 
 	@Override
 	protected DispatcherHelper getDispatcher() {
-		return null;
+		return new Dispatcher( );
 	}
 
 }

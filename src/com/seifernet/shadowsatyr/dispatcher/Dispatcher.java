@@ -28,13 +28,14 @@ public class Dispatcher implements DispatcherHelper{
 	public String dispatchAction( HttpServletRequest request, HttpServletResponse response, String action ) {
 		
 		try{ 
-			request.setCharacterEncoding( "UTF-8" );
+			request.setCharacterEncoding( SNWFDefinitions.UTF8_CHARSET );
 		} catch( UnsupportedEncodingException e ){
 			logger.error( Definitions.LOGGER_ERROR_1 );
 		}
 		
 		switch( action ){
-		
+			case Definitions.DEFAULT_ACTION: case Definitions.INDEX_ACTION:
+				return "/jsp/index.jsp";
 		}
 		return SNWFDefinitions.TILES_REDIRECT_URL;
 	}
