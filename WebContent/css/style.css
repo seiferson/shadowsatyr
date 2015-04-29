@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.complement-color{
+	background-color: #A1662F;
+	color: white;
+}
+
+.primary-color{
+	background-color: #1E5A63;
+	color: white;
+}
+
+.adjacent-color2{
+	background-color: #247B33;
+	color: white;
+}
+
+.adjacent-color1{
+	background-color: #283A6D;
+	color: white;
+}

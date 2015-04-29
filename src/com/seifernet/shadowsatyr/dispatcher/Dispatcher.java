@@ -36,6 +36,8 @@ public class Dispatcher implements DispatcherHelper{
 		switch( action ){
 			case Definitions.DEFAULT_ACTION: case Definitions.INDEX_ACTION:
 				return "/jsp/index.jsp";
+			default:
+				
 		}
 		return SNWFDefinitions.TILES_REDIRECT_URL;
 	}
