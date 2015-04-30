@@ -1,25 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:useBean id="Bean" scope="request" class="com.seifernet.snwf.bean.Bean" />
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ShadowSatyr</title>
-        <link rel="shortcut icon" href="/img/favicon.ico" />
-        <link href="/css/bootstrap.css" rel="stylesheet">
-        <link href="/css/style.css" rel="stylesheet">
-	</head>
-	<body>
-		<header class="jumbotron primary-color">
-			<div class="container">
-				<h1>ShadowSatyr!</h1>
-				<p>
-					seifernet.com testing application
-				</p>
-			</div>
-		</header>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9">
@@ -62,20 +41,3 @@
 				</div>
 			</div>
 		</div>
-		
-		<footer>
-			<div class="end-space"></div>
-		</footer>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        
-        <script type="text/javascript">
-        	function parseJson(  ){
-        		var obj = JSON.parse( $( "#jsondata" ).text( ) );
-        		for( var i = 0; i < obj.droplets.length; i++ ){
-        			$( "#parsedjson" ).append( "<h3>" + obj.droplets[ i ].name + " droplet id:" + obj.droplets[ i ].id +" </h3>" );
-        		}
-        	}
-        </script>
-	</body>
-</html>

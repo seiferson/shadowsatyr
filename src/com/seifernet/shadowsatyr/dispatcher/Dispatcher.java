@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.jboss.logging.Logger;
 
-import com.seifernet.shadowsatyr.digitalocean.DigitalOceanAPI;
 import com.seifernet.shadowsatyr.helper.VampireHelper;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.helper.DispatcherHelper;
@@ -39,7 +38,8 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.DEFAULT_ACTION: case Definitions.INDEX_ACTION:
 				return "/jsp/index.jsp";
 			case "/vampire":
-				return VampireHelper.dispatchVampire( request, response );
+				VampireHelper.dispatchVampire( request, response );
+				break;
 			default:
 				
 		}

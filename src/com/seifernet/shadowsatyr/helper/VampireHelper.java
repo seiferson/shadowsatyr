@@ -8,14 +8,14 @@ import com.seifernet.shadowsatyr.digitalocean.DigitalOceanAPI;
 
 public class VampireHelper {
 
-	public static String dispatchVampire( HttpServletRequest request, HttpServletResponse response ) {
+	public static void dispatchVampire( HttpServletRequest request, HttpServletResponse response ) {
 		VampireBean bean = null;
 		
 		bean = new VampireBean( );
 		bean.setJsonData( DigitalOceanAPI.getDropletsList( ) );
+		bean.setLayout( "system.test" );
 		
 		request.setAttribute( "Bean", bean );
-		return "/jsp/vampire.jsp";
 	}
 
 	
