@@ -16,7 +16,7 @@ import com.seifernet.snwf.servlet.ContextServlet;
  * @version 1.0.0
  *
  */
-@WebServlet( "/vampire/*" )
+@WebServlet( "/shadowsatyr/*" )
 public class Servlet extends ContextServlet{
 
 	private static final long serialVersionUID = 1L;

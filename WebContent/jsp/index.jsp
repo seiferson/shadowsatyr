@@ -6,9 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ShadowSatyr</title>
-        <link rel="shortcut icon" href="/shadowsatyr/img/favicon.ico" />
-        <link href="/shadowsatyr/css/bootstrap.css" rel="stylesheet">
-        <link href="/shadowsatyr/css/style.css" rel="stylesheet">
+        <link rel="shortcut icon" href="/img/favicon.ico" />
+        <link href="/css/bootstrap.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
 	</head>
 	<body>
 		<header class="jumbotron primary-color">
@@ -58,14 +58,18 @@
 				<section class="col-md-4">
 					<div class="well hidden-xs hidden-sm">
 						Hey but WTF with the url?
-						shadow satyr? vampire? Jaja
+						shadow satyr? Jaja
 						I swear that is the first time
 						I use weird names in an application.
 					</div>
 				</section>
 			</div>
 		</div>
+		
+		<footer>
+			<div class="end-space"></div>
+		</footer>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="/shadowsatyr/js/bootstrap.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>
