@@ -115,7 +115,7 @@ public class BasicClient {
 	 * @param path Destination path
 	 * @return Response body as string
 	 */
-	public String doGet( HashMap<String, String> parameters, HashMap<String, String> headers, String host, String path ){
+	public String doGet( HashMap<String, String> parameters, HashMap<String, String> headers, String protocol, String host, String path ){
 		URI 					uri 		= null;
 		HttpGet 				get 		= null;
 		URIBuilder 				builder 	= null;
@@ -124,7 +124,7 @@ public class BasicClient {
 		
 		try{
 			builder = new URIBuilder( );
-			builder.setScheme( Definitions.HTTP );
+			builder.setScheme( protocol );
 			builder.setHost( host );
 			builder.setPath( path );
 			
