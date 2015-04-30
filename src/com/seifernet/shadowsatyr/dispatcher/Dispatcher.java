@@ -40,6 +40,8 @@ public class Dispatcher implements DispatcherHelper{
 			case "/vampire":
 				VampireHelper.dispatchVampire( request, response );
 				break;
+			case "/cover":
+				return "/jsp/cover.jsp";
 			default:
 				
 		}
