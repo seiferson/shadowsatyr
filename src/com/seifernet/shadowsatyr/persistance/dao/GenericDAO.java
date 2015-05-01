@@ -3,8 +3,10 @@ package com.seifernet.shadowsatyr.persistance.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Order;
@@ -63,20 +65,47 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 	 * @return Session instance
 	 */
 	protected Session getSession(  ){
-		return getSessionFactoryInstance( ).getCurrentSession( );
+		Session session = null;
+		
+		try{
+			session = getSessionFactoryInstance( ).getCurrentSession( );
+		} catch( HibernateException e ){
+			session = getSessionFactoryInstance( ).openSession( );
+		}
+		return session;
 	}
 	
 	@SuppressWarnings("unchecked")
 	public PK create( T object ) {
-		return ( PK )getSession( ).save( object );
+		Transaction transaction = null;
+		Session 	session 	= null;
+		PK 			key			= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		key = ( PK )getSession( ).save( object );
+		transaction.commit( );
+		return key;
 	}
 	
 	public void update( T object ) {
-		getSession( ).update( object );
+		Transaction transaction = null;
+		Session 	session 	= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		session.update( object );
+		transaction.commit( );
 	}
 	
 	public void delete( T object ) {
-		getSession( ).delete( object );
+		Transaction transaction = null;
+		Session 	session 	= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		session.delete( object );
+		transaction.commit( );
 	}
 	
 	@SuppressWarnings("unchecked")
