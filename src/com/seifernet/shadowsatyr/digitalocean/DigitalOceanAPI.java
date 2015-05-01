@@ -2,16 +2,16 @@ package com.seifernet.shadowsatyr.digitalocean;
 
 import java.util.HashMap;
 
-import com.seifernet.shadowsatyr.http.BasicClient;
+import com.seifernet.shadowsatyr.http.BasicHTTPClient;
 import com.seifernet.shadowsatyr.util.Definitions;
 
 public class DigitalOceanAPI {
 	
 	public static String getDropletsList(  ){
-		BasicClient 			httpClient 	= null;
+		BasicHTTPClient 			httpClient 	= null;
 		HashMap<String, String> headers 	= null;
 		
-		httpClient = new BasicClient( );
+		httpClient = new BasicHTTPClient( );
 		headers = new HashMap<String, String>( );
 		headers.put( "Content-Type", "application/json" );
 		headers.put( "Authorization" , Definitions.DIGITALOCEAN_API_ACCESS_TOKEN );

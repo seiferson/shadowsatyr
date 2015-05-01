@@ -32,15 +32,15 @@ import com.seifernet.shadowsatyr.util.Definitions;
  * @since 1.0.0
  *
  */
-public class BasicClient {
+public class BasicHTTPClient {
 	
-	private static Logger logger = Logger.getLogger( BasicClient.class );
+	private static Logger logger = Logger.getLogger( BasicHTTPClient.class );
 	private CloseableHttpClient client;
 	
 	/**
 	 * Constructor that gets an instance of http client
 	 */
-	public BasicClient( ){
+	public BasicHTTPClient( ){
 		client = HttpClients.createDefault( );
 	}
 	
