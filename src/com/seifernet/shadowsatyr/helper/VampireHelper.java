@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.seifernet.shadowsatyr.bean.VampireBean;
 import com.seifernet.shadowsatyr.digitalocean.DigitalOceanAPI;
+import com.seifernet.shadowsatyr.persistance.dao.MonsterDA0;
+import com.seifernet.shadowsatyr.persistance.dto.Monster;
 
 public class VampireHelper {
 
@@ -16,6 +18,10 @@ public class VampireHelper {
 		bean.setLayout( "system.test" );
 		
 		request.setAttribute( "Bean", bean );
+		Monster m = new Monster( );
+		m.setName( "Dracula" );
+		m.setDescription( "Angry vampire" );
+		new MonsterDA0( ).create( m );
 	}
 
 	
