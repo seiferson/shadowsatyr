@@ -4,6 +4,8 @@ public class Definitions {
 
 	public static final String DEFAULT_ACTION 	= "/";
 	public static final String INDEX_ACTION 	= "/index";
+	public static final String CREATE_ARTICLE 	= "/createArticle";
+	public static final String PREVIEW_ARTICLE 	= "/previewArticle";
 	
 	public static final String LOGGER_ERROR_1 = "Error setting encoding to request, unsupported enconding";
 	public static final String LOGGER_ERROR_2 = "Error on http client, unsupported enconding";
@@ -14,7 +16,7 @@ public class Definitions {
 	public static final String HTTP = "http";
 	public static final String HTTPS = "https";
 	
-	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "XXXX";
+	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "Bearer xxxx";
 	public static final String DIGITALOCEAN_API_HOST = "api.digitalocean.com";
 	public static final String DIGITALOCEAN_API_DROPLET_PATH = "/v2/droplets";
 }

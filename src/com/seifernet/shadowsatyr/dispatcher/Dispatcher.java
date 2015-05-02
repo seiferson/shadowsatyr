@@ -36,8 +36,13 @@ public class Dispatcher implements DispatcherHelper{
 		
 		switch( action ){
 			case Definitions.DEFAULT_ACTION: case Definitions.INDEX_ACTION:
+				return "/jsp/index.jsp";
+			case Definitions.CREATE_ARTICLE:
 				ArticleHelper.createArticle( request, response );
 				break;
+			case Definitions.PREVIEW_ARTICLE:
+				responseType = SNWFDefinitions.HTML_RESPONSE;
+				return ArticleHelper.previewArticle( request, response );
 			default:
 				
 		}

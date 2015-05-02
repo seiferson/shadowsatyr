@@ -7,9 +7,11 @@
 	
 	<definition name="system.index" template="/jsp/mainLayout.jsp">
 		<put-attribute name="body" value="/jsp/index.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
 	<definition name="system.create_article" template="/jsp/mainLayout.jsp">
 		<put-attribute name="body" value="/jsp/create_article.jsp" />
+		<put-attribute name="js_includes" value="/jsp/previewjs.jsp" />
 	</definition>
 </tiles-definitions>
