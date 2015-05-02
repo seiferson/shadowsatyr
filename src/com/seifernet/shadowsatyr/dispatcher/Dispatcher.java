@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.jboss.logging.Logger;
 
+import com.seifernet.shadowsatyr.helper.ArticleHelper;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.helper.DispatcherHelper;
 import com.seifernet.snwf.util.SNWFDefinitions;
@@ -35,6 +36,7 @@ public class Dispatcher implements DispatcherHelper{
 		
 		switch( action ){
 			case Definitions.DEFAULT_ACTION: case Definitions.INDEX_ACTION:
+				ArticleHelper.createArticle( request, response );
 				break;
 			default:
 				

@@ -9,4 +9,7 @@
 		<put-attribute name="body" value="/jsp/index.jsp" />
 	</definition>
 	
+	<definition name="system.create_article" template="/jsp/mainLayout.jsp">
+		<put-attribute name="body" value="/jsp/create_article.jsp" />
+	</definition>
 </tiles-definitions>
