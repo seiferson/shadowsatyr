@@ -5,8 +5,8 @@
 	
 <tiles-definitions>
 	
-	<definition name="system.test" template="/jsp/mainLayout.jsp">
-		<put-attribute name="body" value="/jsp/vampire.jsp" />
+	<definition name="system.index" template="/jsp/mainLayout.jsp">
+		<put-attribute name="body" value="/jsp/index.jsp" />
 	</definition>
 	
 </tiles-definitions>
