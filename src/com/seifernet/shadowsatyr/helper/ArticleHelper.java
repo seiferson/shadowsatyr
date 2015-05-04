@@ -1,13 +1,12 @@
 package com.seifernet.shadowsatyr.helper;
 
-import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.github.rjeschke.txtmark.Processor;
 import com.seifernet.shadowsatyr.facade.ArticleFacade;
+import com.seifernet.shadowsatyr.markdown.Parser;
 import com.seifernet.shadowsatyr.persistance.dto.Article;
 import com.seifernet.snwf.bean.Bean;
 import com.seifernet.snwf.exception.ValidationException;
@@ -30,7 +29,7 @@ public class ArticleHelper {
 		if( request.getParameter( "article-content" ) != null ){
 			inText = request.getParameter( "article-content" );
 		}
-		outText = Processor.process( inText, true );
+		outText = new Parser( ).parse( inText );
 		return outText;
 	}
 	

@@ -62,6 +62,11 @@
 						I swear that is the first time
 						I use weird names in an application.
 					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>
