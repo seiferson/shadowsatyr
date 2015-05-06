@@ -16,7 +16,7 @@ public class Definitions {
 	public static final String HTTP = "http";
 	public static final String HTTPS = "https";
 	
-	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "Bearer xxxx";
+	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "Bearer a614a0e43fa36c177e154c000470970770af328ad4818925392ea52ea2649093";
 	public static final String DIGITALOCEAN_API_HOST = "api.digitalocean.com";
 	public static final String DIGITALOCEAN_API_DROPLET_PATH = "/v2/droplets";
 }

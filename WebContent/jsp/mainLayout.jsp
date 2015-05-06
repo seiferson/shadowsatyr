@@ -12,11 +12,13 @@
 		<link href="/css/style.css" rel="stylesheet">
 	</head>
 	<body>
+		<tiles:insertAttribute name="navbar" />
+		
 		<header class="jumbotron primary-color">
 			<div class="container">
 				<h1>ShadowSatyr!</h1>
 				<p>
-					seifernet.com testing application
+					seifernet.com CMS
 				</p>
 			</div>
 		</header>

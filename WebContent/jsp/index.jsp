@@ -1,37 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ShadowSatyr</title>
-        <link rel="shortcut icon" href="/img/favicon.ico" />
-        <link href="/css/bootstrap.css" rel="stylesheet">
-        <link href="/css/style.css" rel="stylesheet">
-	</head>
-	<body>
-		<header class="jumbotron primary-color">
-			<div class="container">
-				<h1>ShadowSatyr!</h1>
-				<p>
-					seifernet.com testing application
-				</p>
-			</div>
-		</header>
+
 		<div class="container">
 			<div class="row">
 				<section class="col-md-8">
+					<!--
 					<article>
 						<div class="page-header">
 							<h2>Bootstrap <small>v3.3.4</small></h2>
 						</div>
-						<p>
+						<div class="well">
 							This application uses bootstrap because of
 							is a good tool if you don't have a designer in
 							your team, and also if you want a grid with 
 							responsive features. 
+						</div>
+						<p class="text-right">
+							Posted on <i>May 4th 2015 by</i> <a href="#">Seifer</a>
 						</p>
+						<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-book"></span> See full article</a>
 					</article>
 					<article>
 						<div class="page-header">
@@ -54,8 +40,10 @@
 							</p>
 						</div>
 					</article>
+				 	-->
 				</section>
 				<section class="col-md-4">
+					<!--
 					<div class="well hidden-xs hidden-sm">
 						Hey but WTF with the url?
 						shadow satyr? Jaja
@@ -67,14 +55,7 @@
 							
 						</div>
 					</div>
+				 	-->
 				</section>
 			</div>
 		</div>
-		
-		<footer>
-			<div class="end-space"></div>
-		</footer>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-	</body>
-</html>

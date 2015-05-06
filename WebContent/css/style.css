@@ -27,3 +27,7 @@
 .btn-toolbar-margin{
 	margin-bottom: 10px;
 }
+
+.navbar-nomargin{
+	margin-bottom: 0px;
+}
