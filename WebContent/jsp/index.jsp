@@ -3,59 +3,77 @@
 		<div class="container">
 			<div class="row">
 				<section class="col-md-8">
-					<!--
-					<article>
-						<div class="page-header">
-							<h2>Bootstrap <small>v3.3.4</small></h2>
-						</div>
-						<div class="well">
-							This application uses bootstrap because of
-							is a good tool if you don't have a designer in
-							your team, and also if you want a grid with 
-							responsive features. 
-						</div>
-						<p class="text-right">
-							Posted on <i>May 4th 2015 by</i> <a href="#">Seifer</a>
-						</p>
-						<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-book"></span> See full article</a>
-					</article>
-					<article>
-						<div class="page-header">
-							<h2>Gravatar</h2>
-						</div>
-						<p>
-							Gravatar offers simple access to profile
-							images associated with user's mail.
-						</p>
-						<div class="col-md-6 text-center">
-							<img src="http://www.gravatar.com/avatar/88faa3238b6c20e91c1b313da88fc9a0?s=150&d=retro" />
-							<p>
-								Identified user avatar.
-							</p>
-						</div>
-						<div class="col-md-6 text-center" >
-							<img src="http://www.gravatar.com/avatar/8cfc4d26ff9f898caf7dc1a9eb76ec5a?s=150&d=retro" />
-							<p>
-								Unidentified user avatar, generated randomly
-							</p>
-						</div>
-					</article>
-				 	-->
-				</section>
-				<section class="col-md-4">
-					<!--
-					<div class="well hidden-xs hidden-sm">
-						Hey but WTF with the url?
-						shadow satyr? Jaja
-						I swear that is the first time
-						I use weird names in an application.
+					<div class="page-header">
+						<h2><span class="glyphicon glyphicon-list-alt"></span> Latest blog entries</h2>
 					</div>
+					<article class="well">
+							<h3> <img src="http://www.gravatar.com/avatar/88faa3238b6c20e91c1b313da88fc9a0?s=40&d=retro" class="img-circle" /> Mollis id sapien</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Duis mi dolor, mollis id sapien vel, scelerisque imperdiet 
+								ipsum. Sed at eleifend urna. Praesent eu lacinia justo. 
+								Etiam at ultrices urna, nec ornare sem. Nulla rhoncus, tortor 
+								et pellentesque dignissim, arcu nibh porta odio, ac ultricies 
+								nibh turpis quis mi.
+							<p>
+							<p class="text-right">
+								Posted on May 4th 2015 by <a href="#">Seifer</a>
+							</p>
+					</article>
+					<article class="well">
+							<h3> <img src="http://www.gravatar.com/avatar/88faa3238b6c20e91c1b313da88fc9a0?s=40&d=retro" class="img-circle" /> Mollis id sapien</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Duis mi dolor, mollis id sapien vel, scelerisque imperdiet 
+								ipsum. Sed at eleifend urna. Praesent eu lacinia justo. 
+								Etiam at ultrices urna, nec ornare sem. Nulla rhoncus, tortor 
+								et pellentesque dignissim, arcu nibh porta odio, ac ultricies 
+								nibh turpis quis mi.
+							<p>
+							<p class="text-right">
+								Posted on May 4th 2015 by <a href="#">Seifer</a>
+							</p>
+					</article>
+					<article class="well">
+							<h3> <img src="http://www.gravatar.com/avatar/88faa3238b6c20e91c1b313da88fc9a0?s=40&d=retro" class="img-circle" /> Mollis id sapien</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Duis mi dolor, mollis id sapien vel, scelerisque imperdiet 
+								ipsum. Sed at eleifend urna. Praesent eu lacinia justo. 
+								Etiam at ultrices urna, nec ornare sem. Nulla rhoncus, tortor 
+								et pellentesque dignissim, arcu nibh porta odio, ac ultricies 
+								nibh turpis quis mi.
+							<p>
+							<p class="text-right">
+								Posted on May 4th 2015 by <a href="#">Seifer</a>
+							</p>
+					</article>
+				</section>
+				<section class="col-md-4 hidden-xs hidden-sm">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							
+							<p>
+								Welcome to <strong>shadowsatyr</strong>,
+								a <strong>content manager service</strong> project
+								developed and maintained by seifer
+								( Cuauhtemoc Herrera Muñoz ) you can
+								follow the development process or
+								fork your own copy at
+								<a href="http://github.com/seiferxx/shadowsatyr">github</a>.
+							</p>
+							<p>
+								The main idea behind the project is
+								provide an easy, fully configurable
+								and user friendly cms on Java, using
+								other frameworks and technologies such
+								as <strong>Hibernate</strong>, <strong>Apache Shiro</strong>,
+								<strong>Apache Tiles</strong> and my own
+								web framework called <strong>SeiferNet web framework</strong>.
+								All the system is intended to be used with
+								<strong>Markdown language</strong>.
+							</p>
 						</div>
 					</div>
-				 	-->
 				</section>
 			</div>
 		</div>
