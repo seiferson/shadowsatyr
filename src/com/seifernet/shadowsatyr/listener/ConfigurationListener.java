@@ -6,8 +6,17 @@ import javax.servlet.annotation.WebListener;
 
 import com.seifernet.shadowsatyr.persistance.dao.GenericDAO;
 
+/**
+ * Servlet context listener used for
+ * initialization in the app.
+ * 
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ */
 @WebListener
-public class InitialConfigurationListener implements ServletContextListener{
+public class ConfigurationListener implements ServletContextListener{
 
 	@Override
 	public void contextDestroyed( ServletContextEvent event ) {
