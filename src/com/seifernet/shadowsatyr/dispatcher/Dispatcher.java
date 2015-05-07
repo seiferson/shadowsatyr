@@ -36,8 +36,11 @@ public class Dispatcher implements DispatcherHelper{
 		}
 		
 		switch( action ){
-			case Definitions.DEFAULT_ACTION: case Definitions.INDEX_ACTION:
+			case Definitions.DEFAULT_ACTION: case Definitions.INDEX:
 				IndexHelper.index( request, response );
+				break;
+			case Definitions.LOGIN:
+				IndexHelper.login( request, response );
 				break;
 			case Definitions.CREATE_ARTICLE:
 				ArticleHelper.createArticle( request, response );

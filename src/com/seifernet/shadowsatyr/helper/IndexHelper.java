@@ -15,4 +15,12 @@ public class IndexHelper {
 		request.setAttribute( "Bean" , bean );
 	}
 
+	public static void login( HttpServletRequest request, HttpServletResponse response ) {
+		Bean bean = null;
+		
+		bean = new Bean( );
+		bean.setLayout( "system.login" );
+		request.setAttribute( "Bean" , bean );
+	}
+
 }

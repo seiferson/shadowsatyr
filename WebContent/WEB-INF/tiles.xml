@@ -5,6 +5,12 @@
 	
 <tiles-definitions>
 	
+	<definition name="system.login" template="/jsp/mainLayout.jsp">
+		<put-attribute name="body" value="/jsp/login.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
+	</definition>
+	
 	<definition name="system.index" template="/jsp/mainLayout.jsp">
 		<put-attribute name="body" value="/jsp/index.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
