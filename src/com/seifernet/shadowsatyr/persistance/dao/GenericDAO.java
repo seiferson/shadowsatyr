@@ -110,7 +110,15 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 	
 	@SuppressWarnings("unchecked")
 	public T read( PK id ) {
-		return ( T )getSession( ).get( type, id );
+		Transaction transaction = null;
+		Session 	session 	= null;
+		T			object		= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		object =  ( T )session.get( type, id );
+		transaction.commit( );
+		return object;
 	}
 	
 	@SuppressWarnings("unchecked")
