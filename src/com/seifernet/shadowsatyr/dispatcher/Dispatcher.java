@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.helper.ArticleHelper;
+import com.seifernet.shadowsatyr.helper.ErrorHelper;
 import com.seifernet.shadowsatyr.helper.IndexHelper;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.helper.DispatcherHelper;
@@ -48,8 +49,11 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.PREVIEW_ARTICLE:
 				responseType = SNWFDefinitions.HTML_RESPONSE;
 				return ArticleHelper.previewArticle( request, response );
-			default:
-				
+			case Definitions.ERROR_500:
+				ErrorHelper.error500( request, response );
+				break;
+			case Definitions.ERROR_404: default:
+				ErrorHelper.error404( request, response );
 		}
 		return SNWFDefinitions.TILES_REDIRECT_URL;
 	}

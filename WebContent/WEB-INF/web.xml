@@ -33,6 +33,19 @@
 		<dispatcher>ERROR</dispatcher>
 	</filter-mapping>
 	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/shadowsatyr/error500</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/shadowstayr/error404</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/shadowsatyr/error500</location>
+	</error-page>
+	
 	<session-config>
 		<session-timeout>120</session-timeout>
 		<tracking-mode>COOKIE</tracking-mode>

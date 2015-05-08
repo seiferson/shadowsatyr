@@ -1,16 +1,17 @@
 package com.seifernet.shadowsatyr.persistance.dao;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.seifernet.snwf.hibernate.AbstractDAO;
@@ -75,6 +76,13 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		return session;
 	}
 	
+	/**
+	 * Creates an object on the database
+	 * INSERT
+	 * 
+	 * @param object The register to insert
+	 * @return Primary key of the inserted object
+	 */
 	@SuppressWarnings("unchecked")
 	public PK create( T object ) {
 		Transaction transaction = null;
@@ -88,6 +96,12 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		return key;
 	}
 	
+	/**
+	 * Update information of a register on database
+	 * UPDATE
+	 * 
+	 * @param object The register to update
+	 */
 	public void update( T object ) {
 		Transaction transaction = null;
 		Session 	session 	= null;
@@ -98,6 +112,12 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		transaction.commit( );
 	}
 	
+	/**
+	 * Delete specified object from database
+	 * DELETE
+	 * 
+	 * @param object The register to delete
+	 */
 	public void delete( T object ) {
 		Transaction transaction = null;
 		Session 	session 	= null;
@@ -108,6 +128,13 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		transaction.commit( );
 	}
 	
+	/**
+	 * Read an object by id from the database
+	 * SELECT... WHERE id = ID
+	 * 
+	 * @param Id The id to search
+	 * @return Register from database
+	 */
 	@SuppressWarnings("unchecked")
 	public T read( PK id ) {
 		Transaction transaction = null;
@@ -121,37 +148,119 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		return object;
 	}
 	
+	/**
+	 * Read an object by a specific column
+	 * SELECT... WHERE column = data
+	 * 
+	 * @param column The column to search
+	 * @param data The value to search
+	 * @return Register from database
+	 */
 	@SuppressWarnings("unchecked")
 	public T read( String column, Object data ){
-		return ( T )getSession( ).createCriteria( type ).add( Restrictions.eq( column, data ) ).uniqueResult( );
+		Transaction transaction = null;
+		Session 	session 	= null;
+		T			object		= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		object = ( T )session.createCriteria( type ).add( Restrictions.eq( column, data ) ).uniqueResult( );
+		transaction.commit( );
+		return object;
 	}
 	
+	/**
+	 * Read an object by specific columns
+	 * 
+	 * @param searchParameters Column, Value pairs
+	 * @return Register from database
+	 */
+	@SuppressWarnings("unchecked")
+	public T read( HashMap<String, Object> searchParameters ){
+		Transaction transaction = null;
+		Session 	session 	= null;
+		Criteria	criteria	= null;
+		T			object		= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		criteria = session.createCriteria( type );
+		
+		if( searchParameters != null ){
+			for( Entry<String, Object> element : searchParameters.entrySet( ) ){
+				criteria = criteria.add( Restrictions.eq( element.getKey( ), element.getValue( ) ) );
+			}
+		}
+		object = ( T )criteria.uniqueResult( );
+		transaction.commit( );
+		return object;
+	}
+	
+	/**
+	 * Read a list of objects
+	 * SELECT... 
+	 * 
+	 * @return List of registers from database
+	 */
 	@SuppressWarnings("unchecked")
 	public List<T> readAll( ){
-		return getSession( ).createCriteria( type ).list( );
+		Transaction transaction = null;
+		Session 	session 	= null;
+		List<T>		list		= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		list = session.createCriteria( type ).list( );
+		transaction.commit( );
+		return list;
 	}
 	
+	/**
+	 * Read a list of objects by a specific column
+	 * SELECT... WHERE column = data
+	 * 
+	 * @param column The column to search
+	 * @param data The value to search
+	 * @return List of registers from database
+	 */
 	@SuppressWarnings("unchecked")
 	public List<T> readAll( String column, Object data ){
-		return getSession( ).createCriteria( type ).add( Restrictions.eq( column, data ) ).list( );
+		Transaction transaction = null;
+		Session 	session 	= null;
+		List<T>		list		= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		list = session.createCriteria( type ).add( Restrictions.eq( column, data ) ).list( );
+		transaction.commit( );
+		return list;
 	}
 	
+	/**
+	 * Read a list of objects by specific columns
+	 * 
+	 * @param searchParameters Column, Value pairs
+	 * @return List of registers from database
+	 */
 	@SuppressWarnings("unchecked")
-	public List<T>readAllAsc( String column ){
-		return getSession( ).createCriteria( type ).addOrder( Order.asc( column ) ).list( );
+	public List<T> readAll( HashMap<String, Object> searchParameters ){
+		Transaction transaction = null;
+		Session 	session 	= null;
+		Criteria	criteria	= null;
+		List<T>		list		= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		criteria = session.createCriteria( type );
+		
+		if( searchParameters != null ){
+			for( Entry<String, Object> element : searchParameters.entrySet( ) ){
+				criteria = criteria.add( Restrictions.eq( element.getKey( ), element.getValue( ) ) );
+			}
+		}
+		
+		list = criteria.list( );
+		transaction.commit( );
+		return list;
 	}
-	
-	@SuppressWarnings("unchecked")
-	public List<T>readAllDesc( String column ){
-		return getSession( ).createCriteria( type ).addOrder( Order.desc( column ) ).list( );
-	}
-	
-	public Number getCount( ){
-		return ( Number )getSession( ).createCriteria( type ).setProjection( Projections.rowCount( ) ).uniqueResult( );
-	}
-	
-	public Number getCount( String column, Object data ){
-		return ( Number )getSession( ).createCriteria( type ).add( Restrictions.eq( column, data ) ).setProjection( Projections.rowCount( ) ).uniqueResult( );
-	}
-
 }

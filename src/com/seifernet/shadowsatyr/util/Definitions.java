@@ -7,6 +7,8 @@ public class Definitions {
 	public static final String LOGIN 			= "/login";
 	public static final String CREATE_ARTICLE 	= "/createArticle";
 	public static final String PREVIEW_ARTICLE 	= "/previewArticle";
+	public static final String ERROR_500		= "/error500";
+	public static final String ERROR_404		= "/error404";
 	
 	public static final String LOGGER_ERROR_1 = "Error setting encoding to request, unsupported enconding";
 	public static final String LOGGER_ERROR_2 = "Error on http client, unsupported enconding";
