@@ -4,7 +4,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import com.seifernet.shadowsatyr.persistance.dao.GenericDAO;
+import com.seifernet.shadowsatyr.persistance.SessionFactoryManager;
 
 /**
  * Servlet context listener used for
@@ -26,7 +26,7 @@ public class ConfigurationListener implements ServletContextListener{
 	@Override
 	public void contextInitialized( ServletContextEvent event ) {
 		//Called method to create database on deploy
-		GenericDAO.getSessionFactoryInstance( );
+		SessionFactoryManager.getSessionFactoryInstance( );
 	}
 
 }

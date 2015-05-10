@@ -8,12 +8,10 @@ import java.util.Map.Entry;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 
+import com.seifernet.shadowsatyr.persistance.SessionFactoryManager;
 import com.seifernet.snwf.hibernate.AbstractDAO;
 
 /**
@@ -29,7 +27,6 @@ import com.seifernet.snwf.hibernate.AbstractDAO;
 public abstract class GenericDAO <T, PK extends Serializable> implements AbstractDAO<T, PK>{
 
 	private Class<T> type;
-	private static SessionFactory sessionFactoryInstance;
 	
 	/**
 	 * Generic constructor sets type.
@@ -38,26 +35,6 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 	 */
 	public GenericDAO( Class<T> type ) {
 		this.type = type;
-	}
-	
-	/**
-	 * Session factory singleton, to avoid multiple factory
-	 * instantiation.
-	 * 
-	 * @return The session factory object
-	 */
-	public static SessionFactory getSessionFactoryInstance( ){
-		Configuration 					configuration 	= null;
-		StandardServiceRegistryBuilder 	builder 		= null;
-		
-		if( sessionFactoryInstance == null ){
-			configuration = new Configuration( );
-			configuration.configure( );
-			builder = new StandardServiceRegistryBuilder( );
-			builder.applySettings( configuration.getProperties(  ) );
-			sessionFactoryInstance = configuration.buildSessionFactory( builder.build( ) );
-		}
-		return sessionFactoryInstance;
 	}
 
 	/**
@@ -69,9 +46,9 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		Session session = null;
 		
 		try{
-			session = getSessionFactoryInstance( ).getCurrentSession( );
+			session = SessionFactoryManager.getSessionFactoryInstance( ).getCurrentSession( );
 		} catch( HibernateException e ){
-			session = getSessionFactoryInstance( ).openSession( );
+			session = SessionFactoryManager.getSessionFactoryInstance( ).openSession( );
 		}
 		return session;
 	}
