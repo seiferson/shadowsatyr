@@ -1,6 +1,4 @@
 *.class
-.classpath
-.project
 
 build/
 .settings/
