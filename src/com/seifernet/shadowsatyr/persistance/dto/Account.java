@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.apache.shiro.crypto.hash.Md5Hash;
+
 @Entity
 @Table( name="account" )
 public class Account implements Serializable{
@@ -30,10 +32,11 @@ public class Account implements Serializable{
 	@Column( nullable = false, length = 255 )
 	private String mail;
 
+	
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public Long getId( ) {
 		return id;
 	}
 
@@ -84,5 +87,9 @@ public class Account implements Serializable{
 	 */
 	public void setMail( String mail ) {
 		this.mail = mail;
+	}
+	
+	public String getMailMD5( ){
+		return new Md5Hash( mail ).toString( );
 	}
 }
