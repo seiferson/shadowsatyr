@@ -26,6 +26,9 @@ public class Account implements Serializable{
 	
 	@Column( nullable = false, length = 255 )
 	private String passwd;
+	
+	@Column( nullable = false, length = 255 )
+	private String mail;
 
 	/**
 	 * @return the id
@@ -37,35 +40,49 @@ public class Account implements Serializable{
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId( Long id ) {
 		this.id = id;
 	}
 
 	/**
 	 * @return the nickname
 	 */
-	public String getNickname() {
+	public String getNickname( ) {
 		return nickname;
 	}
 
 	/**
 	 * @param nickname the nickname to set
 	 */
-	public void setNickname(String nickname) {
+	public void setNickname( String nickname ) {
 		this.nickname = nickname;
 	}
 
 	/**
 	 * @return the passwd
 	 */
-	public String getPasswd() {
+	public String getPasswd( ) {
 		return passwd;
 	}
 
 	/**
 	 * @param passwd the passwd to set
 	 */
-	public void setPasswd(String passwd) {
+	public void setPasswd( String passwd ) {
 		this.passwd = passwd;
+	}
+
+	/**
+	 * @return the mail
+	 */
+	public String getMail( ) {
+		return mail;
+	}
+
+	/**
+	 * @param mail the mail to set
+	 */
+	public void setMail( String mail ) {
+		this.mail = mail;
 	}
 }

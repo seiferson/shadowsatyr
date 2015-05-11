@@ -1,53 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 		<div class="container">
 			<div class="row">
 				<section class="col-md-8">
 					<div class="page-header">
-						<h2><span class="glyphicon glyphicon-list-alt"></span> Latest blog entries</h2>
+						<h3><span class="glyphicon glyphicon-list-alt"></span> Latest blog entries</h3>
 					</div>
+					<c:forEach var="entry" items="${Bean.latestBlogEntries}">
 					<article class="well">
-							<h3> <img src="http://www.gravatar.com/avatar/88faa3238b6c20e91c1b313da88fc9a0?s=40&d=retro" class="img-circle" /> Mollis id sapien</h3>
+						<div class="row">
+						<div class="col-xs-3 col-sm-2 text-center">
+							<img src="http://www.gravatar.com/avatar/88faa3238b6c20e91c1b313da88fc9a0?s=60&d=retro" class="img-circle" />
+						</div>
+						<div class="col-xs-9 col-sm-10">
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Duis mi dolor, mollis id sapien vel, scelerisque imperdiet 
-								ipsum. Sed at eleifend urna. Praesent eu lacinia justo. 
-								Etiam at ultrices urna, nec ornare sem. Nulla rhoncus, tortor 
-								et pellentesque dignissim, arcu nibh porta odio, ac ultricies 
-								nibh turpis quis mi.
-							<p>
-							<p class="text-right">
-								Posted on May 4th 2015 by <a href="#">Seifer</a>
+								<a href="#">${entry.author.nickname}</a>
+								<span class="text-success">
+									<fmt:formatDate  type="both" dateStyle="short" timeStyle="short" value="${entry.date}" />
+								</span> 
 							</p>
+							<p>
+								${entry.message}
+							<p>
+						</div>
+						</div>
 					</article>
-					<article class="well">
-							<h3> <img src="http://www.gravatar.com/avatar/88faa3238b6c20e91c1b313da88fc9a0?s=40&d=retro" class="img-circle" /> Mollis id sapien</h3>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Duis mi dolor, mollis id sapien vel, scelerisque imperdiet 
-								ipsum. Sed at eleifend urna. Praesent eu lacinia justo. 
-								Etiam at ultrices urna, nec ornare sem. Nulla rhoncus, tortor 
-								et pellentesque dignissim, arcu nibh porta odio, ac ultricies 
-								nibh turpis quis mi.
-							<p>
-							<p class="text-right">
-								Posted on May 4th 2015 by <a href="#">Seifer</a>
-							</p>
-					</article>
-					<article class="well">
-							<h3> <img src="http://www.gravatar.com/avatar/88faa3238b6c20e91c1b313da88fc9a0?s=40&d=retro" class="img-circle" /> Mollis id sapien</h3>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Duis mi dolor, mollis id sapien vel, scelerisque imperdiet 
-								ipsum. Sed at eleifend urna. Praesent eu lacinia justo. 
-								Etiam at ultrices urna, nec ornare sem. Nulla rhoncus, tortor 
-								et pellentesque dignissim, arcu nibh porta odio, ac ultricies 
-								nibh turpis quis mi.
-							<p>
-							<p class="text-right">
-								Posted on May 4th 2015 by <a href="#">Seifer</a>
-							</p>
-					</article>
+					</c:forEach>
 				</section>
 				<section class="col-md-4 hidden-xs hidden-sm">
 					<div class="panel panel-default">

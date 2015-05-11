@@ -9,6 +9,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import com.seifernet.shadowsatyr.persistance.SessionFactoryManager;
@@ -188,6 +189,44 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		session = getSession( );
 		transaction = session.beginTransaction( );
 		list = session.createCriteria( type ).list( );
+		transaction.commit( );
+		return list;
+	}
+	
+	/**
+	 * Read a list of objects
+	 * SELECT... ORDER BY column DESC
+	 * 
+	 * @return List of registers from database
+	 */
+	@SuppressWarnings("unchecked")
+	public List<T> readAllDsc( String column ){
+		Transaction transaction = null;
+		Session 	session 	= null;
+		List<T>		list		= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		list = session.createCriteria( type ).addOrder( Order.desc( column ) ).list( );
+		transaction.commit( );
+		return list;
+	}
+	
+	/**
+	 * Read a list of objects
+	 * SELECT... ORDER BY column DESC LIMIT n
+	 * 
+	 * @return List of registers from database
+	 */
+	@SuppressWarnings("unchecked")
+	public List<T> readAllDsc( String column, int limit ){
+		Transaction transaction = null;
+		Session 	session 	= null;
+		List<T>		list		= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		list = session.createCriteria( type ).addOrder( Order.desc( column ) ).setMaxResults( limit ).list( );
 		transaction.commit( );
 		return list;
 	}

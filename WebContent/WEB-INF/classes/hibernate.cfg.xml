@@ -10,5 +10,6 @@
 		
 		<mapping class="com.seifernet.shadowsatyr.persistance.dto.Account"/>
 		<mapping class="com.seifernet.shadowsatyr.persistance.dto.Article"/>
+		<mapping class="com.seifernet.shadowsatyr.persistance.dto.BlogEntry"/>
 	</session-factory>
 </hibernate-configuration>
