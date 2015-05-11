@@ -13,7 +13,6 @@ import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.snwf.bean.Bean;
 
-
 public class IndexHelper {
 
 	public static void index( HttpServletRequest request, HttpServletResponse response ) {
@@ -39,11 +38,18 @@ public class IndexHelper {
 	}
 
 	public static void login( HttpServletRequest request, HttpServletResponse response ) {
-		Bean bean = null;
+		Bean 		bean = null;
+		Subject		subject	= null;
 		
-		bean = new Bean( );
-		bean.setLayout( "system.login" );
-		request.setAttribute( "Bean" , bean );
+		subject = SecurityUtils.getSubject( );
+		if( subject.isAuthenticated( ) ){
+			index( request, response );
+		}else{
+			bean = new Bean( );
+			bean.setLayout( "system.login" );
+			request.setAttribute( "Bean" , bean );
+		}
+		
 	}
 
 }

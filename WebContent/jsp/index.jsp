@@ -1,13 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 
 		<div class="container">
 			<div class="row">
 				<section class="col-md-8">
-					<div class="page-header">
-						<h3><span class="glyphicon glyphicon-list-alt"></span> Latest blog entries</h3>
+					<shiro:authenticated>
+					<div class="panel panel-default">
+						<div class=panel-body>
+							<form id="blogForm" method="POST">
+								<div class="form-group">
+									<textarea class="form-control" id="blog-entry" name="article-content" rows="2" maxlength="150"></textarea>
+								</div>
+								<button type="button" class="btn btn-default pull-right">Publish</button>
+							</form>
+						</div>
 					</div>
+					</shiro:authenticated>
 					<c:forEach var="entry" items="${Bean.latestBlogEntries}">
 					<article class="well">
 						<div class="row">
