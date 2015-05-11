@@ -12,7 +12,7 @@
 				</div>
 				<div class="collapse navbar-collapse" id="navbarx">
 					<div class="nav navbar-nav navbar-right">
-						<button type="button" class="btn btn-default navbar-btn">Sign in</button>
+						<a href="/shadowsatyr/login" class="btn btn-default navbar-btn">Log in</a>
 					</div>
 				</div>
 			</div>

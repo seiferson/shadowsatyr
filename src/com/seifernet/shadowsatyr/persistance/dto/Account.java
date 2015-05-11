@@ -21,7 +21,7 @@ public class Account implements Serializable{
 	@GeneratedValue( strategy=GenerationType.AUTO, generator="pk_sequence" )
 	private Long id;
 	
-	@Column( name="nick_name", nullable = false, length = 100 )
+	@Column( name="nick_name", nullable = false, length = 100, unique = true )
 	private String nickname;
 	
 	@Column( nullable = false, length = 255 )

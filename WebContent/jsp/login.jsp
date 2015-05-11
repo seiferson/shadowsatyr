@@ -13,7 +13,7 @@
 							<div class="form-group">
 								<div class="input-group">
 									<div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-									<input type="text" class="form-control" id="passwd" name="passwd" placeholder="Password">
+									<input type="password" class="form-control" id="passwd" name="passwd" placeholder="Password">
 								</div>
 							</div>
 							<button type="submit" class="btn btn-default btn-block"><span class="glyphicon glyphicon-log-in"></span> Sign In</button>

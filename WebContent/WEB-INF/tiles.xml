@@ -17,6 +17,12 @@
 		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 	</definition>
 	
+	<definition name="system.index_user" template="/jsp/mainLayout.jsp">
+		<put-attribute name="body" value="/jsp/index.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
+	</definition>
+	
 	<definition name="system.create_article" template="/jsp/mainLayout.jsp">
 		<put-attribute name="body" value="/jsp/create_article.jsp" />
 		<put-attribute name="js_includes" value="/jsp/previewjs.jsp" />

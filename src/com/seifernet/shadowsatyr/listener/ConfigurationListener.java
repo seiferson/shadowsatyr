@@ -27,6 +27,7 @@ public class ConfigurationListener implements ServletContextListener{
 	public void contextInitialized( ServletContextEvent event ) {
 		//Called method to create database on deploy
 		SessionFactoryManager.getSessionFactoryInstance( );
+		System.out.println( System.getProperty("jboss.server.log.dir") );
 	}
 
 }
