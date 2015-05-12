@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.helper.ArticleHelper;
+import com.seifernet.shadowsatyr.helper.BlogHelper;
 import com.seifernet.shadowsatyr.helper.ErrorHelper;
 import com.seifernet.shadowsatyr.helper.IndexHelper;
 import com.seifernet.shadowsatyr.util.Definitions;
@@ -46,6 +47,12 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.CREATE_ARTICLE:
 				ArticleHelper.createArticle( request, response );
 				break;
+			case Definitions.CREATE_BLOG_ENTRY:
+				responseType = SNWFDefinitions.JSON_RESPONSE;
+				return BlogHelper.createBlogEntry( request, response );
+			case Definitions.LATEST_BLOG_ENTRIES:
+				responseType = SNWFDefinitions.HTML_RESPONSE;
+				return BlogHelper.latestBlogEntries( request, response );
 			case Definitions.PREVIEW_ARTICLE:
 				responseType = SNWFDefinitions.HTML_RESPONSE;
 				return ArticleHelper.previewArticle( request, response );

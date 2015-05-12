@@ -11,33 +11,35 @@
 						<div class=panel-body>
 							<form id="blogForm" method="POST">
 								<div class="form-group">
-									<textarea class="form-control" id="blog-entry" name="article-content" rows="2" maxlength="150"></textarea>
+									<textarea class="form-control" id="blog-content" name="blog-content" rows="2" maxlength="150"></textarea>
 								</div>
-								<button type="button" class="btn btn-default pull-right">Publish</button>
+								<button type="button" class="btn btn-default pull-right" onclick="createEntry( )">Publish</button>
 							</form>
 						</div>
 					</div>
 					</shiro:authenticated>
-					<c:forEach var="entry" items="${Bean.latestBlogEntries}">
-					<article class="well">
-						<div class="row">
-						<div class="col-xs-3 col-sm-2 text-center">
-							<img src="http://www.gravatar.com/avatar/${entry.author.mailMD5}?s=60&d=retro" class="img-circle" />
-						</div>
-						<div class="col-xs-9 col-sm-10">
-							<p>
-								<a href="#">${entry.author.nickname}</a>
-								<span class="text-success">
-									<fmt:formatDate  type="both" dateStyle="short" timeStyle="short" value="${entry.date}" />
-								</span> 
-							</p>
-							<p>
-								${entry.message}
-							<p>
-						</div>
-						</div>
-					</article>
-					</c:forEach>
+					<div id="latestEntries">
+						<c:forEach var="entry" items="${Bean.latestBlogEntries}">
+						<article class="well">
+							<div class="row">
+							<div class="col-xs-3 col-sm-2 text-center">
+								<img src="http://www.gravatar.com/avatar/${entry.author.mailMD5}?s=60&d=retro" class="img-circle" />
+							</div>
+							<div class="col-xs-9 col-sm-10">
+								<p>
+									<a href="#">${entry.author.nickname}</a>
+									<span class="text-success">
+										<fmt:formatDate  type="both" dateStyle="short" timeStyle="short" value="${entry.date}" />
+									</span> 
+								</p>
+								<p>
+									${entry.message}
+								<p>
+							</div>
+							</div>
+						</article>
+						</c:forEach>
+					</div>
 				</section>
 				<section class="col-md-4 hidden-xs hidden-sm">
 					<div class="panel panel-default">
