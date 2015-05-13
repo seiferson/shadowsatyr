@@ -1,0 +1,33 @@
+body{
+	background-image: url("/img/background_1.png");
+}
+
+@media ( max-width: 768px ) { 
+	.space{
+		margin-top: 100px;
+	}
+}
+
+@media ( min-width: 768px ) and ( max-width: 992px ) {
+	.space{
+		margin-top: 200px;
+	}
+}
+
+@media ( min-width: 992px ) and ( max-width: 1200px ) {
+	.space{
+		margin-top: 200px;
+	}
+}
+
+@media ( min-width: 1200px ) and ( max-width: 1490px ) {
+	.space{
+		margin-top: 250px;
+	}
+}
+
+@media ( min-width: 1400px ){
+	.space{
+		margin-top: 250px;
+	}
+}

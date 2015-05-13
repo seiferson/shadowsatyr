@@ -5,6 +5,8 @@ public class Definitions {
 	public static final String DEFAULT_ACTION 		= "/";
 	public static final String INDEX 				= "/index";
 	public static final String LOGIN 				= "/login";
+	public static final String REGISTER				= "/register";
+	public static final String CREATE_USER			= "/createUser";
 	public static final String CREATE_ARTICLE 		= "/user/createArticle";
 	public static final String PREVIEW_ARTICLE 		= "/user/previewArticle";
 	public static final String CREATE_BLOG_ENTRY 	= "/user/createBlogEntry";

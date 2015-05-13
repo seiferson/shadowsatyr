@@ -23,12 +23,12 @@ public class IndexHelper {
 		
 		bean = new IndexBean( );
 		subject = SecurityUtils.getSubject( );
-		if( subject.isAuthenticated( ) ){
+		if( subject.isAuthenticated( ) ) {
 			session = SessionManager.getSession( subject );
 			
 			bean.setUserData( ( Account )session.getAttribute( "user_data" ) );
 			bean.setLayout( "system.index_user" );
-		} else{
+		} else {
 			bean.setLayout( "system.index" );
 		}
 		
@@ -44,12 +44,30 @@ public class IndexHelper {
 		subject = SecurityUtils.getSubject( );
 		if( subject.isAuthenticated( ) ){
 			index( request, response );
-		}else{
+		} else {
 			bean = new Bean( );
 			bean.setLayout( "system.login" );
 			request.setAttribute( "Bean" , bean );
 		}
 		
+	}
+
+	public static void register( HttpServletRequest request, HttpServletResponse response ) {
+		Bean 		bean = null;
+		Subject		subject	= null;
+		
+		subject = SecurityUtils.getSubject( );
+		if( subject.isAuthenticated( ) ){
+			index( request, response );
+		} else {
+			bean = new Bean( );
+			bean.setLayout( "system.register" );
+			request.setAttribute( "Bean" , bean );
+		}
+	}
+
+	public static String createUser( HttpServletRequest request, HttpServletResponse response ) {
+		return null;
 	}
 
 }

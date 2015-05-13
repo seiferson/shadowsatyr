@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 		<div class="container">
-			<div class="col-md-4 col-md-offset-6">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="space"></div>
 				<div class="panel panel-default">
 					<div class="panel-body">
+						<div class="text-center">
+							<h3>Login</h3>
+						</div>
 						<form method="POST" action="">
 							<div class="form-group">
 								<div class="input-group">

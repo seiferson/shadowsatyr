@@ -5,27 +5,33 @@
 	
 <tiles-definitions>
 	
-	<definition name="system.login" template="/jsp/mainLayout.jsp">
+	<definition name="system.login" template="/jsp/clear_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/login_css.jsp" />
 		<put-attribute name="body" value="/jsp/login.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
-		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 	</definition>
 	
-	<definition name="system.index" template="/jsp/mainLayout.jsp">
+	<definition name="system.index" template="/jsp/main_layout.jsp">
+		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/index.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
-		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 	</definition>
 	
-	<definition name="system.index_user" template="/jsp/mainLayout.jsp">
+	<definition name="system.index_user" template="/jsp/main_layout.jsp">
+		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
 		<put-attribute name="body" value="/jsp/index.jsp" />
 		<put-attribute name="js_includes" value="/jsp/index_js.jsp" />
-		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
 	</definition>
 	
-	<definition name="system.create_article" template="/jsp/mainLayout.jsp">
+	<definition name="system.register" template="/jsp/clear_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="body" value="/jsp/login.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+	</definition>
+	
+	<definition name="system.create_article" template="/jsp/main_layout.jsp">
+		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/create_article.jsp" />
 		<put-attribute name="js_includes" value="/jsp/previewjs.jsp" />
-		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 	</definition>
 </tiles-definitions>
