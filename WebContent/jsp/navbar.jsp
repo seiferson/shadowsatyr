@@ -11,9 +11,10 @@
 					<a class="navbar-brand" href="http://seifernet.com">SeiferNet</a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbarx">
-					<div class="nav navbar-nav navbar-right">
-						<a href="/shadowsatyr/login" class="btn btn-default navbar-btn">Log in</a>
-					</div>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="/shadowsatyr/login">Log in</a></li>
+					</ul>
 				</div>
+				
 			</div>
 		</nav>

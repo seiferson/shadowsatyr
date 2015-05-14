@@ -2,32 +2,38 @@ body{
 	background-image: url("/img/background_1.png");
 }
 
+.header-image{
+	width: 80px;
+	height: 80px;
+	margin-bottom: 10px;
+}
+
 @media ( max-width: 768px ) { 
 	.space{
-		margin-top: 100px;
+		margin-top: 20px;
 	}
 }
 
 @media ( min-width: 768px ) and ( max-width: 992px ) {
 	.space{
-		margin-top: 200px;
+		margin-top: 100px;
 	}
 }
 
 @media ( min-width: 992px ) and ( max-width: 1200px ) {
 	.space{
-		margin-top: 200px;
+		margin-top: 100px;
 	}
 }
 
 @media ( min-width: 1200px ) and ( max-width: 1490px ) {
 	.space{
-		margin-top: 250px;
+		margin-top: 150px;
 	}
 }
 
 @media ( min-width: 1400px ){
 	.space{
-		margin-top: 250px;
+		margin-top: 150px;
 	}
 }
