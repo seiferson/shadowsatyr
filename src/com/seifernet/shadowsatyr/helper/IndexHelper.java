@@ -53,6 +53,7 @@ public class IndexHelper {
 	}
 
 	public static String createUser( HttpServletRequest request, HttpServletResponse response ) {
+		
 		return null;
 	}
 

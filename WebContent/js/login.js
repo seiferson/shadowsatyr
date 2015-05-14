@@ -8,15 +8,16 @@ $( "#registerModal" ).on( "hidden.bs.modal", function ( ) {
 	$( "#passwdr" ).val( "" );
 	$( "#email" ).val( "" );
 	$( "#nickname" ).val( "" );
+	$( "#passwdc" ).attr( "class", "form-group" );
 	
 });
 
 function validatePasswd(  ){
 	if( $( "#passwdr" ).val( ) == $( "#passwdcon" ).val( ) ){
-		$( "#passwdcon" ).attr( "class", "has-success form-control" );
+		$( "#passwdc" ).attr( "class", "has-success form-group" );
 		$( "#passwdcon" ).popover("hide");
 	} else {
-		$( "#passwdcon" ).attr( "class", "has-error form-control" );
+		$( "#passwdc" ).attr( "class", "has-error form-group" );
 		$( "#passwdcon" ).popover("show");
 	}
 }

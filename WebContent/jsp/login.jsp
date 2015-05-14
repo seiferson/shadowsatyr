@@ -66,8 +66,8 @@
 											<label for="passwdr">Password</label>
 											<input type="password" class="form-control" id="passwdr" name="passwdr" placeholder="Password" required>
 										</div>
-										<div class="form-group">
-											<label for="passwdcon">Confirm Passwd</label>
+										<div class="form-group" id="passwdc">
+											<label class="control-label" for="passwdcon">Confirm Passwd</label>
 											<input data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Passwords don't match" onchange="validatePasswd( )" type="password" class="form-control" id="passwdcon" name="passwdcon" placeholder="Password" required>
 										</div>
 										<button type="submit" class="hide" id="submitButton" name="submitButton"></button>
