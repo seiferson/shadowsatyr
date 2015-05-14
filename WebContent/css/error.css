@@ -1,0 +1,16 @@
+body{
+	background-image: url("/img/background_3.png");
+}
+
+.space{
+	margin-top: 100px;
+}
+
+.main-image{
+	width: 100px;
+	height: 100px;
+}
+
+.c-white{
+	color: white;
+}

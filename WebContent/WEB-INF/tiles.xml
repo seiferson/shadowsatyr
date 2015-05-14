@@ -11,6 +11,18 @@
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
+	<definition name="system.error500" template="/jsp/clear_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/error_css.jsp" />
+		<put-attribute name="body" value="/jsp/error_500.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+	</definition>
+	
+	<definition name="system.error404" template="/jsp/clear_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/error_css.jsp" />
+		<put-attribute name="body" value="/jsp/error_404.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+	</definition>
+	
 	<definition name="system.index" template="/jsp/main_layout.jsp">
 		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/index.jsp" />
