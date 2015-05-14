@@ -52,20 +52,6 @@ public class IndexHelper {
 		
 	}
 
-	public static void register( HttpServletRequest request, HttpServletResponse response ) {
-		Bean 		bean = null;
-		Subject		subject	= null;
-		
-		subject = SecurityUtils.getSubject( );
-		if( subject.isAuthenticated( ) ){
-			index( request, response );
-		} else {
-			bean = new Bean( );
-			bean.setLayout( "system.register" );
-			request.setAttribute( "Bean" , bean );
-		}
-	}
-
 	public static String createUser( HttpServletRequest request, HttpServletResponse response ) {
 		return null;
 	}

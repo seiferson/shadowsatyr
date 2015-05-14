@@ -44,9 +44,6 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.LOGIN:
 				IndexHelper.login( request, response );
 				break;
-			case Definitions.REGISTER:
-				IndexHelper.register( request, response );
-				break;
 			case Definitions.CREATE_USER:
 				responseType = SNWFDefinitions.HTTP_REDIRECT;
 				return IndexHelper.createUser( request, response );
