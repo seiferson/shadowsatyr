@@ -6,6 +6,8 @@ public class Definitions {
 	public static final String INDEX 				= "/index";
 	public static final String LOGIN 				= "/login";
 	public static final String CREATE_USER			= "/createUser";
+	public static final String VALIDATE_NICK_NAME 	= "/validateNickname";
+	public static final String VALIDATE_MAIL	 	= "/validateMail";
 	public static final String CREATE_ARTICLE 		= "/user/createArticle";
 	public static final String PREVIEW_ARTICLE 		= "/user/previewArticle";
 	public static final String CREATE_BLOG_ENTRY 	= "/user/createBlogEntry";
@@ -27,6 +29,9 @@ public class Definitions {
 	public static final String JSON_OK_RESPONSE 			= "{\"status\":\"ok\"}";
 	public static final String JSON_ERROR_NOT_AUTHENTICATED = "{\"status\":\"err\", \"error\":\"not_auth\"}";
 	public static final String JSON_ERROR_EMPTY_MESSAGE 	= "{\"status\":\"err\", \"error\":\"empty_msg\"}";
+	public static final String JSON_ERROR_NOT_AVAILABLE		= "{\"status\":\"err\", \"error\":\"not_avl\"}";
+	public static final String JSON_ERROR_EMPTY_NICKNAME	= "{\"status\":\"err\", \"error\":\"empty_nick\"}";
+	public static final String JSON_ERROR_EMPTY_MAIL		= "{\"status\":\"err\", \"error\":\"empty_mail\"}";
 	
 	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "Bearer a614a0e43fa36c177e154c000470970770af328ad4818925392ea52ea2649093";
 	public static final String DIGITALOCEAN_API_HOST = "api.digitalocean.com";

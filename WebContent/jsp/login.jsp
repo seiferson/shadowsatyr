@@ -54,16 +54,16 @@
 								</div>
 								<div class="col-md-12">
 									<form method="POST" action="/shadowsatyr/createUser" id="registerForm">
-										<div class="form-group">
-											<label for="nickname">Nickname</label>
-											<input type="text" class="form-control" id="nickname" name="nickname" placeholder="Nickname" required>
+										<div class="form-group" id="nicknamec">
+											<label class="control-label" for="nickname">Nickname</label>
+											<input data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Nickname not available" onchange="validateNickname( )" type="text" class="form-control" id="nickname" name="nickname" placeholder="Nickname" required>
 										</div>
-										<div class="form-group">
+										<div class="form-group" id="emailc">
 											<label for="email">Email address</label>
-											<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+											<input data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Mail account already registered" onchange="validateMail( )" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
 										</div>
 										<div class="form-group">
-											<label for="passwdr">Password</label>
+											<label for="passwdr" class="control-label">Password</label>
 											<input type="password" class="form-control" id="passwdr" name="passwdr" placeholder="Password" required>
 										</div>
 										<div class="form-group" id="passwdc">

@@ -47,6 +47,12 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.CREATE_USER:
 				responseType = SNWFDefinitions.HTTP_REDIRECT;
 				return IndexHelper.createUser( request, response );
+			case Definitions.VALIDATE_NICK_NAME:
+				responseType = SNWFDefinitions.JSON_RESPONSE;
+				return IndexHelper.validateNickname( request, response );
+			case Definitions.VALIDATE_MAIL:
+				responseType = SNWFDefinitions.JSON_RESPONSE;
+				return IndexHelper.validateMail( request, response );
 			case Definitions.CREATE_ARTICLE:
 				ArticleHelper.createArticle( request, response );
 				break;
