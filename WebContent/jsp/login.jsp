@@ -56,19 +56,19 @@
 									<form method="POST" action="/shadowsatyr/createUser" id="registerForm">
 										<div class="form-group" id="nicknamec">
 											<label class="control-label" for="nickname">Nickname</label>
-											<input data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Nickname not available" onchange="validateNickname( )" type="text" class="form-control" id="nickname" name="nickname" placeholder="Nickname" required>
+											<input data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Nickname not available" oninput="validateNickname( )" type="text" class="form-control" id="nickname" name="nickname" placeholder="Nickname" required>
 										</div>
 										<div class="form-group" id="emailc">
 											<label for="email">Email address</label>
-											<input data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Mail account already registered" onchange="validateMail( )" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+											<input data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Mail account already registered" oninput="validateMail( )" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
 										</div>
 										<div class="form-group">
 											<label for="passwdr" class="control-label">Password</label>
 											<input type="password" class="form-control" id="passwdr" name="passwdr" placeholder="Password" required>
 										</div>
 										<div class="form-group" id="passwdc">
-											<label class="control-label" for="passwdcon">Confirm Passwd</label>
-											<input data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Passwords don't match" onchange="validatePasswd( )" type="password" class="form-control" id="passwdcon" name="passwdcon" placeholder="Password" required>
+											<label class="control-label" for="passwdcon">Confirm Password</label>
+											<input data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Passwords don't match" oninput="validatePasswd( )" type="password" class="form-control" id="passwdcon" name="passwdcon" placeholder="Password" required>
 										</div>
 										<button type="submit" class="hide" id="submitButton" name="submitButton"></button>
 									</form>
