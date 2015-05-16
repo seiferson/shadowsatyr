@@ -5,7 +5,7 @@
 							</div>
 							<div class="col-xs-9 col-sm-10">
 								<p>
-									<a href="#">${entry.author.nickname}</a>
+									<a href="/shadowsatyr/profile?account=${entry.author.nickname}">${entry.author.nickname}</a>
 									<span class="text-success">
 										${entry.date}
 									</span> 

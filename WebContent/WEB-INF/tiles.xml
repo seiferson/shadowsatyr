@@ -35,6 +35,20 @@
 		<put-attribute name="js_includes" value="/jsp/index_js.jsp" />
 	</definition>
 	
+	<definition name="system.user_profile_auth" template="/jsp/navbar_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/profile_css.jsp" />
+		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
+		<put-attribute name="body" value="/jsp/user_profile.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+	</definition>
+	
+	<definition name="system.user_profile" template="/jsp/navbar_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/profile_css.jsp" />
+		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
+		<put-attribute name="body" value="/jsp/user_profile.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+	</definition>
+	
 	<definition name="system.create_article" template="/jsp/main_layout.jsp">
 		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/create_article.jsp" />

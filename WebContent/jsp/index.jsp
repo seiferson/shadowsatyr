@@ -27,7 +27,7 @@
 							</div>
 							<div class="col-xs-9 col-sm-10">
 								<p>
-									<a href="#">${entry.author.nickname}</a>
+									<a href="/shadowsatyr/profile?account=${entry.author.nickname}">${entry.author.nickname}</a>
 									<span class="text-success">
 										<fmt:formatDate  type="both" dateStyle="short" timeStyle="short" value="${entry.date}" />
 									</span> 
@@ -55,14 +55,12 @@
 							</p>
 							<p>
 								The main idea behind the project is
-								provide an easy, fully configurable
+								provide an easy, configurable
 								and user friendly cms on Java, using
 								other frameworks and technologies such
 								as <strong>Hibernate</strong>, <strong>Apache Shiro</strong>,
 								<strong>Apache Tiles</strong> and my own
 								web framework called <strong>SeiferNet web framework</strong>.
-								All the system is intended to be used with
-								<strong>Markdown language</strong>.
 							</p>
 						</div>
 					</div>
