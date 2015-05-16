@@ -4,8 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.hibernate.validator.constraints.impl.EmailValidator;
 
 import com.seifernet.shadowsatyr.bean.IndexBean;
 import com.seifernet.shadowsatyr.facade.IndexFacade;
@@ -41,7 +43,7 @@ public class IndexHelper {
 	}
 
 	public static void login( HttpServletRequest request, HttpServletResponse response ) {
-		Bean 		bean = null;
+		Bean 		bean 	= null;
 		Subject		subject	= null;
 		
 		subject = SecurityUtils.getSubject( );
@@ -56,8 +58,37 @@ public class IndexHelper {
 	}
 
 	public static String createUser( HttpServletRequest request, HttpServletResponse response ) {
+		IndexFacade 	facade 		= null;
+		Account			account 	= null;
+		String			nickname 	= null;
+		String			mail		= null;
+		String			passwd		= null;
+		String			passwdc		= null;
+		EmailValidator	validator	= null;
 		
-		return null;
+		nickname = request.getParameter( "nickname" );
+		mail = request.getParameter( "email" );
+		passwd = request.getParameter( "passwdr" );
+		passwdc = request.getParameter( "passwdcon" );
+		
+		facade = new IndexFacade( );
+		validator = new EmailValidator( );
+		
+		if( facade.getAccountByMail( mail ) == null && facade.getAccountByNickname( nickname ) == null
+			&& FormValidator.validateParameter( nickname ) && validator.isValid( mail , null )
+			&& FormValidator.validateParameter( passwd ) && FormValidator.validateParameter( passwdc )
+			&& nickname.length( ) <= 25 && mail.length( ) <= 255 && passwd.equals( passwdc )
+		){
+			account = new Account( );
+			account.setMail( mail );
+			account.setNickname( nickname );
+			account.setPasswd( ( new Sha256Hash( passwd , "", 5342 ) ).toString( ) );
+			
+			facade.createAccount( account );
+			return Definitions.URL_ACCOUNT_CREATED;
+		}
+		
+		return Definitions.URL_ACCOUNT_CREATION_ERROR;
 	}
 
 	public static String validateNickname( HttpServletRequest request, HttpServletResponse response ) {
@@ -75,7 +106,7 @@ public class IndexHelper {
 					return Definitions.JSON_OK_RESPONSE;
 				}
 			} else{
-				return Definitions.JSON_ERROR_NOT_AVAILABLE;
+				return Definitions.JSON_ERROR_EMPTY_NICKNAME;
 			}
 		} catch( ValidationException e ){
 			return Definitions.JSON_ERROR_EMPTY_NICKNAME;
@@ -97,7 +128,7 @@ public class IndexHelper {
 					return Definitions.JSON_OK_RESPONSE;
 				}
 			} else{
-				return Definitions.JSON_ERROR_NOT_AVAILABLE;
+				return Definitions.JSON_ERROR_EMPTY_MAIL;
 			}
 		} catch( ValidationException e ){
 			return Definitions.JSON_ERROR_EMPTY_MAIL;

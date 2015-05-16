@@ -38,4 +38,11 @@ public class IndexFacade {
 		
 		return account;
 	}
+	
+	public void createAccount( Account account ){
+		AccountDAO dao = null;
+		
+		dao = new AccountDAO( );
+		dao.create( account );
+	}
 }

@@ -11,8 +11,10 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.persistance.SessionFactoryManager;
+import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.hibernate.AbstractDAO;
 
 /**
@@ -28,6 +30,7 @@ import com.seifernet.snwf.hibernate.AbstractDAO;
 public abstract class GenericDAO <T, PK extends Serializable> implements AbstractDAO<T, PK>{
 
 	private Class<T> type;
+	private Logger logger = Logger.getLogger( GenericDAO.class );
 	
 	/**
 	 * Generic constructor sets type.
@@ -67,10 +70,15 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		Session 	session 	= null;
 		PK 			key			= null;
 		
-		session = getSession( );
-		transaction = session.beginTransaction( );
-		key = ( PK )getSession( ).save( object );
-		transaction.commit( );
+		try{
+			session = getSession( );
+			transaction = session.beginTransaction( );
+			key = ( PK )getSession( ).save( object );
+			transaction.commit( );
+		} catch( Exception e ){
+			logger.error( Definitions.LOGGER_ERROR_8 );
+			transaction.rollback( );
+		}
 		return key;
 	}
 	
@@ -84,10 +92,15 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		Transaction transaction = null;
 		Session 	session 	= null;
 		
-		session = getSession( );
-		transaction = session.beginTransaction( );
-		session.update( object );
-		transaction.commit( );
+		try{
+			session = getSession( );
+			transaction = session.beginTransaction( );
+			session.update( object );
+			transaction.commit( );
+		} catch( Exception e ){
+			logger.error( Definitions.LOGGER_ERROR_8 );
+			transaction.rollback( );
+		}
 	}
 	
 	/**
@@ -100,10 +113,15 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 		Transaction transaction = null;
 		Session 	session 	= null;
 		
-		session = getSession( );
-		transaction = session.beginTransaction( );
-		session.delete( object );
-		transaction.commit( );
+		try{
+			session = getSession( );
+			transaction = session.beginTransaction( );
+			session.delete( object );
+			transaction.commit( );
+		} catch( Exception e ){
+			logger.error( Definitions.LOGGER_ERROR_8 );
+			transaction.rollback( );
+		}
 	}
 	
 	/**

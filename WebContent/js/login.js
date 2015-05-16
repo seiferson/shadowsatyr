@@ -37,9 +37,17 @@ function validateNickname( ){
 			if( response.status == "ok" ){
 				$( "#nicknamec" ).attr( "class", "has-success form-group" );
 				$( "#nickname" ).popover( "hide" );
+				$( "#validNickname" ).val( "true" );
 			} else{
-				$( "#nicknamec" ).attr( "class", "has-error form-group" );
-				$( "#nickname" ).popover( "show" );
+				if( response.error == "empty_nick" ){
+					$( "#nicknamec" ).attr( "class", "form-group" );
+					$( "#nickname" ).popover( "hide" );
+					$( "#validNickname" ).val( "false" );
+				} else {
+					$( "#nicknamec" ).attr( "class", "has-error form-group" );
+					$( "#nickname" ).popover( "show" );
+					$( "#validNickname" ).val( "false" );
+				}
 			}
 		}
 	});	
@@ -56,16 +64,29 @@ function validateMail( ){
 			if( response.status == "ok" ){
 				$( "#emailc" ).attr( "class", "has-success form-group" );
 				$( "#email" ).popover( "hide" );
+				$( "#validMail" ).val( "true" );
 			} else{
-				$( "#emailc" ).attr( "class", "has-error form-group" );
-				$( "#email" ).popover( "show" );
+				if( response.error == "empty_mail" ){
+					$( "#emailc" ).attr( "class", "form-group" );
+					$( "#email" ).popover( "hide" );
+					$( "#validMail" ).val( "false" );
+				}else{ 
+					$( "#emailc" ).attr( "class", "has-error form-group" );
+					$( "#email" ).popover( "show" );
+					$( "#validMail" ).val( "false" );
+				}
 			}
 		}
 	});	
 }
 
 function sendSubmit( ){
-	if( $( "#passwdr" ).val( ) == $( "#passwdcon" ).val( ) ){
+	validateMail( );
+	validateNickname( );
+	if( $( "#passwdr" ).val( ) == $( "#passwdcon" ).val( )
+		&& $( "#validMail" ).val( ) == "true"
+		&& $( "#validNickname" ).val( ) == "true"
+	){
 		$( "#submitButton" ).click( );
 	} else {
 		validatePasswd( );

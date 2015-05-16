@@ -15,6 +15,10 @@ public class Definitions {
 	public static final String ERROR_500			= "/error500";
 	public static final String ERROR_404			= "/error404";
 	
+	public static final String URL_ACCOUNT_CREATED 			= "/shadowsatyr/login?acc=1";
+	public static final String URL_ACCOUNT_CREATION_ERROR 	= "/shadowsatyr/login?acc=0";
+	
+	
 	public static final String LOGGER_ERROR_1 = "Error setting encoding to request, unsupported enconding";
 	public static final String LOGGER_ERROR_2 = "Error on http client, unsupported enconding";
 	public static final String LOGGER_ERROR_3 = "Error on http client, client protocol";
@@ -22,6 +26,7 @@ public class Definitions {
 	public static final String LOGGER_ERROR_5 = "Error on http client, unknown error!";
 	public static final String LOGGER_ERROR_6 = "Error creating blog entry, null value on request parameter";
 	public static final String LOGGER_ERROR_7 = "Error loading blog entry template";
+	public static final String LOGGER_ERROR_8 = "Error executing hibernate task";
 	
 	public static final String HTTP = "http";
 	public static final String HTTPS = "https";
@@ -36,5 +41,6 @@ public class Definitions {
 	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "Bearer a614a0e43fa36c177e154c000470970770af328ad4818925392ea52ea2649093";
 	public static final String DIGITALOCEAN_API_HOST = "api.digitalocean.com";
 	public static final String DIGITALOCEAN_API_DROPLET_PATH = "/v2/droplets";
+	
 	
 }

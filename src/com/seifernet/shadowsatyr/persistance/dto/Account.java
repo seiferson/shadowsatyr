@@ -23,13 +23,13 @@ public class Account implements Serializable{
 	@GeneratedValue( strategy=GenerationType.AUTO, generator="pk_sequence" )
 	private Long id;
 	
-	@Column( name="nick_name", nullable = false, length = 100, unique = true )
+	@Column( name="nick_name", nullable = false, length = 25, unique = true )
 	private String nickname;
 	
-	@Column( nullable = false, length = 255 )
+	@Column( nullable = false, length = 64 )
 	private String passwd;
 	
-	@Column( nullable = false, length = 255 )
+	@Column( nullable = false, length = 254 )
 	private String mail;
 
 	
