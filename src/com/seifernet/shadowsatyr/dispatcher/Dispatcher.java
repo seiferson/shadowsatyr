@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.jboss.logging.Logger;
 
-import com.seifernet.shadowsatyr.helper.ArticleHelper;
+import com.seifernet.shadowsatyr.helper.AccountHelper;
 import com.seifernet.shadowsatyr.helper.BlogHelper;
 import com.seifernet.shadowsatyr.helper.ErrorHelper;
 import com.seifernet.shadowsatyr.helper.IndexHelper;
@@ -53,18 +53,15 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.VALIDATE_MAIL:
 				responseType = SNWFDefinitions.JSON_RESPONSE;
 				return IndexHelper.validateMail( request, response );
-			case Definitions.CREATE_ARTICLE:
-				ArticleHelper.createArticle( request, response );
-				break;
 			case Definitions.CREATE_BLOG_ENTRY:
 				responseType = SNWFDefinitions.JSON_RESPONSE;
 				return BlogHelper.createBlogEntry( request, response );
 			case Definitions.LATEST_BLOG_ENTRIES:
 				responseType = SNWFDefinitions.HTML_RESPONSE;
 				return BlogHelper.latestBlogEntries( request, response );
-			case Definitions.PREVIEW_ARTICLE:
-				responseType = SNWFDefinitions.HTML_RESPONSE;
-				return ArticleHelper.previewArticle( request, response );
+			case Definitions.USER_PROFILE:
+				AccountHelper.userProfile( request, response );
+				break;
 			case Definitions.ERROR_500:
 				ErrorHelper.error500( request, response );
 				break;

@@ -8,10 +8,11 @@ public class Definitions {
 	public static final String CREATE_USER			= "/createUser";
 	public static final String VALIDATE_NICK_NAME 	= "/validateNickname";
 	public static final String VALIDATE_MAIL	 	= "/validateMail";
-	public static final String CREATE_ARTICLE 		= "/user/createArticle";
-	public static final String PREVIEW_ARTICLE 		= "/user/previewArticle";
 	public static final String CREATE_BLOG_ENTRY 	= "/user/createBlogEntry";
 	public static final String LATEST_BLOG_ENTRIES 	= "/user/latestBlogEntries";
+	public static final String USER_PROFILE			= "/profile";
+	public static final String CREATE_ARTICLE 		= "/user/createArticle";
+	public static final String PREVIEW_ARTICLE 		= "/user/previewArticle";
 	public static final String ERROR_500			= "/error500";
 	public static final String ERROR_404			= "/error404";
 	
