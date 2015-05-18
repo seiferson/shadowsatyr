@@ -18,12 +18,12 @@ public class AccountFacade {
 		return profile;
 	}
 	
-	public ArrayList<BlogEntry> getBlogEntries( Long userID ){
+	public ArrayList<BlogEntry> getBlogEntries( Account account ){
 		BlogEntryDAO dao = null;
 		ArrayList<BlogEntry> blogEntries = null;
 		
 		dao = new BlogEntryDAO( );
-		blogEntries = new ArrayList<BlogEntry>( dao.readAll( userID ) );
+		blogEntries = new ArrayList<BlogEntry>( dao.readAll( account ) );
 		
 		return blogEntries;
 	}

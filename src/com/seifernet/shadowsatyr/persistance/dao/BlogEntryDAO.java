@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
+import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
 
 public class BlogEntryDAO extends GenericDAO<BlogEntry, Long>{
@@ -16,14 +17,14 @@ public class BlogEntryDAO extends GenericDAO<BlogEntry, Long>{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<BlogEntry> readAll( Long id ){
+	public List<BlogEntry> readAll( Account author ){
 		Transaction 	transaction = null;
 		Session 		session 	= null;
 		List<BlogEntry>	list		= null;
 		
 		session = getSession( );
 		transaction = session.beginTransaction( );
-		list = session.createCriteria( BlogEntry.class ).add( Restrictions.eq( "id", id ) ).addOrder( Order.desc( "date" ) ).list( );
+		list = session.createCriteria( BlogEntry.class ).add( Restrictions.eq( "author", author ) ).addOrder( Order.desc( "date" ) ).list( );
 		transaction.commit( );
 		return list;
 	}

@@ -43,7 +43,7 @@ public class AccountHelper {
 				bean.setProfile( profile );
 				bean.setLayout( "system.user_profile" );
 			}
-			bean.setBlogEntries( facade.getBlogEntries( bean.getProfile( ).getId( ) ) );
+			bean.setBlogEntries( facade.getBlogEntries( bean.getProfile( ) ) );
 			request.setAttribute( "Bean" , bean );
 		}
 	}
