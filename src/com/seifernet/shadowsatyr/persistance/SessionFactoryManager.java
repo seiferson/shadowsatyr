@@ -1,8 +1,15 @@
 package com.seifernet.shadowsatyr.persistance;
 
+import java.util.Properties;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
+import com.seifernet.shadowsatyr.persistance.dto.Account;
+import com.seifernet.shadowsatyr.persistance.dto.Article;
+import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
 
 /**
  * Session factory manager creates and configurates
@@ -34,18 +41,27 @@ public abstract class SessionFactoryManager {
 	/**
 	 * Session factory configuration
 	 * 
-	 * TODO Make configuration programatic instead of using
-	 * hibernate.cfg.xml
 	 */
 	private static void initializeSessionFactory(  ){
-		Configuration 					configuration 	= null;
-		StandardServiceRegistryBuilder 	builder 		= null;
+		Configuration 		configuration 	= null;
+		Properties			properties		= null;
+		ServiceRegistry		builder 		= null;
 		
 		configuration = new Configuration( );
-		configuration.configure( );
-		builder = new StandardServiceRegistryBuilder( );
-		builder.applySettings( configuration.getProperties(  ) );
-		instance = configuration.buildSessionFactory( builder.build( ) );
+		properties = new Properties( );
+		
+		properties.setProperty( "hibernate.connection.datasource" , "java:jboss/datasources/shadowsatyr" );
+		properties.setProperty( "hibernate.dialect" , "org.hibernate.dialect.PostgreSQLDialect" );
+		properties.setProperty( "hibernate.hbm2ddl.auto" , "create-drop" );
+		properties.setProperty( "hibernate.current_session_context_class", "thread" );
+		 
+		configuration.addAnnotatedClass( Account.class );
+		configuration.addAnnotatedClass( Article.class );
+		configuration.addAnnotatedClass( BlogEntry.class );
+		
+		configuration.setProperties( properties );
+		builder = new StandardServiceRegistryBuilder( ).applySettings( configuration.getProperties(  ) ).build( );
+		instance = configuration.buildSessionFactory( builder );
 	}
 	
 }
