@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 @Table( name="blog_entry" )
 public class BlogEntry implements Serializable{
 	
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	@Id 
 	@SequenceGenerator( name="pk_sequence", sequenceName="blog_entry_id", allocationSize=1 )

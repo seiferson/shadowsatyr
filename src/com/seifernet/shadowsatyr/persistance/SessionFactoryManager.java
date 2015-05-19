@@ -10,6 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.Article;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
+import com.seifernet.shadowsatyr.persistance.dto.SystemProperty;
 
 /**
  * Session factory manager creates and configurates
@@ -58,6 +59,7 @@ public abstract class SessionFactoryManager {
 		configuration.addAnnotatedClass( Account.class );
 		configuration.addAnnotatedClass( Article.class );
 		configuration.addAnnotatedClass( BlogEntry.class );
+		configuration.addAnnotatedClass( SystemProperty.class );
 		
 		configuration.setProperties( properties );
 		builder = new StandardServiceRegistryBuilder( ).applySettings( configuration.getProperties(  ) ).build( );
