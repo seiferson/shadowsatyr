@@ -28,6 +28,11 @@ public class Definitions {
 	public static final String LOGGER_ERROR_6 = "Error creating blog entry, null value on request parameter";
 	public static final String LOGGER_ERROR_7 = "Error loading blog entry template";
 	public static final String LOGGER_ERROR_8 = "Error executing hibernate task";
+	public static final String LOGGER_ERROR_9 = "Error testing database connection, default datasource is not available";
+	
+	public static final String LOGGER_DEBUG_1 = "Deploying system, starting system configuration";
+	public static final String LOGGER_DEBUG_2 = "Testing default database connection: ";
+	public static final String LOGGER_DEBUG_3 = "Database not available, skipping database validation/configuration";
 	
 	public static final String HTTP = "http";
 	public static final String HTTPS = "https";
@@ -42,6 +47,8 @@ public class Definitions {
 	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "Bearer a614a0e43fa36c177e154c000470970770af328ad4818925392ea52ea2649093";
 	public static final String DIGITALOCEAN_API_HOST = "api.digitalocean.com";
 	public static final String DIGITALOCEAN_API_DROPLET_PATH = "/v2/droplets";
+	
+	public static final String SHADOW_SATYR_DEFAULT_DATASOURCE = "java:jboss/datasources/shadowsatyr";
 	
 	
 }

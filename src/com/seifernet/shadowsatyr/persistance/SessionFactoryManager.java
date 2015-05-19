@@ -11,6 +11,7 @@ import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.Article;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
 import com.seifernet.shadowsatyr.persistance.dto.SystemProperty;
+import com.seifernet.shadowsatyr.util.Definitions;
 
 /**
  * Session factory manager creates and configurates
@@ -43,7 +44,7 @@ public abstract class SessionFactoryManager {
 	 * Session factory configuration
 	 * 
 	 */
-	private static void initializeSessionFactory(  ){
+	public static void initializeSessionFactory(  ){
 		Configuration 		configuration 	= null;
 		Properties			properties		= null;
 		ServiceRegistry		builder 		= null;
@@ -51,7 +52,7 @@ public abstract class SessionFactoryManager {
 		configuration = new Configuration( );
 		properties = new Properties( );
 		
-		properties.setProperty( "hibernate.connection.datasource" , "java:jboss/datasources/shadowsatyr" );
+		properties.setProperty( "hibernate.connection.datasource" , Definitions.SHADOW_SATYR_DEFAULT_DATASOURCE );
 		properties.setProperty( "hibernate.dialect" , "org.hibernate.dialect.PostgreSQLDialect" );
 		properties.setProperty( "hibernate.hbm2ddl.auto" , "create-drop" );
 		properties.setProperty( "hibernate.current_session_context_class", "thread" );
