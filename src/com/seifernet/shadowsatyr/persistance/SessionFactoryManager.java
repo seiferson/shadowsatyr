@@ -10,6 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.Article;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
+import com.seifernet.shadowsatyr.persistance.dto.Permission;
 import com.seifernet.shadowsatyr.persistance.dto.SystemProperty;
 import com.seifernet.shadowsatyr.util.Definitions;
 
@@ -54,13 +55,14 @@ public abstract class SessionFactoryManager {
 		
 		properties.setProperty( "hibernate.connection.datasource" , Definitions.SHADOW_SATYR_DEFAULT_DATASOURCE );
 		properties.setProperty( "hibernate.dialect" , "org.hibernate.dialect.PostgreSQLDialect" );
-		properties.setProperty( "hibernate.hbm2ddl.auto" , "create-drop" );
+		properties.setProperty( "hibernate.hbm2ddl.auto" , "create" );
 		properties.setProperty( "hibernate.current_session_context_class", "thread" );
 		 
 		configuration.addAnnotatedClass( Account.class );
 		configuration.addAnnotatedClass( Article.class );
 		configuration.addAnnotatedClass( BlogEntry.class );
 		configuration.addAnnotatedClass( SystemProperty.class );
+		configuration.addAnnotatedClass( Permission.class );
 		
 		configuration.setProperties( properties );
 		builder = new StandardServiceRegistryBuilder( ).applySettings( configuration.getProperties(  ) ).build( );

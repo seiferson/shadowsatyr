@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.helper.AccountHelper;
+import com.seifernet.shadowsatyr.helper.AdminHelper;
 import com.seifernet.shadowsatyr.helper.BlogHelper;
 import com.seifernet.shadowsatyr.helper.ErrorHelper;
 import com.seifernet.shadowsatyr.helper.IndexHelper;
@@ -61,6 +62,9 @@ public class Dispatcher implements DispatcherHelper{
 				return BlogHelper.latestBlogEntries( request, response );
 			case Definitions.USER_PROFILE:
 				AccountHelper.userProfile( request, response );
+				break;
+			case Definitions.DASHBOARD:
+				AdminHelper.dashboard( request, response );
 				break;
 			case Definitions.ERROR_500:
 				ErrorHelper.error500( request, response );

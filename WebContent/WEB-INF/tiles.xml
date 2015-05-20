@@ -49,6 +49,13 @@
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
+	<definition name="system.dashboard" template="/jsp/navbar_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
+		<put-attribute name="body" value="/jsp/empty.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+	</definition>
+	
 	<definition name="system.create_article" template="/jsp/main_layout.jsp">
 		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/create_article.jsp" />

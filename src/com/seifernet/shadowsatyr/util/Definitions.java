@@ -10,6 +10,7 @@ public class Definitions {
 	public static final String VALIDATE_MAIL	 	= "/validateMail";
 	public static final String CREATE_BLOG_ENTRY 	= "/user/createBlogEntry";
 	public static final String LATEST_BLOG_ENTRIES 	= "/user/latestBlogEntries";
+	public static final String DASHBOARD 			= "/user/dashboard";
 	public static final String USER_PROFILE			= "/profile";
 	public static final String CREATE_ARTICLE 		= "/user/createArticle";
 	public static final String PREVIEW_ARTICLE 		= "/user/previewArticle";
@@ -33,6 +34,7 @@ public class Definitions {
 	public static final String LOGGER_DEBUG_1 = "Deploying system, starting system configuration";
 	public static final String LOGGER_DEBUG_2 = "Testing default database connection: ";
 	public static final String LOGGER_DEBUG_3 = "Database not available, skipping database validation/configuration";
+	public static final String LOGGER_DEBUG_4 = "Success datasource testing";
 	
 	public static final String HTTP = "http";
 	public static final String HTTPS = "https";
@@ -48,7 +50,8 @@ public class Definitions {
 	public static final String DIGITALOCEAN_API_HOST = "api.digitalocean.com";
 	public static final String DIGITALOCEAN_API_DROPLET_PATH = "/v2/droplets";
 	
-	public static final String SHADOW_SATYR_DEFAULT_DATASOURCE = "java:jboss/datasources/shadowsatyr";
+	public static final String SHADOW_SATYR_DEFAULT_DATASOURCE 	= "java:jboss/datasources/shadowsatyr";
+	public static final String SHADOW_SATYR_DATABASE_TEST 		= "database_test";
 	
 	
 }

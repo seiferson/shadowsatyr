@@ -1,16 +1,22 @@
 package com.seifernet.shadowsatyr.persistance.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.apache.shiro.crypto.hash.Md5Hash;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table( name="account" )
@@ -31,6 +37,13 @@ public class Account implements Serializable{
 	
 	@Column( nullable = false, length = 254 )
 	private String mail;
+	
+	@OneToMany
+	@LazyCollection( LazyCollectionOption.FALSE )
+	@JoinTable( name = "permission_account", 
+		joinColumns = { @JoinColumn( name="account", referencedColumnName="id" ) },  
+	    inverseJoinColumns = { @JoinColumn( name="permission", referencedColumnName="id") } ) 
+	private List<Permission> permissions;
 
 	
 	/**
@@ -91,5 +104,19 @@ public class Account implements Serializable{
 	
 	public String getMailMD5( ){
 		return new Md5Hash( mail ).toString( );
+	}
+
+	/**
+	 * @return the permissions
+	 */
+	public List<Permission> getPermissions( ) {
+		return permissions;
+	}
+
+	/**
+	 * @param permissions the permissions to set
+	 */
+	public void setPermissions( List<Permission> permissions ) {
+		this.permissions = permissions;
 	}
 }
