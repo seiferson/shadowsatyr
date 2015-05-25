@@ -50,9 +50,9 @@
 	</definition>
 	
 	<definition name="system.dashboard" template="/jsp/navbar_layout.jsp">
-		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
-		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
-		<put-attribute name="body" value="/jsp/empty.jsp" />
+		<put-attribute name="css_includes" value="/jsp/dashboard_css.jsp" />
+		<put-attribute name="navbar" value="/jsp/fixed_navbar_user.jsp" />
+		<put-attribute name="body" value="/jsp/admin_dashboard.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
