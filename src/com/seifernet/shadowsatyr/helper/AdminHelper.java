@@ -23,6 +23,7 @@ public class AdminHelper {
 		Session			session 	= null;
 		Subject			subject		= null;
 		String			appLog		= "";
+		String			serverLog	= "";
 		String			tmpLine		= null;
 		Tail			reader		= null;	
 		Integer			nLines		= 0;
@@ -37,6 +38,13 @@ public class AdminHelper {
 				appLog += tmpLine + "<br>";
 				nLines++;
 			}
+			
+			nLines = 0;
+			reader = new Tail( new File( System.getProperty("jboss.server.log.dir") + "/server.log" ) );
+			while( ( tmpLine = reader.readLine( ) ) != null && nLines < 50 ){
+				serverLog += tmpLine + "<br>";
+				nLines++;
+			}
 		} catch ( FileNotFoundException e ){
 			
 		} catch ( IOException e ){
@@ -45,6 +53,7 @@ public class AdminHelper {
 		
 		bean.setLayout( "system.dashboard" );
 		bean.setApplicationLog( appLog );
+		bean.setServerLog( serverLog );
 		bean.setUserData( ( Account )session.getAttribute( "user_data" ) );
 		request.setAttribute( "Bean", bean );
 	}

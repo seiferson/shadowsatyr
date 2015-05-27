@@ -7,7 +7,7 @@
 						<li class="active"><a href="#panel1" role="tab" data-toggle="tab">Overview</a></li>
 						<li><a href="#panel2" role="tab" data-toggle="tab">Reports</a></li>
 						<li><a href="#panel3" role="tab" data-toggle="tab">Analytics</a></li>
-						<li><a href="#panel4" role="tab" data-toggle="tab">Export</a></li>
+						<li><a href="#serverLog" role="tab" data-toggle="tab">Server log</a></li>
 						<li><a href="#applicationLog" role="tab" data-toggle="tab">Application log</a></li>
 					</ul>
 				</div>
@@ -20,7 +20,10 @@
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="panel3">
 						</div>
-						<div role="tabpanel" class="tab-pane fade" id="panel4">
+						<div role="tabpanel" class="tab-pane fade" id="serverLog">
+							<div class="well">
+								${Bean.serverLog}
+							</div>
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="applicationLog">
 							<div class="well">
