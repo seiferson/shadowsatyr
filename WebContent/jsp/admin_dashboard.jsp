@@ -3,26 +3,31 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
-					<ul class="nav nav-sidebar">
-						<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-						<li><a href="#">Reports</a></li>
-						<li><a href="#">Analytics</a></li>
-						<li><a href="#">Export</a></li>
-					</ul>
-					<ul class="nav nav-sidebar">
-						<li><a href="">Nav item</a></li>
-						<li><a href="">Nav item again</a></li>
-						<li><a href="">One more nav</a></li>
-						<li><a href="">Another nav item</a></li>
-						<li><a href="">More navigation</a></li>
-					</ul>
-					<ul class="nav nav-sidebar">
-						<li><a href="">Nav item again</a></li>
-						<li><a href="">One more nav</a></li>
-						<li><a href="">Another nav item</a></li>
+					<ul class="nav nav-sidebar" role="tablist">
+						<li class="active"><a href="#panel1" role="tab" data-toggle="tab">Overview</a></li>
+						<li><a href="#panel2" role="tab" data-toggle="tab">Reports</a></li>
+						<li><a href="#panel3" role="tab" data-toggle="tab">Analytics</a></li>
+						<li><a href="#panel4" role="tab" data-toggle="tab">Export</a></li>
+						<li><a href="#applicationLog" role="tab" data-toggle="tab">Application log</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="panel1">
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="panel2">
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="panel3">
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="panel4">
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="applicationLog">
+							<div class="well">
+								${Bean.applicationLog}
+							</div>
+						</div>
+					</div>
 				</div>	
 			</div>
 		</div>
