@@ -3,6 +3,15 @@ package com.seifernet.shadowsatyr.bean;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.snwf.bean.Bean;
 
+/**
+ * Bean with data to show admin dashboard, 
+ * includes application and server logs.
+ * 
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ */
 public class DashboardBean extends Bean{
 
 	private static final long serialVersionUID = 1L;

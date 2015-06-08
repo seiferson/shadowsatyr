@@ -6,8 +6,8 @@ import javax.servlet.annotation.WebListener;
 
 import org.jboss.logging.Logger;
 
+import com.seifernet.shadowsatyr.persistance.DatabaseTest;
 import com.seifernet.shadowsatyr.persistance.SessionFactoryManager;
-import com.seifernet.shadowsatyr.util.DatabaseTest;
 import com.seifernet.shadowsatyr.util.Definitions;
 
 /**

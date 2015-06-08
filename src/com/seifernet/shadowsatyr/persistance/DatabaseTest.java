@@ -1,4 +1,4 @@
-package com.seifernet.shadowsatyr.util;
+package com.seifernet.shadowsatyr.persistance;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,6 +9,8 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import org.jboss.logging.Logger;
+
+import com.seifernet.shadowsatyr.util.Definitions;
 
 public class DatabaseTest {
 	

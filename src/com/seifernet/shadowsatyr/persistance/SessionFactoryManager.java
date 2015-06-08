@@ -67,6 +67,7 @@ public abstract class SessionFactoryManager {
 		configuration.setProperties( properties );
 		builder = new StandardServiceRegistryBuilder( ).applySettings( configuration.getProperties(  ) ).build( );
 		instance = configuration.buildSessionFactory( builder );
+		
 	}
 	
 }
