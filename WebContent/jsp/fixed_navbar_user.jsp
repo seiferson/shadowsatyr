@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 		<nav class="navbar navbar-fixed-top navbar-inverse navbar-nomargin">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -11,16 +12,7 @@
 					<a class="navbar-brand" href="http://seifernet.com">SeiferNet</a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbarx">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> ${Bean.userData.nickname}<span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="/shadowsatyr/index"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-								<li class="divider"></li>
-								<li><a href="/shadowsatyr/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-							</ul>
-						</li>
-					</ul>
+					<tiles:insertDefinition name="navbar_menu" />
 				</div>
 			</div>
 		</nav>

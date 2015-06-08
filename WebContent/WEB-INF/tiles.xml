@@ -5,6 +5,9 @@
 	
 <tiles-definitions>
 	
+	<definition name="navbar_menu" template="/jsp/navbar_menu.jsp">
+	</definition>
+	
 	<definition name="system.login" template="/jsp/clear_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/login_css.jsp" />
 		<put-attribute name="body" value="/jsp/login.jsp" />
