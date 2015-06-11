@@ -6,6 +6,7 @@ import com.seifernet.shadowsatyr.persistance.dao.AccountDAO;
 import com.seifernet.shadowsatyr.persistance.dao.BlogEntryDAO;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
+import com.seifernet.shadowsatyr.persistance.dto.Hashtag;
 
 public class IndexFacade {
 	
@@ -15,6 +16,15 @@ public class IndexFacade {
 		
 		dao = new BlogEntryDAO( );
 		blogEntries = new ArrayList<BlogEntry>( dao.readAllDsc( "date", 5 ) );
+		for( BlogEntry entry : blogEntries ){
+			String message = entry.getMessage( );
+			ArrayList<Hashtag> hashtags = new ArrayList<Hashtag>( entry.getHashtags( ) ); 
+			for( Hashtag hashtag : hashtags ){
+				String hs = hashtag.getHashtag( );
+				message = message.replace( hs, "<a href='/shadowsatyr/hashtag?hashtag=" + hs + "'>" + hs + "</a>" );
+			}
+			entry.setMessage( message );
+		}
 		
 		return blogEntries;
 	}

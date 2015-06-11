@@ -14,9 +14,11 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.jboss.logging.Logger;
 
+import com.seifernet.shadowsatyr.engine.hashtag.HashTagProcessor;
 import com.seifernet.shadowsatyr.facade.BlogFacade;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
+import com.seifernet.shadowsatyr.persistance.dto.Hashtag;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.exception.ValidationException;
@@ -45,13 +47,29 @@ public class BlogHelper {
 			}
 			
 			if( FormValidator.validateParameter( content ) ){
-			
+				
 				entry = new BlogEntry( );
 				entry.setAuthor( ( Account )session.getAttribute( "user_data" ) );
 				entry.setMessage( content );
 				entry.setDate( new Date( ) );
 				
-				facade = new BlogFacade( );
+				facade = new BlogFacade(  );
+				
+				ArrayList<String> hashtagText = HashTagProcessor.getHashTags( content );
+				ArrayList<Hashtag> hashtags = new ArrayList<Hashtag>( );
+				for( String hashtag: hashtagText ){
+					Hashtag hs = facade.getHashtag( hashtag );
+					if( hs != null ){
+						hashtags.add( hs );
+					} else {
+						hs = new Hashtag(  );
+						hs.setHashtag( hashtag );
+						hashtags.add( hs );
+					}
+				}
+				
+				entry.setHashtags( hashtags );
+				
 				facade.createBlogEntry( entry );
 			} else {
 				return Definitions.JSON_ERROR_EMPTY_MESSAGE;
@@ -68,7 +86,7 @@ public class BlogHelper {
 		String 					html			= "";
 		ArrayList<BlogEntry>	entries			= null;
 		BlogFacade				facade			= null;
-		SimpleDateFormat		format			= null;
+		SimpleDateFormat		format			= null;	
 		
 		try {
 			entryTemplate = IOUtils.toString( request.getServletContext( ).getResourceAsStream( "/jsp/blog_entry.jsp" ) );

@@ -9,7 +9,9 @@ import org.hibernate.service.ServiceRegistry;
 
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.Article;
+import com.seifernet.shadowsatyr.persistance.dto.Asset;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
+import com.seifernet.shadowsatyr.persistance.dto.Hashtag;
 import com.seifernet.shadowsatyr.persistance.dto.Permission;
 import com.seifernet.shadowsatyr.persistance.dto.SystemProperty;
 import com.seifernet.shadowsatyr.util.Definitions;
@@ -60,9 +62,11 @@ public abstract class SessionFactoryManager {
 		 
 		configuration.addAnnotatedClass( Account.class );
 		configuration.addAnnotatedClass( Article.class );
+		configuration.addAnnotatedClass( Asset.class );
 		configuration.addAnnotatedClass( BlogEntry.class );
-		configuration.addAnnotatedClass( SystemProperty.class );
+		configuration.addAnnotatedClass( Hashtag.class );
 		configuration.addAnnotatedClass( Permission.class );
+		configuration.addAnnotatedClass( SystemProperty.class );		
 		
 		configuration.setProperties( properties );
 		builder = new StandardServiceRegistryBuilder( ).applySettings( configuration.getProperties(  ) ).build( );

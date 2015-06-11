@@ -2,17 +2,24 @@ package com.seifernet.shadowsatyr.persistance.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table( name="blog_entry" )
@@ -35,6 +42,13 @@ public class BlogEntry implements Serializable{
 	
 	@Column( nullable = false )
 	private Date date;
+	
+	@OneToMany( cascade = CascadeType.ALL )
+	@LazyCollection( LazyCollectionOption.FALSE )
+	@JoinTable( name = "hashtag_blog_entry", 
+		joinColumns = { @JoinColumn( name="blog_entry", referencedColumnName="id" ) },  
+	    inverseJoinColumns = { @JoinColumn( name="hashtag", referencedColumnName="id") } ) 
+	private List<Hashtag> hashtags;
 
 	/**
 	 * @return the id
@@ -90,5 +104,19 @@ public class BlogEntry implements Serializable{
 	 */
 	public void setDate( Date date ) {
 		this.date = date;
+	}
+
+	/**
+	 * @return the hashtags
+	 */
+	public List<Hashtag> getHashtags( ) {
+		return hashtags;
+	}
+
+	/**
+	 * @param hashtags the hashtags to set
+	 */
+	public void setHashtags( List<Hashtag> hashtags ) {
+		this.hashtags = hashtags;
 	}
 }

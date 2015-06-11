@@ -13,7 +13,6 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
 import com.seifernet.shadowsatyr.bean.DashboardBean;
-import com.seifernet.shadowsatyr.engine.hashtag.HashTagProcessor;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
 
