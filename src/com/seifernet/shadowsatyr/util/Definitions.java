@@ -12,6 +12,7 @@ public class Definitions {
 	public static final String LATEST_BLOG_ENTRIES 	= "/user/latestBlogEntries";
 	public static final String DASHBOARD 			= "/user/dashboard";
 	public static final String USER_PROFILE			= "/profile";
+	public static final String HASHTAG				= "/hashtag";
 	public static final String CREATE_ARTICLE 		= "/user/createArticle";
 	public static final String PREVIEW_ARTICLE 		= "/user/previewArticle";
 	public static final String ERROR_500			= "/error500";

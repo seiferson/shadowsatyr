@@ -36,7 +36,7 @@ public class BlogEntry implements Serializable{
 	private String message;
 	
 	@OneToOne
- 	@JoinColumn( name="account", referencedColumnName="id" )
+ 	@JoinColumn( name="author", referencedColumnName="id" )
 	@NotNull
 	private Account author;
 	

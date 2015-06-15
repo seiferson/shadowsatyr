@@ -112,5 +112,9 @@ public class BlogHelper {
 		
 		return html;
 	}
+
+	public static void hashtag( HttpServletRequest request, HttpServletResponse response ) {
+		
+	}
 	
 }

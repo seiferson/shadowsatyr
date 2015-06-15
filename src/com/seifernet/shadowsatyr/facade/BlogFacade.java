@@ -35,10 +35,6 @@ public class BlogFacade {
 		return blogEntries;
 	}
 	
-	public void addHashtag( String hashtag ){
-		
-	}
-	
 	public Hashtag getHashtag( String hashtag ){
 		HashtagDAO dao = new HashtagDAO( );
 		
