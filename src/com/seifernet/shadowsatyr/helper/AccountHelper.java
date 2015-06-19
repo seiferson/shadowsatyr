@@ -8,7 +8,8 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
 import com.seifernet.shadowsatyr.bean.UserProfileBean;
-import com.seifernet.shadowsatyr.facade.AccountFacade;
+import com.seifernet.shadowsatyr.engine.account.AccountManager;
+import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.snwf.util.FormValidator;
@@ -20,19 +21,17 @@ public class AccountHelper {
 		String			user 	= null;
 		Session			session = null;
 		Subject			subject	= null;
-		AccountFacade	facade	= null;
 		Account			profile	= null;
 		
 		
 		bean = new UserProfileBean( );
-		facade = new AccountFacade( );
 		subject = SecurityUtils.getSubject( );
 		
 		user = request.getParameter( "account" );
-		if( !FormValidator.validateParameter( user ) || facade.getProfile( user ) == null ){
+		if( !FormValidator.validateParameter( user ) || AccountManager.getAccountByNickname( user ) == null ){
 			ErrorHelper.error404( request, response );
 		} else {
-			profile = facade.getProfile( user );
+			profile = AccountManager.getAccountByNickname( user );
 			if( subject.isAuthenticated( ) ){
 				session = SessionManager.getSession( subject );
 				
@@ -43,7 +42,7 @@ public class AccountHelper {
 				bean.setProfile( profile );
 				bean.setLayout( "system.user_profile" );
 			}
-			bean.setBlogEntries( facade.getBlogEntries( bean.getProfile( ) ) );
+			bean.setBlogEntries( BlogManager.getBlogEntries( bean.getProfile( ) ) );
 			request.setAttribute( "Bean" , bean );
 		}
 	}

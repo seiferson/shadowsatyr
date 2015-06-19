@@ -10,7 +10,8 @@ import org.apache.shiro.subject.Subject;
 import org.hibernate.validator.constraints.impl.EmailValidator;
 
 import com.seifernet.shadowsatyr.bean.IndexBean;
-import com.seifernet.shadowsatyr.facade.IndexFacade;
+import com.seifernet.shadowsatyr.engine.account.AccountManager;
+import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
@@ -24,7 +25,6 @@ public class IndexHelper {
 		IndexBean 	bean 	= null;
 		Session		session = null;
 		Subject		subject	= null;
-		IndexFacade facade	= null;
 		
 		bean = new IndexBean( );
 		subject = SecurityUtils.getSubject( );
@@ -37,8 +37,7 @@ public class IndexHelper {
 			bean.setLayout( "system.index" );
 		}
 		
-		facade = new IndexFacade( );
-		bean.setLatestBlogEntries( facade.getLatestBlogEntries( ) );
+		bean.setLatestBlogEntries( BlogManager.getLatestBlogEntries( ) );
 		request.setAttribute( "Bean" , bean );
 	}
 
@@ -58,7 +57,6 @@ public class IndexHelper {
 	}
 
 	public static String createUser( HttpServletRequest request, HttpServletResponse response ) {
-		IndexFacade 	facade 		= null;
 		Account			account 	= null;
 		String			nickname 	= null;
 		String			mail		= null;
@@ -71,10 +69,9 @@ public class IndexHelper {
 		passwd = request.getParameter( "passwdr" );
 		passwdc = request.getParameter( "passwdcon" );
 		
-		facade = new IndexFacade( );
 		validator = new EmailValidator( );
 		
-		if( facade.getAccountByMail( mail ) == null && facade.getAccountByNickname( nickname ) == null
+		if( AccountManager.getAccountByMail( mail ) == null && AccountManager.getAccountByNickname( nickname ) == null
 			&& FormValidator.validateParameter( nickname ) && validator.isValid( mail , null )
 			&& FormValidator.validateParameter( passwd ) && FormValidator.validateParameter( passwdc )
 			&& nickname.length( ) <= 25 && mail.length( ) <= 255 && passwd.equals( passwdc )
@@ -84,7 +81,7 @@ public class IndexHelper {
 			account.setNickname( nickname );
 			account.setPasswd( ( new Sha256Hash( passwd , "", 5342 ) ).toString( ) );
 			
-			facade.createAccount( account );
+			AccountManager.createAccount( account );
 			return Definitions.URL_ACCOUNT_CREATED;
 		}
 		
@@ -93,14 +90,12 @@ public class IndexHelper {
 
 	public static String validateNickname( HttpServletRequest request, HttpServletResponse response ) {
 		String 		nickname 	= null;
-		IndexFacade facade		= null;
 		
 		try{
 			nickname = FormValidator.parseParameter( request.getParameter( "nickname" ) );
 			
 			if( FormValidator.validateParameter( nickname ) ){
-				facade = new IndexFacade( );
-				if( facade.getAccountByNickname( nickname ) != null ){
+				if( AccountManager.getAccountByNickname( nickname ) != null ){
 					return Definitions.JSON_ERROR_NOT_AVAILABLE;
 				} else {
 					return Definitions.JSON_OK_RESPONSE;
@@ -115,14 +110,12 @@ public class IndexHelper {
 
 	public static String validateMail( HttpServletRequest request, HttpServletResponse response ) {
 		String 		mail	 	= null;
-		IndexFacade facade		= null;
 		
 		try{
 			mail = FormValidator.parseParameter( request.getParameter( "email" ) );
 			
 			if( FormValidator.validateParameter( mail ) ){
-				facade = new IndexFacade( );
-				if( facade.getAccountByMail( mail ) != null ){
+				if( AccountManager.getAccountByMail( mail ) != null ){
 					return Definitions.JSON_ERROR_NOT_AVAILABLE;
 				} else {
 					return Definitions.JSON_OK_RESPONSE;
