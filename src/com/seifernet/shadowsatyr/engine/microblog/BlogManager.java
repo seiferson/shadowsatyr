@@ -1,16 +1,16 @@
-package com.seifernet.shadowsatyr.facade;
+package com.seifernet.shadowsatyr.engine.microblog;
 
 import java.util.ArrayList;
 
-import com.seifernet.shadowsatyr.persistance.dao.AccountDAO;
 import com.seifernet.shadowsatyr.persistance.dao.BlogEntryDAO;
+import com.seifernet.shadowsatyr.persistance.dao.HashtagDAO;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
 import com.seifernet.shadowsatyr.persistance.dto.Hashtag;
 
-public class IndexFacade {
+public class BlogManager {
 	
-	public ArrayList<BlogEntry> getLatestBlogEntries( ){
+	public static ArrayList<BlogEntry> getLatestBlogEntries( ){
 		ArrayList<BlogEntry> 	blogEntries = null;
 		BlogEntryDAO			dao			= null;
 		
@@ -29,30 +29,26 @@ public class IndexFacade {
 		return blogEntries;
 	}
 	
-	public Account getAccountByNickname( String nickname ){
-		AccountDAO 	dao 	= null;
-		Account		account = null;
+	public static void createBlogEntry( BlogEntry entry ){
+		BlogEntryDAO dao = new BlogEntryDAO( );
 		
-		dao = new AccountDAO( );
-		account = dao.read( "nickname" , nickname );
-		
-		return account;
+		dao = new BlogEntryDAO( );
+		dao.create( entry );
 	}
 	
-	public Account getAccountByMail( String mail ){
-		AccountDAO 	dao 	= null;
-		Account		account = null;
+	public static Hashtag getHashtag( String hashtag ){
+		HashtagDAO dao = new HashtagDAO( );
 		
-		dao = new AccountDAO( );
-		account = dao.read( "mail" , mail );
-		
-		return account;
+		return dao.read( "hashtag" , hashtag );
 	}
 	
-	public void createAccount( Account account ){
-		AccountDAO dao = null;
+	public static ArrayList<BlogEntry> getBlogEntries( Account account ){
+		BlogEntryDAO dao = null;
+		ArrayList<BlogEntry> blogEntries = null;
 		
-		dao = new AccountDAO( );
-		dao.create( account );
+		dao = new BlogEntryDAO( );
+		blogEntries = new ArrayList<BlogEntry>( dao.readAll( account ) );
+		
+		return blogEntries;
 	}
 }

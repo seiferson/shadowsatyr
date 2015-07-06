@@ -15,7 +15,7 @@ import org.apache.shiro.subject.Subject;
 import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.engine.hashtag.HashTagProcessor;
-import com.seifernet.shadowsatyr.facade.BlogFacade;
+import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
 import com.seifernet.shadowsatyr.persistance.dto.Hashtag;
@@ -33,7 +33,6 @@ public class BlogHelper {
 		Subject		subject	= null;
 		String		content	= null;
 		BlogEntry	entry	= null;
-		BlogFacade	facade	= null;
 		
 		subject = SecurityUtils.getSubject( );
 		if( subject.isAuthenticated( ) ){
@@ -53,12 +52,10 @@ public class BlogHelper {
 				entry.setMessage( content );
 				entry.setDate( new Date( ) );
 				
-				facade = new BlogFacade(  );
-				
 				ArrayList<String> hashtagText = HashTagProcessor.getHashTags( content );
 				ArrayList<Hashtag> hashtags = new ArrayList<Hashtag>( );
 				for( String hashtag: hashtagText ){
-					Hashtag hs = facade.getHashtag( hashtag );
+					Hashtag hs = BlogManager.getHashtag( hashtag );
 					if( hs != null ){
 						hashtags.add( hs );
 					} else {
@@ -70,7 +67,7 @@ public class BlogHelper {
 				
 				entry.setHashtags( hashtags );
 				
-				facade.createBlogEntry( entry );
+				BlogManager.createBlogEntry( entry );
 			} else {
 				return Definitions.JSON_ERROR_EMPTY_MESSAGE;
 			}
@@ -85,7 +82,6 @@ public class BlogHelper {
 		String 					entryTemplate 	= null;
 		String 					html			= "";
 		ArrayList<BlogEntry>	entries			= null;
-		BlogFacade				facade			= null;
 		SimpleDateFormat		format			= null;	
 		
 		try {
@@ -94,8 +90,7 @@ public class BlogHelper {
 			logger.error( Definitions.LOGGER_ERROR_7 );
 		}
 		
-		facade = new BlogFacade( );
-		entries = facade.getLatestBlogEntries( );
+		entries = BlogManager.getLatestBlogEntries( );
 		
 		for( BlogEntry entry : entries ){
 			String tmp = new String( entryTemplate );

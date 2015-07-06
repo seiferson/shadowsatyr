@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.seifernet.shadowsatyr.facade.ArticleFacade;
 import com.seifernet.shadowsatyr.persistance.dto.Article;
 import com.seifernet.snwf.bean.Bean;
 import com.seifernet.snwf.exception.ValidationException;
@@ -26,7 +25,7 @@ public class ArticleHelper {
 		String			title	= null;
 		String			content	= null;
 		String			author	= null;
-		ArticleFacade 	facade 	= null;
+		//ArticleFacade 	facade 	= null;
 		
 		try{
 			title = FormValidator.parseParameter( request.getParameter( "article-title" ) );
@@ -42,8 +41,8 @@ public class ArticleHelper {
 				article.setContent( content );
 				article.setAuthor( author );
 				
-				facade = new ArticleFacade( );
-				facade.createArticle( article );
+				//facade = new ArticleFacade( );
+				//facade.createArticle( article );
 			}
 		} catch( ValidationException e ){
 			
