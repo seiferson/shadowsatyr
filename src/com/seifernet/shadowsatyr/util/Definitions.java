@@ -21,7 +21,6 @@ public class Definitions {
 	public static final String URL_ACCOUNT_CREATED 			= "/shadowsatyr/login?acc=1";
 	public static final String URL_ACCOUNT_CREATION_ERROR 	= "/shadowsatyr/login?acc=0";
 	
-	
 	public static final String LOGGER_ERROR_1 = "Error setting encoding to request, unsupported enconding";
 	public static final String LOGGER_ERROR_2 = "Error on http client, unsupported enconding";
 	public static final String LOGGER_ERROR_3 = "Error on http client, client protocol";
@@ -47,7 +46,7 @@ public class Definitions {
 	public static final String JSON_ERROR_EMPTY_NICKNAME	= "{\"status\":\"err\", \"error\":\"empty_nick\"}";
 	public static final String JSON_ERROR_EMPTY_MAIL		= "{\"status\":\"err\", \"error\":\"empty_mail\"}";
 	
-	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "Bearer a614a0e43fa36c177e154c000470970770af328ad4818925392ea52ea2649093";
+	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "Bearer";
 	public static final String DIGITALOCEAN_API_HOST = "api.digitalocean.com";
 	public static final String DIGITALOCEAN_API_DROPLET_PATH = "/v2/droplets";
 	

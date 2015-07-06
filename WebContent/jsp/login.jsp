@@ -15,7 +15,7 @@
 							<div class="form-group">
 								<div class="input-group">
 									<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-									<input type="text" class="form-control" id="account" name="account" placeholder="User">
+									<input type="text" class="form-control" id="account" name="account" placeholder="User" autofocus>
 								</div>
 							</div>
 							<div class="form-group">

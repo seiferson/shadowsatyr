@@ -43,10 +43,6 @@
 									</div>
 									<textarea class="form-control" id="article-content" name="article-content" rows="15"></textarea>
 								</div>
-								<div class="form-group">
-									<label for="article-title">Author:</label>
-									<input type="text" maxlength="100" id="article-author" class="form-control" name="article-author"/>
-								</div>
 								<div class="pull-right">
 									<button type="button" class="btn btn-default">Publish article</button>
 									<button type="button" class="btn btn-default" onclick="preview( )">Preview</button>

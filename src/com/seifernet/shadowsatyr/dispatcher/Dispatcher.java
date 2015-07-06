@@ -9,6 +9,7 @@ import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.helper.AccountHelper;
 import com.seifernet.shadowsatyr.helper.AdminHelper;
+import com.seifernet.shadowsatyr.helper.ArticleHelper;
 import com.seifernet.shadowsatyr.helper.BlogHelper;
 import com.seifernet.shadowsatyr.helper.ErrorHelper;
 import com.seifernet.shadowsatyr.helper.IndexHelper;
@@ -51,6 +52,9 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.CREATE_USER:
 				responseType = SNWFDefinitions.HTTP_REDIRECT;
 				return IndexHelper.createUser( request, response );
+			case Definitions.CREATE_ARTICLE:
+				ArticleHelper.createArticle( request, response );
+				break;
 			case Definitions.VALIDATE_NICK_NAME:
 				responseType = SNWFDefinitions.JSON_RESPONSE;
 				return IndexHelper.validateNickname( request, response );

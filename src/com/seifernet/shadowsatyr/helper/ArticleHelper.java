@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.seifernet.shadowsatyr.facade.ArticleFacade;
-import com.seifernet.shadowsatyr.markdown.Parser;
 import com.seifernet.shadowsatyr.persistance.dto.Article;
 import com.seifernet.snwf.bean.Bean;
 import com.seifernet.snwf.exception.ValidationException;
@@ -20,17 +19,6 @@ public class ArticleHelper {
 		bean = new Bean( );
 		bean.setLayout( "system.create_article" );
 		request.setAttribute( "Bean" , bean );
-	}
-	
-	public static String previewArticle( HttpServletRequest request, HttpServletResponse response ){
-		String 				inText 		= null;
-		String				outText		= null;
-		
-		if( request.getParameter( "article-content" ) != null ){
-			inText = request.getParameter( "article-content" );
-		}
-		outText = new Parser( ).parse( inText );
-		return outText;
 	}
 	
 	public static void saveArticle( HttpServletRequest request, HttpServletResponse response ){
