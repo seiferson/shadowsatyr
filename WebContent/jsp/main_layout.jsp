@@ -10,18 +10,10 @@
 		<link rel="shortcut icon" href="/img/favicon.ico" />
 		<link href="/css/bootstrap.css" rel="stylesheet">
 		<link href="/css/style.css" rel="stylesheet">
+		<tiles:insertAttribute name="css_includes" />
 	</head>
 	<body>
 		<tiles:insertAttribute name="navbar" />
-		
-		<header class="jumbotron primary-color">
-			<div class="container">
-				<h1>ShadowSatyr!</h1>
-				<p>
-					seifernet.com CMS
-				</p>
-			</div>
-		</header>
 		
 		<tiles:insertAttribute name="body" />
 		
@@ -30,6 +22,7 @@
 		</footer>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
+		
 		<tiles:insertAttribute name="js_includes" />
 	</body>
 </html>

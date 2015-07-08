@@ -5,38 +5,45 @@
 	
 <tiles-definitions>
 	
-	<definition name="navbar_menu" template="/jsp/navbar_menu.jsp">
-	</definition>
-	
-	<definition name="system.login" template="/jsp/clear_layout.jsp">
+	<definition name="system.login" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/login_css.jsp" />
+		<put-attribute name="navbar" value="/jsp/empty.jsp" />
 		<put-attribute name="body" value="/jsp/login.jsp" />
 		<put-attribute name="js_includes" value="/jsp/login_js.jsp" />
 	</definition>
 	
-	<definition name="system.error500" template="/jsp/clear_layout.jsp">
+	<definition name="system.index" template="/jsp/main_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
+		<put-attribute name="body" value="/jsp/index.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+	</definition>
+	
+	<definition name="system.error500" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/error_css.jsp" />
+		<put-attribute name="navbar" value="/jsp/empty.jsp" />
 		<put-attribute name="body" value="/jsp/error_500.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
 	<definition name="system.error404" template="/jsp/clear_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/error_css.jsp" />
+		<put-attribute name="navbar" value="/jsp/empty.jsp" />
 		<put-attribute name="body" value="/jsp/error_404.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
-	<definition name="system.index" template="/jsp/main_layout.jsp">
-		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
-		<put-attribute name="body" value="/jsp/index.jsp" />
-		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
-	</definition>
-	
 	<definition name="system.index_user" template="/jsp/main_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
 		<put-attribute name="body" value="/jsp/index.jsp" />
 		<put-attribute name="js_includes" value="/jsp/index_js.jsp" />
 	</definition>
+	
+	<definition name="navbar_menu" template="/jsp/navbar_menu.jsp" />
+	
+	
+	
 	
 	<definition name="system.user_profile_auth" template="/jsp/navbar_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/profile_css.jsp" />

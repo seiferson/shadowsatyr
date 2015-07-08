@@ -2,6 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+		
+		<header class="jumbotron primary-color">
+			<div class="container">
+				<h1>ShadowSatyr!</h1>
+				<p>
+					seifernet.com CMS
+				</p>
+			</div>
+		</header>
 
 		<div class="container">
 			<div class="row">
