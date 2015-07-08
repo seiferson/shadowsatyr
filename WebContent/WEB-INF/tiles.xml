@@ -42,24 +42,21 @@
 	
 	<definition name="navbar_menu" template="/jsp/navbar_menu.jsp" />
 	
-	
-	
-	
-	<definition name="system.user_profile_auth" template="/jsp/navbar_layout.jsp">
+	<definition name="system.user_profile_auth" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/profile_css.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
 		<put-attribute name="body" value="/jsp/user_profile.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
-	<definition name="system.user_profile" template="/jsp/navbar_layout.jsp">
+	<definition name="system.user_profile" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/profile_css.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/user_profile.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
-	<definition name="system.dashboard" template="/jsp/navbar_layout.jsp">
+	<definition name="system.dashboard" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/dashboard_css.jsp" />
 		<put-attribute name="navbar" value="/jsp/fixed_navbar_user.jsp" />
 		<put-attribute name="body" value="/jsp/admin_dashboard.jsp" />
@@ -67,8 +64,10 @@
 	</definition>
 	
 	<definition name="system.create_article" template="/jsp/main_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/create_article.jsp" />
 		<put-attribute name="js_includes" value="/jsp/previewjs.jsp" />
 	</definition>
+	
 </tiles-definitions>
