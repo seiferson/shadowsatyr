@@ -2,7 +2,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-12">
 					<div class="page-header">
 						<h1>New article <small>seifernet.com</small></h1>
 					</div>
@@ -11,8 +11,12 @@
 						the markdown language or simple plain text, the 
 						HTML or other languages are not supported.
 					</p>
-					<div class="panel panel-default">
-						<div class="panel-body">
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit</a></li>
+						<li role="presentation"><a href="#preview" aria-controls="preview" role="tab" data-toggle="tab">Preview</a></li>
+					</ul>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="edit">
 							<form method="POST" action="/shadowsatyr/saveArticle" id="article-form">
 								<div class="form-group">
 									<label for="article-title">Title:</label>
@@ -41,33 +45,16 @@
 											<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal"></span></button>
 										</div>
 									</div>
-									<textarea class="form-control" id="article-content" name="article-content" rows="15"></textarea>
+									<textarea class="form-control" id="article-content" name="article-content" rows="15" oninput="preview( )"></textarea>
 								</div>
 								<div class="pull-right">
-									<button type="button" class="btn btn-default">Publish article</button>
-									<button type="button" class="btn btn-default" onclick="preview( )">Preview</button>
+									<button type="button" class="btn btn-default">Create article</button>
 								</div>
 							</form>
 						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-				</div>
-			</div>
-		</div>
-		
-		<div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="preview" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="previewLabel">Article preview</h4>
-					</div>
-					<div class="modal-body">
-						<div id="preview-content">
+						<div role="tabpanel" class="tab-pane active" id="preview">
+							<div id="preview-content"></div>
 						</div>
-					</div>
-						<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
