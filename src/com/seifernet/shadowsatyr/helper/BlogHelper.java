@@ -24,31 +24,42 @@ import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.exception.ValidationException;
 import com.seifernet.snwf.util.FormValidator;
 
+/**
+ * Helper for microblog operations 
+ * 
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ */
 public class BlogHelper {
 
 	private static Logger logger = Logger.getLogger( BlogHelper.class );
 	
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	public static String createBlogEntry( HttpServletRequest request, HttpServletResponse response ) {
-		Session		session = null;
-		Subject		subject	= null;
-		String		content	= null;
-		BlogEntry	entry	= null;
+		Subject	subject	= SecurityUtils.getSubject( );
 		
-		subject = SecurityUtils.getSubject( );
 		if( subject.isAuthenticated( ) ){
-			session = SessionManager.getSession( subject );
+			String content = request.getParameter( "blog-content" );
 			
 			try {
-				content = FormValidator.parseParameter( request.getParameter( "blog-content" ) );
+				content = FormValidator.parseParameter( content );
 			} catch( ValidationException e ){
-				logger.error( Definitions.LOGGER_ERROR_6 );
+				logger.error( Definitions.LOGGER_ERROR_BLOG_CREATION );
 				return Definitions.JSON_ERROR_EMPTY_MESSAGE;
 			}
 			
 			if( FormValidator.validateParameter( content ) ){
 				
+				BlogEntry entry	= null;
 				entry = new BlogEntry( );
-				entry.setAuthor( ( Account )session.getAttribute( "user_data" ) );
+				entry.setAuthor( ( Account )SessionManager.getSession( subject ).getAttribute( "user_data" ) );
 				entry.setMessage( content );
 				entry.setDate( new Date( ) );
 				
@@ -87,7 +98,7 @@ public class BlogHelper {
 		try {
 			entryTemplate = IOUtils.toString( request.getServletContext( ).getResourceAsStream( "/jsp/blog_entry.jsp" ) );
 		} catch( IOException e ){
-			logger.error( Definitions.LOGGER_ERROR_7 );
+			logger.error( Definitions.LOGGER_ERROR_BLOG_TEMPLATE );
 		}
 		
 		entries = BlogManager.getLatestBlogEntries( );

@@ -1,8 +1,5 @@
 package com.seifernet.shadowsatyr.bean;
 
-import com.seifernet.shadowsatyr.persistance.dto.Account;
-import com.seifernet.snwf.bean.Bean;
-
 /**
  * Bean with data to show admin dashboard, 
  * includes application and server logs.
@@ -12,26 +9,12 @@ import com.seifernet.snwf.bean.Bean;
  * @since 1.0.0
  *
  */
-public class DashboardBean extends Bean{
+public class DashboardBean extends SystemBean{
 
 	private static final long serialVersionUID = 1L;
-	private Account userData;
+			
 	private String serverLog;
 	private String applicationLog;
-	
-	/**
-	 * @return the userData
-	 */
-	public Account getUserData( ) {
-		return userData;
-	}
-	
-	/**
-	 * @param userData the userData to set
-	 */
-	public void setUserData( Account userData ) {
-		this.userData = userData;
-	}
 
 	/**
 	 * @return the serverLog

@@ -54,7 +54,7 @@ public class AdminHelper {
 		bean.setLayout( "system.dashboard" );
 		bean.setApplicationLog( appLog );
 		bean.setServerLog( serverLog );
-		bean.setUserData( ( Account )session.getAttribute( "user_data" ) );
+		bean.setAccount( ( Account )session.getAttribute( "user_data" ) );
 		request.setAttribute( "Bean", bean );
 	}
 	

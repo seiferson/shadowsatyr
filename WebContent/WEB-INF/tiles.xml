@@ -26,7 +26,7 @@
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
-	<definition name="system.error404" template="/jsp/clear_layout.jsp">
+	<definition name="system.error404" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/error_css.jsp" />
 		<put-attribute name="navbar" value="/jsp/empty.jsp" />
 		<put-attribute name="body" value="/jsp/error_404.jsp" />
@@ -65,7 +65,7 @@
 	
 	<definition name="system.create_article" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
-		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
+		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
 		<put-attribute name="body" value="/jsp/create_article.jsp" />
 		<put-attribute name="js_includes" value="/jsp/previewjs.jsp" />
 	</definition>

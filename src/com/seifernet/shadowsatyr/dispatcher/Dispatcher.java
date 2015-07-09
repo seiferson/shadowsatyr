@@ -36,7 +36,7 @@ public class Dispatcher implements DispatcherHelper{
 		try{ 
 			request.setCharacterEncoding( SNWFDefinitions.UTF8_CHARSET );
 		} catch( UnsupportedEncodingException e ){
-			logger.error( Definitions.LOGGER_ERROR_1 );
+			logger.error( Definitions.LOGGER_ERROR_ENCODING );
 		}
 		
 		switch( action ){
@@ -46,33 +46,37 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.LOGIN:
 				IndexHelper.login( request, response );
 				break;
-			case Definitions.HASHTAG:
-				BlogHelper.hashtag( request, response );
-				break;
-			case Definitions.CREATE_USER:
+			case Definitions.CREATE_ACCOUNT:
 				responseType = SNWFDefinitions.HTTP_REDIRECT;
-				return IndexHelper.createUser( request, response );
-			case Definitions.CREATE_ARTICLE:
-				ArticleHelper.createArticle( request, response );
-				break;
+				return IndexHelper.createAccount( request, response );
 			case Definitions.VALIDATE_NICK_NAME:
 				responseType = SNWFDefinitions.JSON_RESPONSE;
 				return IndexHelper.validateNickname( request, response );
 			case Definitions.VALIDATE_MAIL:
 				responseType = SNWFDefinitions.JSON_RESPONSE;
 				return IndexHelper.validateMail( request, response );
+			case Definitions.PROFILE:
+				AccountHelper.profile( request, response );
+				break;	
+				
+			case Definitions.HASHTAG:
+				BlogHelper.hashtag( request, response );
+				break;
+			case Definitions.CREATE_ARTICLE:
+				ArticleHelper.createArticle( request, response );
+				break;
 			case Definitions.CREATE_BLOG_ENTRY:
 				responseType = SNWFDefinitions.JSON_RESPONSE;
 				return BlogHelper.createBlogEntry( request, response );
 			case Definitions.LATEST_BLOG_ENTRIES:
 				responseType = SNWFDefinitions.HTML_RESPONSE;
 				return BlogHelper.latestBlogEntries( request, response );
-			case Definitions.USER_PROFILE:
-				AccountHelper.userProfile( request, response );
-				break;
+			
 			case Definitions.DASHBOARD:
 				AdminHelper.dashboard( request, response );
 				break;
+				
+				
 			case Definitions.ERROR_500:
 				ErrorHelper.error500( request, response );
 				break;

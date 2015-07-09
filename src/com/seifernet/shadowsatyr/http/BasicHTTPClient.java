@@ -80,13 +80,13 @@ public class BasicHTTPClient {
 			response = client.execute( post );
 			responseStr = IOUtils.toString( response.getEntity( ).getContent( ) );
 		} catch( UnsupportedEncodingException e ){
-			logger.error( Definitions.LOGGER_ERROR_2 );
+			logger.error( Definitions.LOGGER_ERROR_HTTP_CLIENT_ENCONDING );
 		} catch( ClientProtocolException e ) {
-			logger.error( Definitions.LOGGER_ERROR_3 );
+			logger.error( Definitions.LOGGER_ERROR_CLIENT_PROTOCOL );
 		} catch( IOException e ) {
-			logger.error( Definitions.LOGGER_ERROR_4 );
+			logger.error( Definitions.LOGGER_ERROR_IO );
 		} catch( Exception e ){
-			logger.error( Definitions.LOGGER_ERROR_5 );
+			logger.error( Definitions.LOGGER_ERROR_UNKNOWN );
 		} finally{
 			if( response != null ){
 				try{
@@ -146,13 +146,13 @@ public class BasicHTTPClient {
 			response = client.execute( get );
 			responseStr = IOUtils.toString( response.getEntity( ).getContent( ) );
 		} catch( UnsupportedEncodingException e ){
-			logger.error( Definitions.LOGGER_ERROR_2 );
+			logger.error( Definitions.LOGGER_ERROR_HTTP_CLIENT_ENCONDING );
 		} catch( ClientProtocolException e ) {
-			logger.error( Definitions.LOGGER_ERROR_3 );
+			logger.error( Definitions.LOGGER_ERROR_CLIENT_PROTOCOL );
 		} catch( IOException e ) {
-			logger.error( Definitions.LOGGER_ERROR_4 );
+			logger.error( Definitions.LOGGER_ERROR_IO );
 		} catch( Exception e ){
-			logger.error( Definitions.LOGGER_ERROR_5 );
+			logger.error( Definitions.LOGGER_ERROR_UNKNOWN );
 		} finally{
 			if( response != null ){
 				try{

@@ -2,29 +2,21 @@ package com.seifernet.shadowsatyr.bean;
 
 import java.util.ArrayList;
 
-import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
-import com.seifernet.snwf.bean.Bean;
 
-public class IndexBean extends Bean{
+/**
+ * Bean to show content on the welcome page
+ * 
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
+ * @since 1.0.0
+ * @version 1.0.0
+ *
+ */
+public class IndexBean extends SystemBean{
 	
 	private static final long serialVersionUID = 1L;
-	private Account userData;
+	
 	private ArrayList<BlogEntry> latestBlogEntries;
-	
-	/**
-	 * @return the userData
-	 */
-	public Account getUserData( ) {
-		return userData;
-	}
-	
-	/**
-	 * @param userData the userData to set
-	 */
-	public void setUserData( Account userData ) {
-		this.userData = userData;
-	}
 
 	/**
 	 * @return the latestBlogEntries

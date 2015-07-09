@@ -4,29 +4,22 @@ import java.util.ArrayList;
 
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
-import com.seifernet.snwf.bean.Bean;
 
-public class UserProfileBean extends Bean{
+/**
+ * 
+ * Bean to show content on the profile page
+ * 
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
+ * @since 1.0.0
+ * @version 1.0.0
+ *
+ */
+public class ProfileBean extends SystemBean{
 
 	private static final long serialVersionUID = 1L;
-	private Account userData;
 	private Account profile;
 	private ArrayList<BlogEntry> blogEntries;
 	
-	/**
-	 * @return the userData
-	 */
-	public Account getUserData( ) {
-		return userData;
-	}
-	
-	/**
-	 * @param userData the userData to set
-	 */
-	public void setUserData( Account userData ) {
-		this.userData = userData;
-	}
-
 	/**
 	 * @return the profile
 	 */

@@ -4,46 +4,54 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.jboss.logging.Logger;
 
-import com.seifernet.shadowsatyr.bean.UserProfileBean;
+import com.seifernet.shadowsatyr.bean.ProfileBean;
 import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
+import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.util.FormValidator;
 
+/**
+ * Helper for account operations
+ * 
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ */
 public class AccountHelper {
 
-	public static void userProfile( HttpServletRequest request, HttpServletResponse response ) {
-		UserProfileBean bean 	= null;
-		String			user 	= null;
-		Session			session = null;
-		Subject			subject	= null;
-		Account			profile	= null;
+	private Logger logger = Logger.getLogger( AccountHelper.class );
+	
+	/**
+	 * Load specific account profile
+	 * 
+	 * @param request Servlet request
+	 * @param response Servlet response
+	 */
+	public static void profile( HttpServletRequest request, HttpServletResponse response ) {
+		String account = request.getParameter( "account" );
 		
-		
-		bean = new UserProfileBean( );
-		subject = SecurityUtils.getSubject( );
-		
-		user = request.getParameter( "account" );
-		if( !FormValidator.validateParameter( user ) || AccountManager.getAccountByNickname( user ) == null ){
+		if( !FormValidator.validateParameter( account ) || AccountManager.getAccountByNickname( account ) == null ){
 			ErrorHelper.error404( request, response );
 		} else {
-			profile = AccountManager.getAccountByNickname( user );
+			Subject subject = SecurityUtils.getSubject( );
+			ProfileBean bean = new ProfileBean( );
+			
 			if( subject.isAuthenticated( ) ){
-				session = SessionManager.getSession( subject );
-				
-				bean.setUserData( ( Account )session.getAttribute( "user_data" ) );
-				bean.setProfile( profile );
-				bean.setLayout( "system.user_profile_auth" );
+				bean.setLayout( Definitions.PROFILE_AUTH_TILES_DEF );
+				bean.setAccount( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
 			} else {
-				bean.setProfile( profile );
-				bean.setLayout( "system.user_profile" );
+				bean.setLayout( Definitions.PROFILE_TILES_DEF );
 			}
+			
+			bean.setProfile( AccountManager.getAccountByNickname( account ) );
 			bean.setBlogEntries( BlogManager.getBlogEntries( bean.getProfile( ) ) );
-			request.setAttribute( "Bean" , bean );
+			request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 		}
 	}
 

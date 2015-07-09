@@ -76,7 +76,7 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 			key = ( PK )getSession( ).save( object );
 			transaction.commit( );
 		} catch( Exception e ){
-			logger.error( Definitions.LOGGER_ERROR_8 );
+			logger.error( Definitions.LOGGER_ERROR_HIBERNATE );
 			transaction.rollback( );
 		}
 		return key;
@@ -98,7 +98,7 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 			session.update( object );
 			transaction.commit( );
 		} catch( Exception e ){
-			logger.error( Definitions.LOGGER_ERROR_8 );
+			logger.error( Definitions.LOGGER_ERROR_HIBERNATE );
 			transaction.rollback( );
 		}
 	}
@@ -119,7 +119,7 @@ public abstract class GenericDAO <T, PK extends Serializable> implements Abstrac
 			session.delete( object );
 			transaction.commit( );
 		} catch( Exception e ){
-			logger.error( Definitions.LOGGER_ERROR_8 );
+			logger.error( Definitions.LOGGER_ERROR_HIBERNATE );
 			transaction.rollback( );
 		}
 	}

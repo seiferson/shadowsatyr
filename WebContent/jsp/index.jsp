@@ -28,6 +28,11 @@
 					</div>
 					</shiro:authenticated>
 					<div id="latestEntries">
+						<c:if test="${ empty Bean.latestBlogEntries}">
+							<div class="alert alert-success text-center" role="alert">
+								<strong>:) There's no entries yet</strong>
+							</div>
+						</c:if>
 						<c:forEach var="entry" items="${Bean.latestBlogEntries}">
 						<article class="well">
 							<div class="row">
