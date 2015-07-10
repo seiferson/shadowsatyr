@@ -28,10 +28,10 @@ public class DatabaseTest {
 			
 			connection.close( );
 		} catch( NamingException e ){
-			logger.error( Definitions.LOGGER_ERROR_9 );
+			logger.error( Definitions.LOGGER_ERROR_DATABASE_TESTING );
 			return false;
 		} catch ( SQLException e ) {
-			logger.error( Definitions.LOGGER_ERROR_9 );
+			logger.error( Definitions.LOGGER_ERROR_DATABASE_TESTING );
 			return false;
 		}
 		

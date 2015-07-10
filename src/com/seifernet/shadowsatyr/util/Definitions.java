@@ -12,30 +12,24 @@ public class Definitions {
 	public static final String ERROR_500			= "/error500";
 	public static final String ERROR_404			= "/error404";
 	public static final String PROFILE				= "/profile";
-	
-	public static final String CREATE_BLOG_ENTRY 	= "/user/createBlogEntry";
-	public static final String LATEST_BLOG_ENTRIES 	= "/user/latestBlogEntries";
-	public static final String DASHBOARD 			= "/user/dashboard";
+	public static final String LATEST_BLOG_ENTRIES 	= "/latestblogentries";
 	public static final String HASHTAG				= "/hashtag";
-	public static final String CREATE_ARTICLE 		= "/user/createArticle";
-	public static final String PREVIEW_ARTICLE 		= "/user/previewArticle";
-
+	public static final String CREATE_BLOG_ENTRY 	= "/user/createblogentry";
+	public static final String DASHBOARD 			= "/user/dashboard";
+	public static final String CREATE_ARTICLE 		= "/user/createarticle";
 	
-	public static final String ACCOUNT_SESSION_PARAM_NAME 	= "account_data";
-	public static final String BEAN_REQUEST_PARAM_NAME 		= "bean";
-	
+	/* -- Apache Tiles definitions -- */
 	public static final String INDEX_TILES_DEF 			= "system.index";
 	public static final String INDEX_USER_TILES_DEF 	= "system.index_user";
 	public static final String LOGIN_TILES_DEF			= "system.login";
 	public static final String ERROR_404_TILES_DEF 		= "system.error404";
 	public static final String ERROR_500_TILES_DEF		= "system.error500";
+	public static final String ERROR_403_TILES_DEF		= "system.error403";
 	public static final String PROFILE_AUTH_TILES_DEF	= "system.profile_auth";
 	public static final String PROFILE_TILES_DEF		= "system.profile";
+	public static final String DASHBOARD_TILES_DEF		= "system.dashboard";
 	
-	public static final String ACCOUNT_CREATED_URL 			= "/shadowsatyr/login?acc=1";
-	public static final String ACCOUNT_CREATION_ERROR_URL 	= "/shadowsatyr/login?acc=0";
-	public static final String INDEX_URL					= "/shadowsatyr/index";
-	
+	/* --Logger errors -- */
 	public static final String LOGGER_ERROR_ENCODING 				= "Error setting encoding to request, unsupported enconding";
 	public static final String LOGGER_ERROR_HTTP_CLIENT_ENCONDING 	= "Error on http client, unsupported enconding";
 	public static final String LOGGER_ERROR_CLIENT_PROTOCOL 		= "Error on http client, client protocol";
@@ -44,16 +38,12 @@ public class Definitions {
 	public static final String LOGGER_ERROR_BLOG_CREATION 			= "Error creating blog entry, null value on request parameter";
 	public static final String LOGGER_ERROR_BLOG_TEMPLATE 			= "Error loading blog entry template";
 	public static final String LOGGER_ERROR_HIBERNATE 				= "Error executing hibernate task";
-	public static final String LOGGER_ERROR_9 = "Error testing database connection, default datasource is not available";
+	public static final String LOGGER_ERROR_DATABASE_TESTING 		= "Error testing database connection, default datasource is not available";
+	public static final String LOGGER_ERROR_FILE_NOT_FOUND 			= "Error opening file, file not found";
+	public static final String LOGGER_ERROR_UNAUTHORIZED			= "Error accessing a system feature, this account is not allowed: ";
+	public static final String LOGGER_ERROR_ACCOUNT_PROFILE			= "Error getting data from requested account, invalid account";
 	
-	public static final String LOGGER_DEBUG_1 = "Deploying system, starting system configuration";
-	public static final String LOGGER_DEBUG_2 = "Testing default database connection: ";
-	public static final String LOGGER_DEBUG_3 = "Database not available, skipping database validation/configuration";
-	public static final String LOGGER_DEBUG_4 = "Success datasource testing";
-	
-	public static final String HTTP = "http";
-	public static final String HTTPS = "https";
-	
+	/* -- JSON definitions -- */
 	public static final String JSON_OK_RESPONSE 			= "{\"status\":\"ok\"}";
 	public static final String JSON_ERROR_NOT_AUTHENTICATED = "{\"status\":\"err\", \"error\":\"not_auth\"}";
 	public static final String JSON_ERROR_EMPTY_MESSAGE 	= "{\"status\":\"err\", \"error\":\"empty_msg\"}";
@@ -61,13 +51,22 @@ public class Definitions {
 	public static final String JSON_ERROR_EMPTY_NICKNAME	= "{\"status\":\"err\", \"error\":\"empty_nick\"}";
 	public static final String JSON_ERROR_EMPTY_MAIL		= "{\"status\":\"err\", \"error\":\"empty_mail\"}";
 	
-	public static final String DIGITALOCEAN_API_ACCESS_TOKEN = "Bearer";
-	public static final String DIGITALOCEAN_API_HOST = "api.digitalocean.com";
-	public static final String DIGITALOCEAN_API_DROPLET_PATH = "/v2/droplets";
+	/* -- Parameter names -- */
+	public static final String ACCOUNT_SESSION_PARAM_NAME 		= "account_data";
+	public static final String BEAN_REQUEST_PARAM_NAME 			= "bean";
+	public static final String DATABASE_TEST_RESULT_PARAM_NAME 	= "database_test";
 	
+	/* -- Redirect URLs -- */
+	public static final String ACCOUNT_CREATED_URL 			= "/shadowsatyr/login?acc=1";
+	public static final String ACCOUNT_CREATION_ERROR_URL 	= "/shadowsatyr/login?acc=0";
+	public static final String INDEX_URL					= "/shadowsatyr/index";
+	
+	/* -- Default datasource -- */
 	public static final String SHADOW_SATYR_DEFAULT_DATASOURCE 	= "java:jboss/datasources/shadowsatyr";
-	public static final String SHADOW_SATYR_DATABASE_TEST 		= "database_test";
 	
+	/* -- Permission list -- */
+	public static final String SYSTEM_ADMIN_DASHBOARD_PERMISSION = "system:admin:dashboard";
 	
-	
+	public static final String HTTP = "http";
+	public static final String HTTPS = "https";
 }

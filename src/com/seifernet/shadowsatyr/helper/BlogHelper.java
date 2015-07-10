@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.jboss.logging.Logger;
 
@@ -37,10 +36,11 @@ public class BlogHelper {
 	private static Logger logger = Logger.getLogger( BlogHelper.class );
 	
 	/**
+	 * Method for blog entry creation
 	 * 
-	 * @param request
-	 * @param response
-	 * @return
+	 * @param request Servlet request
+	 * @param response Servlet response
+	 * @return JSON encoded text with response
 	 */
 	public static String createBlogEntry( HttpServletRequest request, HttpServletResponse response ) {
 		Subject	subject	= SecurityUtils.getSubject( );
@@ -57,9 +57,8 @@ public class BlogHelper {
 			
 			if( FormValidator.validateParameter( content ) ){
 				
-				BlogEntry entry	= null;
-				entry = new BlogEntry( );
-				entry.setAuthor( ( Account )SessionManager.getSession( subject ).getAttribute( "user_data" ) );
+				BlogEntry entry	= new BlogEntry( );
+				entry.setAuthor( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
 				entry.setMessage( content );
 				entry.setDate( new Date( ) );
 				
@@ -77,50 +76,59 @@ public class BlogHelper {
 				}
 				
 				entry.setHashtags( hashtags );
-				
 				BlogManager.createBlogEntry( entry );
 			} else {
 				return Definitions.JSON_ERROR_EMPTY_MESSAGE;
 			}
-			
 			return Definitions.JSON_OK_RESPONSE;
 		} else{
 			return Definitions.JSON_ERROR_NOT_AUTHENTICATED;
 		}
 	}
 
+	/**
+	 * Returns the last 5 blog entries
+	 * 
+	 * @param request Servlet request
+	 * @param response Servlet response
+	 * @return HTML encoded text with response
+	 */
 	public static String latestBlogEntries( HttpServletRequest request, HttpServletResponse response ) {
-		String 					entryTemplate 	= null;
-		String 					html			= "";
-		ArrayList<BlogEntry>	entries			= null;
-		SimpleDateFormat		format			= null;	
+		String htmlResponse	= "";
+		String template 	= null;
 		
 		try {
-			entryTemplate = IOUtils.toString( request.getServletContext( ).getResourceAsStream( "/jsp/blog_entry.jsp" ) );
+			template = IOUtils.toString( request.getServletContext( ).getResourceAsStream( "/jsp/blog_entry.jsp" ) );
 		} catch( IOException e ){
 			logger.error( Definitions.LOGGER_ERROR_BLOG_TEMPLATE );
+			return htmlResponse;
 		}
 		
-		entries = BlogManager.getLatestBlogEntries( );
-		
+		ArrayList<BlogEntry> entries = BlogManager.getLatestBlogEntries( );;
 		for( BlogEntry entry : entries ){
-			String tmp = new String( entryTemplate );
+			String tmp = new String( template );
 			
 			tmp = tmp.replace( "${entry.author.mailMD5}" , entry.getAuthor( ).getMailMD5( ) );
 			tmp = tmp.replace( "${entry.author.nickname}" , entry.getAuthor( ).getNickname( ) );
 			tmp = tmp.replace( "${entry.message}", entry.getMessage( ) );
 			
-			format = new SimpleDateFormat( "dd/MM/yyyy HH:mm" );
+			SimpleDateFormat format = new SimpleDateFormat( "dd/MM/yyyy HH:mm" );
 			tmp = tmp.replace( "${entry.date}" , format.format( entry.getDate( ) ) );
 
-			html += tmp;
+			htmlResponse += tmp;
 		}
 		
-		return html;
+		return htmlResponse;
 	}
 
+	/**
+	 * Gets all the blog entries related to specific hashtag
+	 * 
+	 * @param request Servlet request
+	 * @param response Servlet response
+	 */
 	public static void hashtag( HttpServletRequest request, HttpServletResponse response ) {
-		
+		//TODO develop
 	}
 	
 }

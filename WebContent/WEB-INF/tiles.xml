@@ -33,6 +33,13 @@
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
+	<definition name="system.error403" template="/jsp/main_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/error_css.jsp" />
+		<put-attribute name="navbar" value="/jsp/empty.jsp" />
+		<put-attribute name="body" value="/jsp/error_403.jsp" />
+		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+	</definition>
+	
 	<definition name="system.index_user" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />

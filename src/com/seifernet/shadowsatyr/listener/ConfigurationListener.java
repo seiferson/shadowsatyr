@@ -32,14 +32,14 @@ public class ConfigurationListener implements ServletContextListener{
 	@Override
 	public void contextInitialized( ServletContextEvent event ) {
 		
-		logger.debug( Definitions.LOGGER_DEBUG_1 );
-		logger.debug( Definitions.LOGGER_DEBUG_2 + Definitions.SHADOW_SATYR_DEFAULT_DATASOURCE );
+		logger.info( "Deploying system, starting system configuration" );
+		logger.info( "Testing default database connection: " + Definitions.SHADOW_SATYR_DEFAULT_DATASOURCE );
 		if( !DatabaseTest.testDatabase( Definitions.SHADOW_SATYR_DEFAULT_DATASOURCE ) ){
-			logger.debug( Definitions.LOGGER_DEBUG_3 );
-			event.getServletContext( ).setAttribute( Definitions.SHADOW_SATYR_DATABASE_TEST , false );
+			logger.info( "Database not available, skipping database validation/configuration");
+			event.getServletContext( ).setAttribute( Definitions.DATABASE_TEST_RESULT_PARAM_NAME, false );
 		} else {
-			logger.debug( Definitions.LOGGER_DEBUG_4 );
-			event.getServletContext( ).setAttribute( Definitions.SHADOW_SATYR_DATABASE_TEST , true );
+			logger.info( "Success datasource testing" );
+			event.getServletContext( ).setAttribute( Definitions.DATABASE_TEST_RESULT_PARAM_NAME, true );
 			SessionFactoryManager.initializeSessionFactory(  );
 		}
 	}

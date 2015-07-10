@@ -25,7 +25,7 @@ import com.seifernet.snwf.util.FormValidator;
  */
 public class AccountHelper {
 
-	private Logger logger = Logger.getLogger( AccountHelper.class );
+	private static Logger logger = Logger.getLogger( AccountHelper.class );
 	
 	/**
 	 * Load specific account profile
@@ -37,6 +37,7 @@ public class AccountHelper {
 		String account = request.getParameter( "account" );
 		
 		if( !FormValidator.validateParameter( account ) || AccountManager.getAccountByNickname( account ) == null ){
+			logger.error( Definitions.LOGGER_ERROR_ACCOUNT_PROFILE );
 			ErrorHelper.error404( request, response );
 		} else {
 			Subject subject = SecurityUtils.getSubject( );

@@ -9,53 +9,75 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.input.ReversedLinesFileReader;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.bean.DashboardBean;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
+import com.seifernet.shadowsatyr.util.Definitions;
 
+/**
+ * Helper for system administration tasks
+ * 
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ */
 public class AdminHelper {
 
+	private static Logger logger = Logger.getLogger( AdminHelper.class );
+	
+	/**
+	 * Shows a dashboard with useful information and 
+	 * options related to the CMS managment
+	 * 
+	 * @param request Servlet request
+	 * @param response Servlet response
+	 */
 	public static void dashboard( HttpServletRequest request, HttpServletResponse response ) {
-		DashboardBean 	bean 		= null;
-		Session			session 	= null;
-		Subject			subject		= null;
-		String			appLog		= "";
-		String			serverLog	= "";
-		String			tmpLine		= null;
-		ReversedLinesFileReader		reader		= null;	
-		Integer			nLines		= 0;
+		Subject	subject = SecurityUtils.getSubject( );
 		
-		bean = new DashboardBean( );
-		subject = SecurityUtils.getSubject( );
-		session = SessionManager.getSession( subject );
-		
-		try{ 
-			reader = new ReversedLinesFileReader( new File( System.getProperty("jboss.server.log.dir") + "/shadowsatyr.log" ) );
-			while( ( tmpLine = reader.readLine( ) ) != null && nLines < 50 ){
-				appLog = tmpLine + "<br>" + appLog;
-				nLines++;
+		if( subject.isPermitted( Definitions.SYSTEM_ADMIN_DASHBOARD_PERMISSION ) ){
+			DashboardBean bean = new DashboardBean( );
+			
+			try{ 
+				ReversedLinesFileReader	reader = new ReversedLinesFileReader( new File( System.getProperty("jboss.server.log.dir") + "/shadowsatyr.log" ) );
+				String 	tmpLine = null;
+				Integer	nLines	= 0;
+				String	appLog	= "";
+				
+				while( ( tmpLine = reader.readLine( ) ) != null && nLines < 50 ){
+					appLog = tmpLine + "<br>" + appLog;
+					nLines++;
+				}
+				reader.close( );
+				bean.setApplicationLog( appLog );
+				
+				String serverLog = "";
+				nLines = 0;
+				reader = new ReversedLinesFileReader( new File( System.getProperty("jboss.server.log.dir") + "/server.log" ) );
+				
+				while( ( tmpLine = reader.readLine( ) ) != null && nLines < 50 ){
+					serverLog = tmpLine + "<br>" + serverLog;
+					nLines++;
+				}
+				reader.close( );
+				bean.setServerLog( serverLog );
+				bean.setLayout( Definitions.DASHBOARD_TILES_DEF );
+				bean.setAccount( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
+				request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
+			} catch ( FileNotFoundException e ){
+				logger.error( Definitions.LOGGER_ERROR_FILE_NOT_FOUND );
+				ErrorHelper.error500( request, response );
+			} catch ( IOException e ){
+				logger.error( Definitions.LOGGER_ERROR_IO );
+				ErrorHelper.error500( request, response );
 			}
-			
-			nLines = 0;
-			reader = new ReversedLinesFileReader( new File( System.getProperty("jboss.server.log.dir") + "/server.log" ) );
-			while( ( tmpLine = reader.readLine( ) ) != null && nLines < 50 ){
-				serverLog = tmpLine + "<br>" + serverLog;
-				nLines++;
-			}
-		} catch ( FileNotFoundException e ){
-			
-		} catch ( IOException e ){
-			
+		} else {
+			logger.error( Definitions.LOGGER_ERROR_UNAUTHORIZED + subject.getPrincipal( ) );
 		}
-		
-		bean.setLayout( "system.dashboard" );
-		bean.setApplicationLog( appLog );
-		bean.setServerLog( serverLog );
-		bean.setAccount( ( Account )session.getAttribute( "user_data" ) );
-		request.setAttribute( "Bean", bean );
 	}
 	
 }

@@ -11,22 +11,38 @@ import com.seifernet.snwf.exception.ValidationException;
 
 import com.seifernet.snwf.util.FormValidator;
 
+/**
+ * 
+ * 
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ */
 public class ArticleHelper {
 
+	/**
+	 * 
+	 * @param request Servlet request
+	 * @param response Servlet response
+	 */
 	public static void createArticle( HttpServletRequest request, HttpServletResponse response ) {
-		Bean bean = null;
+		Bean bean =  new Bean( );
 		
-		bean = new Bean( );
 		bean.setLayout( "system.create_article" );
 		request.setAttribute( "Bean" , bean );
 	}
 	
+	/**
+	 * 
+	 * @param request Servlet request
+	 * @param response Servlet response
+	 */
 	public static void saveArticle( HttpServletRequest request, HttpServletResponse response ){
 		Article 		article = null;
 		String			title	= null;
 		String			content	= null;
 		String			author	= null;
-		//ArticleFacade 	facade 	= null;
 		
 		try{
 			title = FormValidator.parseParameter( request.getParameter( "article-title" ) );
@@ -42,8 +58,6 @@ public class ArticleHelper {
 				article.setContent( content );
 				article.setAuthor( author );
 				
-				//facade = new ArticleFacade( );
-				//facade.createArticle( article );
 			}
 		} catch( ValidationException e ){
 			

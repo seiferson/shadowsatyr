@@ -58,31 +58,28 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.PROFILE:
 				AccountHelper.profile( request, response );
 				break;	
-				
+			case Definitions.CREATE_BLOG_ENTRY:
+				responseType = SNWFDefinitions.JSON_RESPONSE;
+				return BlogHelper.createBlogEntry( request, response );
+			case Definitions.LATEST_BLOG_ENTRIES:
+				responseType = SNWFDefinitions.HTML_RESPONSE;
+				return BlogHelper.latestBlogEntries( request, response );	
 			case Definitions.HASHTAG:
 				BlogHelper.hashtag( request, response );
 				break;
 			case Definitions.CREATE_ARTICLE:
 				ArticleHelper.createArticle( request, response );
 				break;
-			case Definitions.CREATE_BLOG_ENTRY:
-				responseType = SNWFDefinitions.JSON_RESPONSE;
-				return BlogHelper.createBlogEntry( request, response );
-			case Definitions.LATEST_BLOG_ENTRIES:
-				responseType = SNWFDefinitions.HTML_RESPONSE;
-				return BlogHelper.latestBlogEntries( request, response );
-			
 			case Definitions.DASHBOARD:
 				AdminHelper.dashboard( request, response );
 				break;
-				
-				
 			case Definitions.ERROR_500:
 				ErrorHelper.error500( request, response );
 				break;
 			case Definitions.ERROR_404: default:
 				ErrorHelper.error404( request, response );
 		}
+		
 		return SNWFDefinitions.TILES_REDIRECT_URL;
 	}
 
