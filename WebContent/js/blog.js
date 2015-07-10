@@ -1,6 +1,6 @@
 function createEntry( ){
 	$.ajax({
-		url:"/shadowsatyr/user/createBlogEntry",
+		url:"/shadowsatyr/user/createblogentry",
 		dataType: "html",
 		type: "post",
 		data: $( "#blogForm" ).serialize(),
@@ -18,7 +18,7 @@ function createEntry( ){
 
 function reloadLatestEntries( ){
 	$.ajax({
-		url:"/shadowsatyr/user/latestBlogEntries",
+		url:"/shadowsatyr/latestblogentries",
 		success: function ( receivedData ){
 			$( "#latestEntries" ).fadeOut( "slow", function( ){
 				var data = $( "<div id=\"latestEntries\">" + receivedData + "</div>" ).hide( );

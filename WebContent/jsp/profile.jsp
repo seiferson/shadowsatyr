@@ -6,13 +6,13 @@
 			<div class="row">
 				<div class="col-md-3 col-md-push-9">
 					<div class="text-center space-down">
-						<img src="http://www.gravatar.com/avatar/${Bean.profile.mailMD5}?s=200&d=retro" class="img-thumbnail">
+						<img src="http://www.gravatar.com/avatar/${bean.profile.mailMD5}?s=200&d=retro" class="img-thumbnail">
 					</div>
-					<h3 class="text-center"> <span class="label label-primary"> ${Bean.profile.nickname} </span> </h3>
+					<h3 class="text-center"> <span class="label label-primary"> ${bean.profile.nickname} </span> </h3>
 					<div class="space"></div>
 				</div>
 				<div class="col-md-9 col-md-pull-3">
-					<c:forEach var="entry" items="${Bean.blogEntries}">
+					<c:forEach var="entry" items="${bean.blogEntries}">
 					<article class="well">
 						<div class="row">
 							<div class="col-xs-3 col-sm-2 text-center">

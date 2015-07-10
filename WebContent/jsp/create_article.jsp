@@ -17,10 +17,10 @@
 					</ul>
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="edit">
-							<form method="POST" action="/shadowsatyr/saveArticle" id="article-form">
+							<form method="POST" action="/shadowsatyr/user/savearticle" id="article-form">
 								<div class="form-group">
 									<label for="article-title">Title:</label>
-									<input type="text" maxlength="255" id="article-title" class="form-control" name="article-title"/>
+									<input type="text" maxlength="255" id="article-title" class="form-control" name="article-title" required/>
 								</div>
 								<div class="form-group">
 									<label for="article-content">Your article content</label>
@@ -45,14 +45,14 @@
 											<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal"></span></button>
 										</div>
 									</div>
-									<textarea class="form-control" id="article-content" name="article-content" rows="15" oninput="preview( )"></textarea>
+									<textarea class="form-control" id="article-content" name="article-content" rows="15" oninput="preview( )" required></textarea>
 								</div>
 								<div class="pull-right">
-									<button type="button" class="btn btn-default">Create article</button>
+									<button type="submit" class="btn btn-default">Create article</button>
 								</div>
 							</form>
 						</div>
-						<div role="tabpanel" class="tab-pane active" id="preview">
+						<div role="tabpanel" class="tab-pane" id="preview">
 							<div id="preview-content"></div>
 						</div>
 					</div>

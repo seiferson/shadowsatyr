@@ -28,7 +28,7 @@ function validatePasswd(  ){
 
 function validateNickname( ){
 	$.ajax({
-		url:"/shadowsatyr/validateNickname",
+		url:"/shadowsatyr/validatenickname",
 		dataType: "html",
 		type: "post",
 		data: $( "#registerForm" ).serialize(),
@@ -55,7 +55,7 @@ function validateNickname( ){
 
 function validateMail( ){
 	$.ajax({
-		url:"/shadowsatyr/validateMail",
+		url:"/shadowsatyr/validatemail",
 		dataType: "html",
 		type: "post",
 		data: $( "#registerForm" ).serialize(),

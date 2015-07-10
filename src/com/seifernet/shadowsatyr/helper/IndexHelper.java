@@ -67,7 +67,7 @@ public class IndexHelper {
 			index( request, response );
 		} else {
 			Bean bean = new Bean( );
-			bean.setLayout( Definitions.INDEX_TILES_DEF );
+			bean.setLayout( Definitions.LOGIN_TILES_DEF );
 			request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 		}
 	}

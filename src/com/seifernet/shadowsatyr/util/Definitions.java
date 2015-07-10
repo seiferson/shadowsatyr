@@ -14,9 +14,11 @@ public class Definitions {
 	public static final String PROFILE				= "/profile";
 	public static final String LATEST_BLOG_ENTRIES 	= "/latestblogentries";
 	public static final String HASHTAG				= "/hashtag";
+	public static final String ARTICLE				= "/article";
 	public static final String CREATE_BLOG_ENTRY 	= "/user/createblogentry";
 	public static final String DASHBOARD 			= "/user/dashboard";
 	public static final String CREATE_ARTICLE 		= "/user/createarticle";
+	public static final String SAVE_ARTICLE 		= "/user/savearticle";
 	
 	/* -- Apache Tiles definitions -- */
 	public static final String INDEX_TILES_DEF 			= "system.index";
@@ -28,6 +30,9 @@ public class Definitions {
 	public static final String PROFILE_AUTH_TILES_DEF	= "system.profile_auth";
 	public static final String PROFILE_TILES_DEF		= "system.profile";
 	public static final String DASHBOARD_TILES_DEF		= "system.dashboard";
+	public static final String CREATE_ARTICLE_TILES_DEF = "system.create_article";
+	public static final String ARTICLE_TILES_DEF		= "system.article";
+	public static final String ARTICLE_AUTH_TILES_DEF	= "system.article_auth";
 	
 	/* --Logger errors -- */
 	public static final String LOGGER_ERROR_ENCODING 				= "Error setting encoding to request, unsupported enconding";
@@ -37,11 +42,13 @@ public class Definitions {
 	public static final String LOGGER_ERROR_UNKNOWN 				= "Error on http client, unknown error!";
 	public static final String LOGGER_ERROR_BLOG_CREATION 			= "Error creating blog entry, null value on request parameter";
 	public static final String LOGGER_ERROR_BLOG_TEMPLATE 			= "Error loading blog entry template";
+	public static final String LOGGER_ERROR_PARAM_VALIDATION		= "Error validating form parameters, one or more is null or contains invalid data";
 	public static final String LOGGER_ERROR_HIBERNATE 				= "Error executing hibernate task";
 	public static final String LOGGER_ERROR_DATABASE_TESTING 		= "Error testing database connection, default datasource is not available";
 	public static final String LOGGER_ERROR_FILE_NOT_FOUND 			= "Error opening file, file not found";
 	public static final String LOGGER_ERROR_UNAUTHORIZED			= "Error accessing a system feature, this account is not allowed: ";
 	public static final String LOGGER_ERROR_ACCOUNT_PROFILE			= "Error getting data from requested account, invalid account";
+	public static final String LOGGER_ERROR_ARTICLE					= "Error getting data from requested article, invalid article hash";
 	
 	/* -- JSON definitions -- */
 	public static final String JSON_OK_RESPONSE 			= "{\"status\":\"ok\"}";
@@ -60,12 +67,15 @@ public class Definitions {
 	public static final String ACCOUNT_CREATED_URL 			= "/shadowsatyr/login?acc=1";
 	public static final String ACCOUNT_CREATION_ERROR_URL 	= "/shadowsatyr/login?acc=0";
 	public static final String INDEX_URL					= "/shadowsatyr/index";
+	public static final String ARTICLE_URL					= "/shadowsatyr/article";
+	public static final String ERROR_500_URL				= "/shadowsatyr/error500";
+	public static final String ERROR_403_URL				= "/shadowsatyr/error403";
 	
 	/* -- Default datasource -- */
 	public static final String SHADOW_SATYR_DEFAULT_DATASOURCE 	= "java:jboss/datasources/shadowsatyr";
 	
 	/* -- Permission list -- */
-	public static final String SYSTEM_ADMIN_DASHBOARD_PERMISSION = "system:admin:dashboard";
+	public static final String SYSTEM_ADMIN_DASHBOARD_PERMISSION = "shadowsatyr:admin:dashboard";
 	
 	public static final String HTTP = "http";
 	public static final String HTTPS = "https";

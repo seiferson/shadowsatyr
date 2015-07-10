@@ -67,6 +67,12 @@ public class Dispatcher implements DispatcherHelper{
 			case Definitions.HASHTAG:
 				BlogHelper.hashtag( request, response );
 				break;
+			case Definitions.SAVE_ARTICLE:
+				responseType = SNWFDefinitions.HTTP_REDIRECT;
+				return ArticleHelper.saveArticle( request, response );
+			case Definitions.ARTICLE:
+				ArticleHelper.article( request, response );
+				break;
 			case Definitions.CREATE_ARTICLE:
 				ArticleHelper.createArticle( request, response );
 				break;

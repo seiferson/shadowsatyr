@@ -69,13 +69,13 @@
 									</div>
 								</div>
 								<div class="col-md-12">
-									<form method="POST" action="/shadowsatyr/createUser" id="registerForm">
+									<form method="POST" action="/shadowsatyr/createaccount" id="registerForm">
 										<div class="form-group" id="nicknamec">
 											<label class="control-label" for="nickname">Nickname</label>
 											<input maxlength="25" data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Nickname not available" oninput="validateNickname( )" type="text" class="form-control" id="nickname" name="nickname" placeholder="Nickname" required>
 										</div>
 										<div class="form-group" id="emailc">
-											<label for="email">Email address</label>
+											<label class="control-label" for="email">Email address</label>
 											<input maxlength="255" data-container="body" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="Mail account already registered" oninput="validateMail( )" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
 										</div>
 										<div class="form-group">

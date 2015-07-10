@@ -8,8 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table( name="article" )
@@ -28,11 +31,16 @@ public class Article implements Serializable{
 	@Column( columnDefinition = "TEXT", nullable = false )
 	private String content;
 	
-	@Column( nullable = false, length = 100 )
-	private String author;
+	@OneToOne
+ 	@JoinColumn( name="author", referencedColumnName="id" )
+	@NotNull
+	private Account author;
 	
-	@Column( nullable = false, length = 255 )
+	@Column( nullable = false, length = 255, unique = true )
 	private String title;
+	
+	@Column( name = "hash", nullable = false, length = 254, unique = true )
+	private String hashKey;
 
 	/**
 	 * @return the id
@@ -77,20 +85,6 @@ public class Article implements Serializable{
 	}
 
 	/**
-	 * @return the author
-	 */
-	public String getAuthor( ) {
-		return author;
-	}
-
-	/**
-	 * @param author the author to set
-	 */
-	public void setAuthor( String author ) {
-		this.author = author;
-	}
-
-	/**
 	 * @return the title
 	 */
 	public String getTitle( ) {
@@ -102,5 +96,33 @@ public class Article implements Serializable{
 	 */
 	public void setTitle( String title ) {
 		this.title = title;
+	}
+
+	/**
+	 * @return the hashKey
+	 */
+	public String getHashKey() {
+		return hashKey;
+	}
+
+	/**
+	 * @param hashKey the hashKey to set
+	 */
+	public void setHashKey(String hashKey) {
+		this.hashKey = hashKey;
+	}
+
+	/**
+	 * @return the author
+	 */
+	public Account getAuthor() {
+		return author;
+	}
+
+	/**
+	 * @param author the author to set
+	 */
+	public void setAuthor(Account author) {
+		this.author = author;
 	}
 }

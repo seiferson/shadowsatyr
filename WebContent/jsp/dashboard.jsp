@@ -22,12 +22,12 @@
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="serverLog">
 							<div class="well">
-								${Bean.serverLog}
+								${bean.serverLog}
 							</div>
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="applicationLog">
 							<div class="well">
-								${Bean.applicationLog}
+								${bean.applicationLog}
 							</div>
 						</div>
 					</div>

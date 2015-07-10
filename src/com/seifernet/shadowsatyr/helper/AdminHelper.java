@@ -77,6 +77,7 @@ public class AdminHelper {
 			}
 		} else {
 			logger.error( Definitions.LOGGER_ERROR_UNAUTHORIZED + subject.getPrincipal( ) );
+			ErrorHelper.error403( request, response );
 		}
 	}
 	
