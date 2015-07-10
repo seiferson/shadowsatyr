@@ -81,14 +81,14 @@
 		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
 		<put-attribute name="body" value="/jsp/article.jsp" />
-		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="js_includes" value="/jsp/article_js.jsp" />
 	</definition>
 	
 	<definition name="system.article" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/article.jsp" />
-		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="js_includes" value="/jsp/article_js.jsp" />
 	</definition>
 	
 </tiles-definitions>
