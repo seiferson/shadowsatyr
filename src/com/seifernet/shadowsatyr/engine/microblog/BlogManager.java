@@ -21,7 +21,7 @@ public class BlogManager {
 			ArrayList<Hashtag> hashtags = new ArrayList<Hashtag>( entry.getHashtags( ) ); 
 			for( Hashtag hashtag : hashtags ){
 				String hs = hashtag.getHashtag( );
-				message = message.replace( hs, "<a href='/shadowsatyr/hashtag?hashtag=" + hs + "'>" + hs + "</a>" );
+				message = message.replace( hs, "<a href='/shadowsatyr/hashtag?hashtag=" + hs.replace( "#" , "%23" ) + "'>" + hs + "</a>" );
 			}
 			entry.setMessage( message );
 		}
@@ -48,6 +48,26 @@ public class BlogManager {
 		
 		dao = new BlogEntryDAO( );
 		blogEntries = new ArrayList<BlogEntry>( dao.readAll( account ) );
+		
+		return blogEntries;
+	}
+	
+	public static ArrayList<BlogEntry> getBlogEntries( String hashtag, Integer page ){
+		BlogEntryDAO dao = null;
+		ArrayList<BlogEntry> blogEntries = null;
+		
+		dao = new BlogEntryDAO( );
+		blogEntries = new ArrayList<BlogEntry>( dao.readAll( hashtag, page ) );
+		
+		for( BlogEntry entry : blogEntries ){
+			String message = entry.getMessage( );
+			ArrayList<Hashtag> hashtags = new ArrayList<Hashtag>( entry.getHashtags( ) ); 
+			for( Hashtag h : hashtags ){
+				String hs = h.getHashtag( );
+				message = message.replace( hs, "<a href='/shadowsatyr/hashtag?hashtag=" + hs.replace( "#" , "%23" ) + "'>" + hs + "</a>" );
+			}
+			entry.setMessage( message );
+		}
 		
 		return blogEntries;
 	}

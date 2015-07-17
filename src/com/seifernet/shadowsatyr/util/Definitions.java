@@ -33,6 +33,8 @@ public class Definitions {
 	public static final String CREATE_ARTICLE_TILES_DEF = "system.create_article";
 	public static final String ARTICLE_TILES_DEF		= "system.article";
 	public static final String ARTICLE_AUTH_TILES_DEF	= "system.article_auth";
+	public static final String BLOG_LIST_AUTH_TILES_DEF = "system.blog_list_auth";
+	public static final String BLOG_LIST_TILES_DEF 		= "system.blog_list";
 	
 	/* --Logger errors -- */
 	public static final String LOGGER_ERROR_ENCODING 				= "Error setting encoding to request, unsupported enconding";
@@ -49,6 +51,7 @@ public class Definitions {
 	public static final String LOGGER_ERROR_UNAUTHORIZED			= "Error accessing a system feature, this account is not allowed: ";
 	public static final String LOGGER_ERROR_ACCOUNT_PROFILE			= "Error getting data from requested account, invalid account";
 	public static final String LOGGER_ERROR_ARTICLE					= "Error getting data from requested article, invalid article hash";
+	public static final Object LOGGER_ERROR_HASHTAG 				= "Error searching blog entries with the specified parameters";
 	
 	/* -- JSON definitions -- */
 	public static final String JSON_OK_RESPONSE 			= "{\"status\":\"ok\"}";
@@ -79,4 +82,5 @@ public class Definitions {
 	
 	public static final String HTTP = "http";
 	public static final String HTTPS = "https";
+	
 }

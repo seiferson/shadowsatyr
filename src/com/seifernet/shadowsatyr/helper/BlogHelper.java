@@ -13,6 +13,9 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.jboss.logging.Logger;
 
+import com.seifernet.shadowsatyr.bean.BlogListBean;
+import com.seifernet.shadowsatyr.bean.ProfileBean;
+import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.engine.hashtag.HashTagProcessor;
 import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
@@ -104,7 +107,7 @@ public class BlogHelper {
 			return htmlResponse;
 		}
 		
-		ArrayList<BlogEntry> entries = BlogManager.getLatestBlogEntries( );;
+		ArrayList<BlogEntry> entries = BlogManager.getLatestBlogEntries( );
 		for( BlogEntry entry : entries ){
 			String tmp = new String( template );
 			
@@ -128,7 +131,20 @@ public class BlogHelper {
 	 * @param response Servlet response
 	 */
 	public static void hashtag( HttpServletRequest request, HttpServletResponse response ) {
-		//TODO develop
+		String hashtag = request.getParameter( "hashtag" );
+		
+		Subject subject = SecurityUtils.getSubject( );
+		BlogListBean bean = new BlogListBean( );
+		
+		if( subject.isAuthenticated( ) ){
+			bean.setLayout( Definitions.BLOG_LIST_AUTH_TILES_DEF );
+			bean.setAccount( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
+		} else {
+			bean.setLayout( Definitions.BLOG_LIST_TILES_DEF );
+		}
+		
+		bean.setBlogEntries( BlogManager.getBlogEntries( hashtag, 0 ) );
+		request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 	}
 	
 }

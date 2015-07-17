@@ -5,7 +5,7 @@
 					<div class="article-space"></div>
 					<div class="col-md-12" >
 						<div class="page-header">
-							<strong>${bean.article.title}</strong> 
+							<h3>${bean.article.title}</h3> 
 						</div>
 						<input id="data" value="${bean.article.content}" type="hidden"/>
 						<div id="content-data"></div>

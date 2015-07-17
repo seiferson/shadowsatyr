@@ -28,4 +28,23 @@ public class BlogEntryDAO extends GenericDAO<BlogEntry, Long>{
 		transaction.commit( );
 		return list;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<BlogEntry> readAll( String hashtag, Integer page ){
+		Transaction 	transaction = null;
+		Session 		session 	= null;
+		List<BlogEntry>	list		= null;
+		
+		session = getSession( );
+		transaction = session.beginTransaction( );
+		list = session.createCriteria( BlogEntry.class )
+				.createAlias( "hashtags" , "hashtag" )
+				.add( Restrictions.eq( "hashtag.hashtag", hashtag ) )
+				.addOrder( Order.desc( "date" ) )
+				.setMaxResults( 30 )
+				.setFirstResult( 30 * page )
+				.list( );
+		transaction.commit( );
+		return list;
+	}
 }
