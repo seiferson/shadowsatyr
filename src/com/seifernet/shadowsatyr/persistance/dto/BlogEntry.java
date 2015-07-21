@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -43,7 +43,7 @@ public class BlogEntry implements Serializable{
 	@Column( nullable = false )
 	private Date date;
 	
-	@OneToMany( cascade = CascadeType.ALL )
+	@ManyToMany( cascade = CascadeType.ALL )
 	@LazyCollection( LazyCollectionOption.FALSE )
 	@JoinTable( name = "hashtag_blog_entry", 
 		joinColumns = { @JoinColumn( name="blog_entry", referencedColumnName="id" ) },  

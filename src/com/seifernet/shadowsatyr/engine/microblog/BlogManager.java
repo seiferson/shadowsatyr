@@ -49,6 +49,16 @@ public class BlogManager {
 		dao = new BlogEntryDAO( );
 		blogEntries = new ArrayList<BlogEntry>( dao.readAll( account ) );
 		
+		for( BlogEntry entry : blogEntries ){
+			String message = entry.getMessage( );
+			ArrayList<Hashtag> hashtags = new ArrayList<Hashtag>( entry.getHashtags( ) ); 
+			for( Hashtag h : hashtags ){
+				String hs = h.getHashtag( );
+				message = message.replace( hs, "<a href='/shadowsatyr/hashtag?hashtag=" + hs.replace( "#" , "%23" ) + "'>" + hs + "</a>" );
+			}
+			entry.setMessage( message );
+		}
+		
 		return blogEntries;
 	}
 	

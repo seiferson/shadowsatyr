@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -38,7 +38,7 @@ public class Account implements Serializable{
 	@Column( nullable = false, length = 254, unique = true )
 	private String mail;
 	
-	@OneToMany
+	@ManyToMany
 	@LazyCollection( LazyCollectionOption.FALSE )
 	@JoinTable( name = "permission_account", 
 		joinColumns = { @JoinColumn( name="account", referencedColumnName="id" ) },  

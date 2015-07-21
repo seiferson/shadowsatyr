@@ -92,14 +92,14 @@
 	</definition>
 	
 	<definition name="system.blog_list_auth" template="/jsp/main_layout.jsp">
-		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="css_includes" value="/jsp/blog_list_css.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar_user.jsp" />
 		<put-attribute name="body" value="/jsp/blog_list.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
 	<definition name="system.blog_list" template="/jsp/main_layout.jsp">
-		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="css_includes" value="/jsp/blog_list_css.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/blog_list.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
