@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebListener;
 
 import org.jboss.logging.Logger;
 
+import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.persistance.DatabaseTest;
 import com.seifernet.shadowsatyr.persistance.SessionFactoryManager;
 import com.seifernet.shadowsatyr.util.Definitions;
@@ -41,6 +42,9 @@ public class ConfigurationListener implements ServletContextListener{
 			logger.info( "Success datasource testing" );
 			event.getServletContext( ).setAttribute( Definitions.DATABASE_TEST_RESULT_PARAM_NAME, true );
 			SessionFactoryManager.initializeSessionFactory(  );
+			
+			logger.info( "Initializing system constants" );
+			AccountManager.init( );
 		}
 	}
 

@@ -33,7 +33,7 @@ public class BlogEntry implements Serializable{
 	private Long id;
 	
 	@Column( nullable = false, length = 150 )
-	private String message;
+	private String content;
 	
 	@OneToOne
  	@JoinColumn( name="author", referencedColumnName="id" )
@@ -65,17 +65,17 @@ public class BlogEntry implements Serializable{
 	}
 
 	/**
-	 * @return the message
+	 * @return the content
 	 */
-	public String getMessage( ) {
-		return message;
+	public String getContent() {
+		return content;
 	}
 
 	/**
-	 * @param message the message to set
+	 * @param content the content to set
 	 */
-	public void setMessage( String message ) {
-		this.message = message;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	/**

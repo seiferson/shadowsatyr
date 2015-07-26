@@ -1,5 +1,9 @@
 package com.seifernet.shadowsatyr.bean;
 
+import java.util.ArrayList;
+
+import com.seifernet.shadowsatyr.persistance.dto.Account;
+
 /**
  * Bean with data to show admin dashboard, 
  * includes application and server logs.
@@ -15,6 +19,7 @@ public class DashboardBean extends SystemBean{
 			
 	private String serverLog;
 	private String applicationLog;
+	private ArrayList<Account> accounts;
 
 	/**
 	 * @return the serverLog
@@ -42,6 +47,20 @@ public class DashboardBean extends SystemBean{
 	 */
 	public void setApplicationLog( String applicationLog ) {
 		this.applicationLog = applicationLog;
+	}
+
+	/**
+	 * @return the accounts
+	 */
+	public ArrayList<Account> getAccounts() {
+		return accounts;
+	}
+
+	/**
+	 * @param accounts the accounts to set
+	 */
+	public void setAccounts(ArrayList<Account> accounts) {
+		this.accounts = accounts;
 	}
 
 }

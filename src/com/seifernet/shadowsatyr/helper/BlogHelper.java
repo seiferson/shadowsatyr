@@ -62,7 +62,7 @@ public class BlogHelper {
 				
 				BlogEntry entry	= new BlogEntry( );
 				entry.setAuthor( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
-				entry.setMessage( content );
+				entry.setContent( content );
 				entry.setDate( new Date( ) );
 				
 				ArrayList<String> hashtagText = HashTagProcessor.getHashTags( content );
@@ -113,7 +113,7 @@ public class BlogHelper {
 			
 			tmp = tmp.replace( "${entry.author.mailMD5}" , entry.getAuthor( ).getMailMD5( ) );
 			tmp = tmp.replace( "${entry.author.nickname}" , entry.getAuthor( ).getNickname( ) );
-			tmp = tmp.replace( "${entry.message}", entry.getMessage( ) );
+			tmp = tmp.replace( "${entry.message}", entry.getContent( ) );
 			
 			SimpleDateFormat format = new SimpleDateFormat( "dd/MM/yyyy HH:mm" );
 			tmp = tmp.replace( "${entry.date}" , format.format( entry.getDate( ) ) );

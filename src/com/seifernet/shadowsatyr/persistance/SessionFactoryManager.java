@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import com.seifernet.shadowsatyr.persistance.dto.Account;
+import com.seifernet.shadowsatyr.persistance.dto.AccountStatus;
 import com.seifernet.shadowsatyr.persistance.dto.Article;
 import com.seifernet.shadowsatyr.persistance.dto.Asset;
 import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
@@ -61,6 +62,7 @@ public abstract class SessionFactoryManager {
 		properties.setProperty( "hibernate.current_session_context_class", "thread" );
 		 
 		configuration.addAnnotatedClass( Account.class );
+		configuration.addAnnotatedClass( AccountStatus.class );
 		configuration.addAnnotatedClass( Article.class );
 		configuration.addAnnotatedClass( Asset.class );
 		configuration.addAnnotatedClass( BlogEntry.class );
