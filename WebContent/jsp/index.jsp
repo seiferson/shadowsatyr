@@ -5,10 +5,10 @@
 		
 		<header class="jumbotron primary-color">
 			<div class="container">
-				<h1>ShadowSatyr!</h1>
-				<p>
-					seifernet.com CMS
-				</p>
+				<div class="page-header text-center">
+					<img src="/img/icon_white.png" class="main-page-image"><br/>
+					<h3>Welcome to <strong>Shadow</strong>Satyr!</h3>
+				</div>
 			</div>
 		</header>
 

@@ -1,5 +1,10 @@
 @CHARSET "UTF-8";
 
+.main-page-image{
+	width: 100px;
+	heigth: 100px;
+}
+
 .complement-color{
 	background-color: #A1662F;
 	color: white;

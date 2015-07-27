@@ -8,7 +8,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="http://seifernet.com">SeiferNet</a>
+					<a class="navbar-brand" href="http://seifernet.com"><strong>Seifer</strong>Net</a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbarx">
 					<ul class="nav navbar-nav navbar-right">
