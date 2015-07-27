@@ -59,7 +59,6 @@
 							</div>
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="panel3">
->>>>>>> branch 'master' of git@github.com:Seiferxx/shadowsatyr.git
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="serverLog">
 							<div class="well">
