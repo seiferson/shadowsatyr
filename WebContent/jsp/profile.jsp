@@ -26,7 +26,7 @@
 									</span> 
 								</p>
 								<p>
-									${entry.message}
+									${entry.content}
 								<p>
 							</div>
 						</div>
