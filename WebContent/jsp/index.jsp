@@ -7,12 +7,94 @@
 			<div class="container">
 				<div class="page-header text-center">
 					<img src="/img/icon_white.png" class="main-page-image"><br/>
-					<h3>Welcome to <strong>Shadow</strong>Satyr!</h3>
+					<h2>Welcome to <strong>Shadow</strong>Satyr!</h2>
 				</div>
 			</div>
 		</header>
 
 		<div class="container">
+			<div class="row">
+				<section class="col-md-8 col-md-offset-2 text-justify">
+					<p>
+						Welcome to <strong>shadowsatyr</strong>,
+						a <strong>content manager service</strong> project
+						developed and maintained by seifer
+						( Cuauhtemoc Herrera Muñoz ) you can
+						follow the development process or
+						fork your own copy at
+						<a href="http://github.com/seiferxx/shadowsatyr">github</a>.
+					</p>
+					<p>
+						The main idea behind the project is
+						provide an easy, configurable
+						and user friendly cms on Java, using
+						other frameworks and technologies such
+						as <strong>Hibernate</strong>, <strong>Apache Shiro</strong>,
+						<strong>Apache Tiles</strong> and my own
+						web framework called <strong>SeiferNet web framework</strong>.
+					</p>
+					<div class="space-20"></div>
+				</section>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="col-md-12">
+						<img src="/img/test.jpg" alt="Dragon image" class="img-thumbnail article-preview">
+					</div>
+					<div class="col-md-12">
+						<h3 class="text-center"><span class="label label-primary">Article</span></h3>
+						<p>
+							Donec id elit non mi porta gravida at 
+							eget metus. Fusce dapibus, tellus ac 
+							cursus commodo, tortor mauris condimentum 
+							nibh, ut fermentum massa justo sit amet 
+							risus. Etiam porta sem malesuada magna 
+							mollis euismod. Donec sed odio dui.
+						</p>
+						<div class="pull-right">
+							<button class="btn btn-primary">See more</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="col-md-12">
+						<img src="/img/test.jpg" alt="Dragon image" class="img-thumbnail article-preview">
+					</div>
+					<div class="col-md-12">
+						<h3 class="text-center"><span class="label label-primary">Article</span></h3>
+						<p>
+							Donec id elit non mi porta gravida at 
+							eget metus. Fusce dapibus, tellus ac 
+							cursus commodo, tortor mauris condimentum 
+							nibh, ut fermentum massa justo sit amet 
+							risus. Etiam porta sem malesuada magna 
+							mollis euismod. Donec sed odio dui.
+						</p>
+						<div class="pull-right">
+							<button class="btn btn-primary">See more</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="col-md-12">
+						<img src="/img/test.jpg" alt="Dragon image" class="img-thumbnail article-preview">
+					</div>
+					<div class="col-md-12">
+						<h3 class="text-center"><span class="label label-primary">Article</span></h3>
+						<p>
+							Donec id elit non mi porta gravida at 
+							eget metus. Fusce dapibus, tellus ac 
+							cursus commodo, tortor mauris condimentum 
+							nibh, ut fermentum massa justo sit amet 
+							risus. Etiam porta sem malesuada magna 
+							mollis euismod. Donec sed odio dui.
+						</p>
+						<div class="pull-right">
+							<button class="btn btn-primary">See more</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<section class="col-md-8">
 					<shiro:authenticated>
@@ -56,28 +138,6 @@
 					</div>
 				</section>
 				<section class="col-md-4 hidden-xs hidden-sm">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<p>
-								Welcome to <strong>shadowsatyr</strong>,
-								a <strong>content manager service</strong> project
-								developed and maintained by seifer
-								( Cuauhtemoc Herrera Muñoz ) you can
-								follow the development process or
-								fork your own copy at
-								<a href="http://github.com/seiferxx/shadowsatyr">github</a>.
-							</p>
-							<p>
-								The main idea behind the project is
-								provide an easy, configurable
-								and user friendly cms on Java, using
-								other frameworks and technologies such
-								as <strong>Hibernate</strong>, <strong>Apache Shiro</strong>,
-								<strong>Apache Tiles</strong> and my own
-								web framework called <strong>SeiferNet web framework</strong>.
-							</p>
-						</div>
-					</div>
 				</section>
 			</div>
 		</div>

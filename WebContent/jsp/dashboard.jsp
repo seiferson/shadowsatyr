@@ -15,7 +15,8 @@
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					
 					<div class="tab-content">
-						<div role="tabpanel" class="tab-pane fade in active" id="overview">	
+						<div role="tabpanel" class="tab-pane fade in active" id="overview">
+							<canvas id="userChart"></canvas>
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="users">
 							<table class="table table-striped">

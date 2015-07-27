@@ -2,7 +2,15 @@
 
 .main-page-image{
 	width: 100px;
-	heigth: 100px;
+	height: 100px;
+}
+
+.article-preview{
+	width: 100%;
+}
+
+.space-20{
+	height: 20px;
 }
 
 .complement-color{

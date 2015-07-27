@@ -67,7 +67,7 @@
 		<put-attribute name="css_includes" value="/jsp/dashboard_css.jsp" />
 		<put-attribute name="navbar" value="/jsp/fixed_navbar_user.jsp" />
 		<put-attribute name="body" value="/jsp/dashboard.jsp" />
-		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+		<put-attribute name="js_includes" value="/jsp/dashboard_js.jsp" />
 	</definition>
 	
 	<definition name="system.create_article" template="/jsp/main_layout.jsp">
