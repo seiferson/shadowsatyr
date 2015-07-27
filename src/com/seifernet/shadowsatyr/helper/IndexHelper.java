@@ -1,5 +1,7 @@
 package com.seifernet.shadowsatyr.helper;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -102,6 +104,8 @@ public class IndexHelper {
 				account.setMail( mail );
 				account.setNickname( nickname );
 				account.setPasswd( ( new Sha256Hash( passwd , "", 5342 ) ).toString( ) );
+				account.setStatus( AccountManager.ACTIVE_ACCOUNT_STATUS );
+				account.setRegisterDate( new Date( ) );
 				
 				AccountManager.createAccount( account );
 				return Definitions.ACCOUNT_CREATED_URL;

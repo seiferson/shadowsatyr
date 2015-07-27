@@ -1,6 +1,7 @@
 package com.seifernet.shadowsatyr.persistance.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,8 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.hibernate.annotations.LazyCollection;
@@ -38,6 +41,9 @@ public class Account implements Serializable{
 	@Column( nullable = false, length = 254, unique = true )
 	private String mail;
 	
+	@Column( name = "register_date", nullable = false )
+	private Date registerDate;
+
 	@ManyToMany
 	@LazyCollection( LazyCollectionOption.FALSE )
 	@JoinTable( name = "permission_account", 
@@ -45,6 +51,10 @@ public class Account implements Serializable{
 	    inverseJoinColumns = { @JoinColumn( name="permission", referencedColumnName="id") } ) 
 	private List<Permission> permissions;
 
+	@OneToOne
+	@JoinColumn( name="status", referencedColumnName="id" )
+	@NotNull
+	private AccountStatus status;
 	
 	/**
 	 * @return the id
@@ -118,5 +128,33 @@ public class Account implements Serializable{
 	 */
 	public void setPermissions( List<Permission> permissions ) {
 		this.permissions = permissions;
+	}
+	
+	/**
+	 * @return the registerDate
+	 */
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+	/**
+	 * @param registerDate the registerDate to set
+	 */
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public AccountStatus getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(AccountStatus status) {
+		this.status = status;
 	}
 }

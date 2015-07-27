@@ -13,6 +13,7 @@ import org.apache.shiro.subject.Subject;
 import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.bean.DashboardBean;
+import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.persistance.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
@@ -42,7 +43,8 @@ public class AdminHelper {
 		if( subject.isPermitted( Definitions.SYSTEM_ADMIN_DASHBOARD_PERMISSION ) ){
 			DashboardBean bean = new DashboardBean( );
 			
-			try{ 
+			try{
+				
 				ReversedLinesFileReader	reader = new ReversedLinesFileReader( new File( System.getProperty("jboss.server.log.dir") + "/shadowsatyr.log" ) );
 				String 	tmpLine = null;
 				Integer	nLines	= 0;
@@ -66,6 +68,7 @@ public class AdminHelper {
 				reader.close( );
 				bean.setServerLog( serverLog );
 				bean.setLayout( Definitions.DASHBOARD_TILES_DEF );
+				bean.setAccounts( AccountManager.getAccounts( 0 ) );
 				bean.setAccount( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
 				request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 			} catch ( FileNotFoundException e ){
