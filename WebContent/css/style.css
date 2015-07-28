@@ -5,12 +5,20 @@
 	height: 100px;
 }
 
+.cleaner{
+	clear: both;
+}
+
 .article-preview{
 	width: 100%;
 }
 
 .space-20{
 	height: 20px;
+}
+
+.space-40{
+	height: 40px;
 }
 
 .complement-color{

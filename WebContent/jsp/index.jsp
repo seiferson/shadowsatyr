@@ -13,8 +13,9 @@
 		</header>
 
 		<div class="container">
+		
 			<div class="row">
-				<section class="col-md-8 col-md-offset-2 text-justify">
+				<section class="col-md-8 col-md-offset-2 text-justify hidden-xs">
 					<p>
 						Welcome to <strong>shadowsatyr</strong>,
 						a <strong>content manager service</strong> project
@@ -36,13 +37,17 @@
 					<div class="space-20"></div>
 				</section>
 			</div>
+			
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-sm-12">
+					<h3 class="text-center"><strong>Featured article<span class="hidden-xs">s</span></strong></h3>
+				</div>
+				<div class="col-sm-4 hidden-xs">
 					<div class="col-md-12">
 						<img src="/img/test.jpg" alt="Dragon image" class="img-thumbnail article-preview">
 					</div>
 					<div class="col-md-12">
-						<h3 class="text-center"><span class="label label-primary">Article</span></h3>
+						<h3 class="text-center">Article</h3>
 						<p>
 							Donec id elit non mi porta gravida at 
 							eget metus. Fusce dapibus, tellus ac 
@@ -54,14 +59,18 @@
 						<div class="pull-right">
 							<button class="btn btn-primary">See more</button>
 						</div>
+						<div class="cleaner"></div>
+					</div>
+					<div class="col-md-12">
+						<div class="space-20"></div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-sm-4">
 					<div class="col-md-12">
 						<img src="/img/test.jpg" alt="Dragon image" class="img-thumbnail article-preview">
 					</div>
 					<div class="col-md-12">
-						<h3 class="text-center"><span class="label label-primary">Article</span></h3>
+						<h3 class="text-center">Article</h3>
 						<p>
 							Donec id elit non mi porta gravida at 
 							eget metus. Fusce dapibus, tellus ac 
@@ -73,14 +82,18 @@
 						<div class="pull-right">
 							<button class="btn btn-primary">See more</button>
 						</div>
+						<div class="cleaner"></div>
+					</div>
+					<div class="col-md-12">
+						<div class="space-20"></div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-sm-4 hidden-xs">
 					<div class="col-md-12">
 						<img src="/img/test.jpg" alt="Dragon image" class="img-thumbnail article-preview">
 					</div>
 					<div class="col-md-12">
-						<h3 class="text-center"><span class="label label-primary">Article</span></h3>
+						<h3 class="text-center">Article</h3>
 						<p>
 							Donec id elit non mi porta gravida at 
 							eget metus. Fusce dapibus, tellus ac 
@@ -92,9 +105,17 @@
 						<div class="pull-right">
 							<button class="btn btn-primary">See more</button>
 						</div>
+						<div class="cleaner"></div>
 					</div>
+					<div class="col-md-12">
+						<div class="space-20"></div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="space-40"></div>
 				</div>
 			</div>
+			
 			<div class="row">
 				<section class="col-md-8">
 					<shiro:authenticated>
@@ -109,6 +130,7 @@
 						</div>
 					</div>
 					</shiro:authenticated>
+					<h3 class="text-center"><strong>Latest microblog entries</strong></h3>
 					<div id="latestEntries">
 						<c:if test="${ empty bean.latestBlogEntries}">
 							<div class="alert alert-success text-center" role="alert">
@@ -138,6 +160,7 @@
 					</div>
 				</section>
 				<section class="col-md-4 hidden-xs hidden-sm">
+					
 				</section>
 			</div>
 		</div>
