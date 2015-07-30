@@ -17,6 +17,13 @@ import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.helper.DispatcherHelper;
 import com.seifernet.snwf.util.SNWFDefinitions;
 
+/**
+ * 
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ */
 public class Dispatcher implements DispatcherHelper{
 
 	private Logger logger = Logger.getLogger( Dispatcher.class );

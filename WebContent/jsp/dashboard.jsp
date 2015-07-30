@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar" role="tablist">
-						<li class="active"><a href="#panel1" role="tab" data-toggle="tab">Overview</a></li>
+						<li class="active"><a href="#overview" role="tab" data-toggle="tab">Overview</a></li>
 						<li><a href="#users" role="tab" data-toggle="tab">Users</a></li>
 						<li><a href="#panel3" role="tab" data-toggle="tab">Analytics</a></li>
 						<li><a href="#serverLog" role="tab" data-toggle="tab">Server log</a></li>
