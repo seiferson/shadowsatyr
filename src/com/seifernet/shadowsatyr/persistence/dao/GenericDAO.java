@@ -1,4 +1,4 @@
-package com.seifernet.shadowsatyr.persistance.dao;
+package com.seifernet.shadowsatyr.persistence.dao;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.jboss.logging.Logger;
 
-import com.seifernet.shadowsatyr.persistance.SessionFactoryManager;
+import com.seifernet.shadowsatyr.persistence.SessionFactoryManager;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.hibernate.AbstractDAO;
 

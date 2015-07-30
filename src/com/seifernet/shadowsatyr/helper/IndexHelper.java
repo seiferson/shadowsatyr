@@ -1,5 +1,6 @@
 package com.seifernet.shadowsatyr.helper;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,8 @@ import org.jboss.logging.Logger;
 import com.seifernet.shadowsatyr.bean.IndexBean;
 import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
-import com.seifernet.shadowsatyr.persistance.dto.Account;
+import com.seifernet.shadowsatyr.persistence.dto.Account;
+import com.seifernet.shadowsatyr.persistence.dto.Permission;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.bean.Bean;
@@ -106,6 +108,13 @@ public class IndexHelper {
 				account.setPasswd( ( new Sha256Hash( passwd , "", 5342 ) ).toString( ) );
 				account.setStatus( AccountManager.ACTIVE_ACCOUNT_STATUS );
 				account.setRegisterDate( new Date( ) );
+				
+				ArrayList<Permission> permissionList = new ArrayList<Permission>( );
+				Permission permission = new Permission( );
+				permission.setId( Definitions.SYSTEM_TEST_PERMISSION_ID );
+				permissionList.add( permission );
+				
+				account.setPermissions( permissionList );
 				
 				AccountManager.createAccount( account );
 				return Definitions.ACCOUNT_CREATED_URL;

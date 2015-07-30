@@ -2,7 +2,7 @@ package com.seifernet.shadowsatyr.bean;
 
 import java.util.ArrayList;
 
-import com.seifernet.shadowsatyr.persistance.dto.Account;
+import com.seifernet.shadowsatyr.persistence.dto.Account;
 
 /**
  * Bean with data to show admin dashboard, 

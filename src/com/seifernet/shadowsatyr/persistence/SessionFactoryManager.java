@@ -1,4 +1,4 @@
-package com.seifernet.shadowsatyr.persistance;
+package com.seifernet.shadowsatyr.persistence;
 
 import java.util.Properties;
 
@@ -7,14 +7,14 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import com.seifernet.shadowsatyr.persistance.dto.Account;
-import com.seifernet.shadowsatyr.persistance.dto.AccountStatus;
-import com.seifernet.shadowsatyr.persistance.dto.Article;
-import com.seifernet.shadowsatyr.persistance.dto.Asset;
-import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
-import com.seifernet.shadowsatyr.persistance.dto.Hashtag;
-import com.seifernet.shadowsatyr.persistance.dto.Permission;
-import com.seifernet.shadowsatyr.persistance.dto.SystemProperty;
+import com.seifernet.shadowsatyr.persistence.dto.Account;
+import com.seifernet.shadowsatyr.persistence.dto.AccountStatus;
+import com.seifernet.shadowsatyr.persistence.dto.Article;
+import com.seifernet.shadowsatyr.persistence.dto.Asset;
+import com.seifernet.shadowsatyr.persistence.dto.BlogEntry;
+import com.seifernet.shadowsatyr.persistence.dto.Hashtag;
+import com.seifernet.shadowsatyr.persistence.dto.Permission;
+import com.seifernet.shadowsatyr.persistence.dto.SystemProperty;
 import com.seifernet.shadowsatyr.util.Definitions;
 
 /**

@@ -1,7 +1,7 @@
 package com.seifernet.shadowsatyr.engine.article;
 
-import com.seifernet.shadowsatyr.persistance.dao.ArticleDAO;
-import com.seifernet.shadowsatyr.persistance.dto.Article;
+import com.seifernet.shadowsatyr.persistence.dao.ArticleDAO;
+import com.seifernet.shadowsatyr.persistence.dto.Article;
 
 public class ArticleManager {
 

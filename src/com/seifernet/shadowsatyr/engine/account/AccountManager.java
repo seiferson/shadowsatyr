@@ -2,10 +2,10 @@ package com.seifernet.shadowsatyr.engine.account;
 
 import java.util.ArrayList;
 
-import com.seifernet.shadowsatyr.persistance.dao.AccountDAO;
-import com.seifernet.shadowsatyr.persistance.dao.AccountStatusDAO;
-import com.seifernet.shadowsatyr.persistance.dto.Account;
-import com.seifernet.shadowsatyr.persistance.dto.AccountStatus;
+import com.seifernet.shadowsatyr.persistence.dao.AccountDAO;
+import com.seifernet.shadowsatyr.persistence.dao.AccountStatusDAO;
+import com.seifernet.shadowsatyr.persistence.dto.Account;
+import com.seifernet.shadowsatyr.persistence.dto.AccountStatus;
 
 /**
  * Account manager works as a facade

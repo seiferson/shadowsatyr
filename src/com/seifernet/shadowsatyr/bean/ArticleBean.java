@@ -1,10 +1,10 @@
 package com.seifernet.shadowsatyr.bean;
 
-import com.seifernet.shadowsatyr.persistance.dto.Article;
+import com.seifernet.shadowsatyr.persistence.dto.Article;
 
 /**
  * 
- * @author seifer
+ * @author Seifer ( Cuauhtemoc Herrera Muñoz )
  *
  */
 public class ArticleBean extends SystemBean{

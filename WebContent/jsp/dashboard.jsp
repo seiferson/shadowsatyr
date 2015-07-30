@@ -36,7 +36,7 @@
 										<td>${acc.nickname}</td>
 										<td class="hidden-xs">${acc.mail}</td>
 										<td class="text-center"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-lock"></span></button></td>
-										<td class="text-center"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-wrench"></span></button></td>
+										<td class="text-center"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editUser"><span class="glyphicon glyphicon-wrench"></span></button></td>
 									</tr>
 									</c:forEach>
 								</tbody>
@@ -77,5 +77,22 @@
 						</div>
 					</div>
 				</div>	
+			</div>
+		</div>
+		
+		<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="editUserLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="editUserLabel">Modal title</h4>
+					</div>
+					<div class="modal-body">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
 			</div>
 		</div>

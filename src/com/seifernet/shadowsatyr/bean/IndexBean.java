@@ -2,7 +2,7 @@ package com.seifernet.shadowsatyr.bean;
 
 import java.util.ArrayList;
 
-import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
+import com.seifernet.shadowsatyr.persistence.dto.BlogEntry;
 
 /**
  * Bean to show content on the welcome page

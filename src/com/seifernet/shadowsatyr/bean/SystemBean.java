@@ -1,6 +1,6 @@
 package com.seifernet.shadowsatyr.bean;
 
-import com.seifernet.shadowsatyr.persistance.dto.Account;
+import com.seifernet.shadowsatyr.persistence.dto.Account;
 import com.seifernet.snwf.bean.Bean;
 
 /**

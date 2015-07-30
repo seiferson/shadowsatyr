@@ -1,4 +1,4 @@
-package com.seifernet.shadowsatyr.persistance.dto;
+package com.seifernet.shadowsatyr.persistence.dto;
 
 import java.io.Serializable;
 

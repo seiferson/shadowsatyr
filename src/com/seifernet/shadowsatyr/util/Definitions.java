@@ -77,8 +77,13 @@ public class Definitions {
 	/* -- Default datasource -- */
 	public static final String SHADOW_SATYR_DEFAULT_DATASOURCE 	= "java:jboss/datasources/shadowsatyr";
 	
-	/* -- Permission list -- */
-	public static final String SYSTEM_ADMIN_DASHBOARD_PERMISSION = "shadowsatyr:admin:dashboard";
+	/* -- Permission values list  -- */
+	public static final String SYSTEM_ADMIN_DASHBOARD_PERMISSION 	= "shadowsatyr:admin:dashboard";
+	public static final String SYSTEM_TEST_PERMISSION				= "shadowsatyr:test:execute";
+	
+	/* -- Permission id list -- */
+	public static final Long SYSTEM_ADMIN_DASHBOARD_PERMISSION_ID	= 1L;
+	public static final Long SYSTEM_TEST_PERMISSION_ID				= 2L;
 	
 	public static final String HTTP = "http";
 	public static final String HTTPS = "https";

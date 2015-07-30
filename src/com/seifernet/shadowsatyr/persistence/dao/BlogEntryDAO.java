@@ -1,4 +1,4 @@
-package com.seifernet.shadowsatyr.persistance.dao;
+package com.seifernet.shadowsatyr.persistence.dao;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import com.seifernet.shadowsatyr.persistance.dto.Account;
-import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
+import com.seifernet.shadowsatyr.persistence.dto.Account;
+import com.seifernet.shadowsatyr.persistence.dto.BlogEntry;
 
 public class BlogEntryDAO extends GenericDAO<BlogEntry, Long>{
 

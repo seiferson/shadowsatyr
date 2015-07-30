@@ -1,4 +1,4 @@
-package com.seifernet.shadowsatyr.persistance;
+package com.seifernet.shadowsatyr.persistence;
 
 import java.sql.Connection;
 import java.sql.SQLException;

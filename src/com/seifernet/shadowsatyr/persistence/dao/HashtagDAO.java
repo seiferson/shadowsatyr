@@ -1,6 +1,6 @@
-package com.seifernet.shadowsatyr.persistance.dao;
+package com.seifernet.shadowsatyr.persistence.dao;
 
-import com.seifernet.shadowsatyr.persistance.dto.Hashtag;
+import com.seifernet.shadowsatyr.persistence.dto.Hashtag;
 
 public class HashtagDAO extends GenericDAO<Hashtag, Long>{
 

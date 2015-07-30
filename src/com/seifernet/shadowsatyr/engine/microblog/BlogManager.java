@@ -2,11 +2,11 @@ package com.seifernet.shadowsatyr.engine.microblog;
 
 import java.util.ArrayList;
 
-import com.seifernet.shadowsatyr.persistance.dao.BlogEntryDAO;
-import com.seifernet.shadowsatyr.persistance.dao.HashtagDAO;
-import com.seifernet.shadowsatyr.persistance.dto.Account;
-import com.seifernet.shadowsatyr.persistance.dto.BlogEntry;
-import com.seifernet.shadowsatyr.persistance.dto.Hashtag;
+import com.seifernet.shadowsatyr.persistence.dao.BlogEntryDAO;
+import com.seifernet.shadowsatyr.persistence.dao.HashtagDAO;
+import com.seifernet.shadowsatyr.persistence.dto.Account;
+import com.seifernet.shadowsatyr.persistence.dto.BlogEntry;
+import com.seifernet.shadowsatyr.persistence.dto.Hashtag;
 
 public class BlogManager {
 	

@@ -1,6 +1,6 @@
-package com.seifernet.shadowsatyr.persistance.dao;
+package com.seifernet.shadowsatyr.persistence.dao;
 
-import com.seifernet.shadowsatyr.persistance.dto.AccountStatus;
+import com.seifernet.shadowsatyr.persistence.dto.AccountStatus;
 
 public class AccountStatusDAO extends GenericDAO<AccountStatus, Long>{
 

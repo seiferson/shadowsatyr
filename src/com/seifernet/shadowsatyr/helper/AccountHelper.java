@@ -10,7 +10,7 @@ import org.jboss.logging.Logger;
 import com.seifernet.shadowsatyr.bean.ProfileBean;
 import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
-import com.seifernet.shadowsatyr.persistance.dto.Account;
+import com.seifernet.shadowsatyr.persistence.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.snwf.util.FormValidator;
