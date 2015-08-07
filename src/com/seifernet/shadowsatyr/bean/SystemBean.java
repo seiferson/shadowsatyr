@@ -1,7 +1,6 @@
 package com.seifernet.shadowsatyr.bean;
 
 import com.seifernet.shadowsatyr.persistence.dto.Account;
-import com.seifernet.snwf.bean.Bean;
 
 /**
  * Default bean with common attributes used across
@@ -12,11 +11,12 @@ import com.seifernet.snwf.bean.Bean;
  * @since 1.0.0
  *
  */
-public class SystemBean extends Bean{
+public class SystemBean{
 
 	private static final long serialVersionUID = 1L;
 	
 	private Account account;
+	private String layout;
 
 	/**
 	 * @return the account
@@ -30,5 +30,19 @@ public class SystemBean extends Bean{
 	 */
 	public void setAccount(Account account) {
 		this.account = account;
+	}
+
+	/**
+	 * @return the layout
+	 */
+	public String getLayout() {
+		return layout;
+	}
+
+	/**
+	 * @param layout the layout to set
+	 */
+	public void setLayout(String layout) {
+		this.layout = layout;
 	}
 }

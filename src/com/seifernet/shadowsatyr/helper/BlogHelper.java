@@ -23,8 +23,7 @@ import com.seifernet.shadowsatyr.persistence.dto.BlogEntry;
 import com.seifernet.shadowsatyr.persistence.dto.Hashtag;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
-import com.seifernet.snwf.exception.ValidationException;
-import com.seifernet.snwf.util.FormValidator;
+import com.seifernet.shadowsatyr.util.FormValidator;
 
 /**
  * Helper for microblog operations 
@@ -53,7 +52,7 @@ public class BlogHelper {
 			
 			try {
 				content = FormValidator.parseParameter( content );
-			} catch( ValidationException e ){
+			} catch( Exception e ){
 				logger.error( Definitions.LOGGER_ERROR_BLOG_CREATION );
 				return Definitions.JSON_ERROR_EMPTY_MESSAGE;
 			}

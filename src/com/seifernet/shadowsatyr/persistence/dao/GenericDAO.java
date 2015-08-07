@@ -15,7 +15,6 @@ import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.persistence.SessionFactoryManager;
 import com.seifernet.shadowsatyr.util.Definitions;
-import com.seifernet.snwf.hibernate.AbstractDAO;
 
 /**
  * Base DAO to implement common hibernate transactions.
@@ -27,7 +26,7 @@ import com.seifernet.snwf.hibernate.AbstractDAO;
  * @param <T> Object type
  * @param <PK> Object primary key
  */
-public abstract class GenericDAO <T, PK extends Serializable> implements AbstractDAO<T, PK>{
+public abstract class GenericDAO <T, PK extends Serializable>{
 
 	private Class<T> type;
 	private Logger logger = Logger.getLogger( GenericDAO.class );

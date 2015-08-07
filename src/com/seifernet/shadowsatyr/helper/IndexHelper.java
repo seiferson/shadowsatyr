@@ -13,15 +13,14 @@ import org.hibernate.validator.constraints.impl.EmailValidator;
 import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.bean.IndexBean;
+import com.seifernet.shadowsatyr.bean.SystemBean;
 import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
 import com.seifernet.shadowsatyr.persistence.dto.Account;
 import com.seifernet.shadowsatyr.persistence.dto.Permission;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
-import com.seifernet.snwf.bean.Bean;
-import com.seifernet.snwf.exception.ValidationException;
-import com.seifernet.snwf.util.FormValidator;
+import com.seifernet.shadowsatyr.util.FormValidator;
 
 /**
  * Helper for welcome page, login and register pages
@@ -70,7 +69,7 @@ public class IndexHelper {
 		if( subject.isAuthenticated( ) ){
 			index( request, response );
 		} else {
-			Bean bean = new Bean( );
+			SystemBean bean = new SystemBean( );
 			bean.setLayout( Definitions.LOGIN_TILES_DEF );
 			request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 		}
@@ -145,7 +144,7 @@ public class IndexHelper {
 			} else{
 				return Definitions.JSON_ERROR_EMPTY_NICKNAME;
 			}
-		} catch( ValidationException e ){
+		} catch( Exception e ){
 			return Definitions.JSON_ERROR_EMPTY_NICKNAME;
 		}
 	}
@@ -171,7 +170,7 @@ public class IndexHelper {
 			} else{
 				return Definitions.JSON_ERROR_EMPTY_MAIL;
 			}
-		} catch( ValidationException e ){
+		} catch( Exception e ){
 			return Definitions.JSON_ERROR_EMPTY_MAIL;
 		}
 	}

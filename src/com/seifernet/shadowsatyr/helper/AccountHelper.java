@@ -13,7 +13,7 @@ import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
 import com.seifernet.shadowsatyr.persistence.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
-import com.seifernet.snwf.util.FormValidator;
+import com.seifernet.shadowsatyr.util.FormValidator;
 
 /**
  * Helper for account operations

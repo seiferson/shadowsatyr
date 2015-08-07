@@ -2,9 +2,9 @@ package com.seifernet.shadowsatyr.servlet;
 
 import javax.servlet.annotation.WebServlet;
 
+import com.seifernet.firegoblin.dispatcher.ContextDispatcher;
+import com.seifernet.firegoblin.servlet.ContextServlet;
 import com.seifernet.shadowsatyr.dispatcher.Dispatcher;
-import com.seifernet.snwf.helper.DispatcherHelper;
-import com.seifernet.snwf.servlet.ContextServlet;
 
 /**
  * Main servlet implementation, this server
@@ -22,7 +22,7 @@ public class Servlet extends ContextServlet{
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected DispatcherHelper getDispatcher() {
+	protected ContextDispatcher getDispatcher() {
 		return new Dispatcher( );
 	}
 
