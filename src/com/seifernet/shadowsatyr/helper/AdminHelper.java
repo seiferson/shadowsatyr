@@ -13,6 +13,7 @@ import org.apache.shiro.subject.Subject;
 import org.jboss.logging.Logger;
 
 import com.seifernet.shadowsatyr.bean.DashboardBean;
+import com.seifernet.shadowsatyr.bean.SystemBean;
 import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.persistence.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
@@ -29,6 +30,14 @@ import com.seifernet.shadowsatyr.util.Definitions;
 public class AdminHelper {
 
 	private static Logger logger = Logger.getLogger( AdminHelper.class );
+	
+	public static void assetsView( HttpServletRequest request, HttpServletResponse response ){
+		SystemBean bean = new SystemBean( );
+		
+		bean.setLayout( "admin.assets" );
+		request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
+	}
+	
 	
 	/**
 	 * Shows a dashboard with useful information and 

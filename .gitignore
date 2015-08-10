@@ -1,15 +1,11 @@
+#Compiled files
 *.class
-
 build/
+target/
+
+#Eclipse files
 .settings/
 .classpath
 .project
 .tern-project
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.war
-*.ear
-/target/

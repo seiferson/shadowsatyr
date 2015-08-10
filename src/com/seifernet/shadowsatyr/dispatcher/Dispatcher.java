@@ -28,6 +28,8 @@ public class Dispatcher implements ContextDispatcher{
 	
 	private static final String TILES_REDIRECT_URL = "/jsp/redirect.jsp";
 	
+	private static final String ASSETS_VIEW_ACTION = "/user/assets";
+	
 	private Logger logger = Logger.getLogger( Dispatcher.class );
 	private int responseType;
 	
@@ -49,6 +51,9 @@ public class Dispatcher implements ContextDispatcher{
 		}
 		
 		switch( action ){
+			case ASSETS_VIEW_ACTION:
+				AdminHelper.assetsView( request, response );
+				break;
 			case Definitions.DEFAULT_ACTION: case Definitions.INDEX:
 				IndexHelper.index( request, response );
 				break;

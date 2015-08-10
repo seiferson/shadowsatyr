@@ -105,4 +105,7 @@
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
 	</definition>
 	
+	<definition name="admin.assets" template="/WEB-INF/pages/materialize_layout.jsp">
+	</definition>
+	
 </tiles-definitions>
