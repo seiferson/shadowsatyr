@@ -11,8 +11,12 @@
 	<body>
 		<header>
 			<nav>
-				<div class="nav-wrapper">
-					<a href="#" class="brand-logo">Logo</a>
+				<div class="nav-wrapper grey darken-3">
+					<a href="#" class="brand-logo">
+						<span class="teal-text text-lighten-1 mlogo">
+							<strong>Seifer</strong>Net
+						</span>
+					</a>
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
 						<li><a href="sass.html">Sass</a></li>
 						<li><a href="badges.html">Components</a></li>
@@ -24,7 +28,7 @@
 		
 		<main></main>
 		
-		<footer class="page-footer">
+		<footer class="page-footer grey darken-3">
 			<div class="container">
 				<div class="row">
 					<div class="col l6 s12">
@@ -42,7 +46,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer-copyright">
+			<div class="footer-copyright grey darken-4">
 				<div class="container">
 					© 2014 Copyright Text
 					<a class="grey-text text-lighten-4 right" href="#!">More Links</a>

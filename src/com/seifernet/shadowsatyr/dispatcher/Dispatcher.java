@@ -19,6 +19,7 @@ import com.seifernet.shadowsatyr.util.Definitions;
 
 /**
  * 
+ * 
  * @author Seifer ( Cuauhtemoc Herrera Muñoz )
  * @version 1.0.0
  * @since 1.0.0
@@ -26,12 +27,28 @@ import com.seifernet.shadowsatyr.util.Definitions;
  */
 public class Dispatcher implements ContextDispatcher{
 	
-	private static final String TILES_REDIRECT_URL = "/jsp/redirect.jsp";
-	
-	private static final String ASSETS_VIEW_ACTION = "/user/assets";
-	
 	private Logger logger = Logger.getLogger( Dispatcher.class );
 	private int responseType;
+	
+	private static final String TILES_REDIRECT_URL 	= "/jsp/redirect.jsp";
+	
+	private static final String DEFAULT_ACTION 		= "/";
+	private static final String INDEX 				= "/index";
+	private static final String LOGIN 				= "/login";
+	private static final String CREATE_ACCOUNT		= "/createaccount";
+	private static final String VALIDATE_NICK_NAME 	= "/validatenickname";
+	private static final String VALIDATE_MAIL	 	= "/validatemail";
+	private static final String ERROR_500			= "/error500";
+	private static final String ERROR_404			= "/error404";
+	private static final String PROFILE				= "/profile";
+	private static final String LATEST_BLOG_ENTRIES = "/latestblogentries";
+	private static final String HASHTAG				= "/hashtag";
+	private static final String ARTICLE				= "/article";
+	private static final String CREATE_BLOG_ENTRY 	= "/user/createblogentry";
+	private static final String DASHBOARD 			= "/user/dashboard";
+	private static final String CREATE_ARTICLE 		= "/user/createarticle";
+	private static final String SAVE_ARTICLE 		= "/user/savearticle";
+	private static final String ASSETS_VIEW_ACTION 	= "/user/assets";
 	
 	/**
 	 * Constructor sets responseType to HTTP_RESPONSE
@@ -54,49 +71,49 @@ public class Dispatcher implements ContextDispatcher{
 			case ASSETS_VIEW_ACTION:
 				AdminHelper.assetsView( request, response );
 				break;
-			case Definitions.DEFAULT_ACTION: case Definitions.INDEX:
+			case DEFAULT_ACTION: case INDEX:
 				IndexHelper.index( request, response );
 				break;
-			case Definitions.LOGIN:
+			case LOGIN:
 				IndexHelper.login( request, response );
 				break;
-			case Definitions.CREATE_ACCOUNT:
+			case CREATE_ACCOUNT:
 				responseType = ContextServlet.HTTP_REDIRECT;
 				return IndexHelper.createAccount( request, response );
-			case Definitions.VALIDATE_NICK_NAME:
+			case VALIDATE_NICK_NAME:
 				responseType = ContextServlet.JSON_RESPONSE;
 				return IndexHelper.validateNickname( request, response );
-			case Definitions.VALIDATE_MAIL:
+			case VALIDATE_MAIL:
 				responseType = ContextServlet.JSON_RESPONSE;
 				return IndexHelper.validateMail( request, response );
-			case Definitions.PROFILE:
+			case PROFILE:
 				AccountHelper.profile( request, response );
 				break;	
-			case Definitions.CREATE_BLOG_ENTRY:
+			case CREATE_BLOG_ENTRY:
 				responseType = ContextServlet.JSON_RESPONSE;
 				return BlogHelper.createBlogEntry( request, response );
-			case Definitions.LATEST_BLOG_ENTRIES:
+			case LATEST_BLOG_ENTRIES:
 				responseType = ContextServlet.HTML_RESPONSE;
 				return BlogHelper.latestBlogEntries( request, response );	
-			case Definitions.HASHTAG:
+			case HASHTAG:
 				BlogHelper.hashtag( request, response );
 				break;
-			case Definitions.SAVE_ARTICLE:
+			case SAVE_ARTICLE:
 				responseType = ContextServlet.HTTP_REDIRECT;
 				return ArticleHelper.saveArticle( request, response );
-			case Definitions.ARTICLE:
+			case ARTICLE:
 				ArticleHelper.article( request, response );
 				break;
-			case Definitions.CREATE_ARTICLE:
+			case CREATE_ARTICLE:
 				ArticleHelper.createArticle( request, response );
 				break;
-			case Definitions.DASHBOARD:
+			case DASHBOARD:
 				AdminHelper.dashboard( request, response );
 				break;
-			case Definitions.ERROR_500:
+			case ERROR_500:
 				ErrorHelper.error500( request, response );
 				break;
-			case Definitions.ERROR_404: default:
+			case ERROR_404: default:
 				ErrorHelper.error404( request, response );
 		}
 		

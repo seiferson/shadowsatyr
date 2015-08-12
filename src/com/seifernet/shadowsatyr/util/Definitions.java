@@ -1,24 +1,6 @@
 package com.seifernet.shadowsatyr.util;
 
 public class Definitions {
-
-	/* -- System actions -- */
-	public static final String DEFAULT_ACTION 		= "/";
-	public static final String INDEX 				= "/index";
-	public static final String LOGIN 				= "/login";
-	public static final String CREATE_ACCOUNT		= "/createaccount";
-	public static final String VALIDATE_NICK_NAME 	= "/validatenickname";
-	public static final String VALIDATE_MAIL	 	= "/validatemail";
-	public static final String ERROR_500			= "/error500";
-	public static final String ERROR_404			= "/error404";
-	public static final String PROFILE				= "/profile";
-	public static final String LATEST_BLOG_ENTRIES 	= "/latestblogentries";
-	public static final String HASHTAG				= "/hashtag";
-	public static final String ARTICLE				= "/article";
-	public static final String CREATE_BLOG_ENTRY 	= "/user/createblogentry";
-	public static final String DASHBOARD 			= "/user/dashboard";
-	public static final String CREATE_ARTICLE 		= "/user/createarticle";
-	public static final String SAVE_ARTICLE 		= "/user/savearticle";
 	
 	/* -- Apache Tiles definitions -- */
 	public static final String INDEX_TILES_DEF 			= "system.index";
