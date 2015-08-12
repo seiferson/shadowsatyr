@@ -29,6 +29,11 @@
 						</form>
 					</div>
 				</div>
+				<c:if test="${ shiroLoginFailure != null }">
+					<div class="alert alert-danger">
+						<strong>Wrong credentials :(</strong>
+					</div>
+				</c:if>
 				<div class="well text-center">
 					Background image generated with <a target="_blank" href="http://app.geokone.net">GeoKone</a>
 				</div>
