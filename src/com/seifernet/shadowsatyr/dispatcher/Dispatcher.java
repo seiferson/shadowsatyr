@@ -48,7 +48,7 @@ public class Dispatcher implements ContextDispatcher{
 	private static final String DASHBOARD 			= "/user/dashboard";
 	private static final String CREATE_ARTICLE 		= "/user/createarticle";
 	private static final String SAVE_ARTICLE 		= "/user/savearticle";
-	private static final String ASSETS_VIEW_ACTION 	= "/user/assets";
+	private static final String MARKDOWN_PARSER		= "/markdownparser";
 	
 	/**
 	 * Constructor sets responseType to HTTP_RESPONSE
@@ -68,9 +68,6 @@ public class Dispatcher implements ContextDispatcher{
 		}
 		
 		switch( action ){
-			case ASSETS_VIEW_ACTION:
-				AdminHelper.assetsView( request, response );
-				break;
 			case DEFAULT_ACTION: case INDEX:
 				IndexHelper.index( request, response );
 				break;
@@ -110,6 +107,9 @@ public class Dispatcher implements ContextDispatcher{
 			case DASHBOARD:
 				AdminHelper.dashboard( request, response );
 				break;
+			case MARKDOWN_PARSER:
+				responseType = ContextServlet.HTML_RESPONSE;
+				return ArticleHelper.markdownParser( request, response );
 			case ERROR_500:
 				ErrorHelper.error500( request, response );
 				break;

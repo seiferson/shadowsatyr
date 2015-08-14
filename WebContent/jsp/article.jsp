@@ -7,8 +7,7 @@
 						<div class="page-header">
 							<h3>${bean.article.title}</h3> 
 						</div>
-						<input id="data" value="${bean.article.content}" type="hidden"/>
-						<div id="content-data"></div>
+						${ bean.article.htmlContent }
 					</div>
 				</section>
 				<section class="col-md-3">

@@ -75,7 +75,11 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-				
+		<dependency>
+			<groupId>com.github.rjeschke</groupId>
+			<artifactId>txtmark</artifactId>
+			<version>0.13</version>
+		</dependency>		
 	</dependencies>
 	
 	<build>

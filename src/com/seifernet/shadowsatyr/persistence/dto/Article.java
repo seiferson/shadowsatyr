@@ -14,6 +14,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.seifernet.shadowsatyr.engine.markdown.MarkdownProcessor;
+
 @Entity
 @Table( name="article" )
 public class Article implements Serializable{
@@ -75,6 +77,14 @@ public class Article implements Serializable{
 	 */
 	public String getContent( ) {
 		return content;
+	}
+	
+	/**
+	 * 
+	 * @return the content parsed using markdown
+	 */
+	public String getHtmlContent( ){
+		return MarkdownProcessor.toMarkdown( content );
 	}
 
 	/**

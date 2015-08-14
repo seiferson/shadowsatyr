@@ -14,6 +14,7 @@ import com.seifernet.shadowsatyr.bean.ArticleBean;
 import com.seifernet.shadowsatyr.bean.SystemBean;
 import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.engine.article.ArticleManager;
+import com.seifernet.shadowsatyr.engine.markdown.MarkdownProcessor;
 import com.seifernet.shadowsatyr.persistence.dto.Account;
 import com.seifernet.shadowsatyr.persistence.dto.Article;
 import com.seifernet.shadowsatyr.security.SessionManager;
@@ -112,6 +113,20 @@ public class ArticleHelper {
 			bean.setAccount( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
 			request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 		}
+	}
+
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public static String markdownParser( HttpServletRequest request, HttpServletResponse response ) {
+		String text = request.getParameter( "data" );
+		if( text != null ){
+			return MarkdownProcessor.toMarkdown( text );
+		}
+		return "";
 	}
 
 }
