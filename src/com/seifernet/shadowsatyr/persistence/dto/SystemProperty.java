@@ -26,6 +26,9 @@ public class SystemProperty implements Serializable{
 	
 	@Column( nullable = false, length = 500 )
 	private String value;
+	
+	@Column( columnDefinition = "TEXT" )
+	private String description;
 
 	/**
 	 * @return the id
@@ -67,5 +70,19 @@ public class SystemProperty implements Serializable{
 	 */
 	public void setValue( String value ) {
 		this.value = value;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

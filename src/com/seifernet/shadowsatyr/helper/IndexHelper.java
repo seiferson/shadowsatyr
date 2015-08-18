@@ -108,13 +108,6 @@ public class IndexHelper {
 				account.setStatus( AccountManager.ACTIVE_ACCOUNT_STATUS );
 				account.setRegisterDate( new Date( ) );
 				
-				ArrayList<Permission> permissionList = new ArrayList<Permission>( );
-				Permission permission = new Permission( );
-				permission.setId( Definitions.SYSTEM_TEST_PERMISSION_ID );
-				permissionList.add( permission );
-				
-				account.setPermissions( permissionList );
-				
 				AccountManager.createAccount( account );
 				return Definitions.ACCOUNT_CREATED_URL;
 			} else {
