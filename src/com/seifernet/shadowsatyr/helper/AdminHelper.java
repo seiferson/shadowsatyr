@@ -18,6 +18,7 @@ import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.persistence.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
+import com.seifernet.shadowsatyr.util.TilesDefinitions;
 
 /**
  * Helper for system administration tasks
@@ -76,7 +77,7 @@ public class AdminHelper {
 				}
 				reader.close( );
 				bean.setServerLog( serverLog );
-				bean.setLayout( Definitions.DASHBOARD_TILES_DEF );
+				bean.setLayout( TilesDefinitions.DASHBOARD_TILES_DEF );
 				bean.setAccounts( AccountManager.getAccounts( 0 ) );
 				bean.setAccount( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
 				request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );

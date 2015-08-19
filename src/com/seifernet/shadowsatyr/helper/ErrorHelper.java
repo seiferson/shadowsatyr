@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.seifernet.shadowsatyr.bean.SystemBean;
 import com.seifernet.shadowsatyr.util.Definitions;
+import com.seifernet.shadowsatyr.util.TilesDefinitions;
 
 /**
  * Helper that handle error pages
@@ -25,7 +26,7 @@ public class ErrorHelper {
 	public static void error404( HttpServletRequest request, HttpServletResponse response ) {
 		SystemBean bean = new SystemBean( );
 		
-		bean.setLayout( Definitions.ERROR_404_TILES_DEF );
+		bean.setLayout( TilesDefinitions.ERROR_404_TILES_DEF );
 		request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 	}
 
@@ -38,7 +39,7 @@ public class ErrorHelper {
 	public static void error500( HttpServletRequest request, HttpServletResponse response ) {
 		SystemBean bean = new SystemBean( );
 		
-		bean.setLayout( Definitions.ERROR_500_TILES_DEF );
+		bean.setLayout( TilesDefinitions.ERROR_500_TILES_DEF );
 		request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 	}
 	
@@ -51,7 +52,7 @@ public class ErrorHelper {
 	public static void error403( HttpServletRequest request, HttpServletResponse response ){
 		SystemBean bean = new SystemBean( );
 		
-		bean.setLayout( Definitions.ERROR_403_TILES_DEF );
+		bean.setLayout( TilesDefinitions.ERROR_403_TILES_DEF );
 		request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 	}
 

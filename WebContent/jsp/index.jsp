@@ -57,10 +57,6 @@
 					</div>
 				</section>
 				<section class="col-md-4 hidden-xs hidden-sm">
-					<div class="col-md-12 well">
-						<h3>About</h3>
-						<p>${ bean.about }</p>
-					</div>
 					<div class="col-md-12">
 						<c:forEach var="hashtag" items="">
 							<span class="label label-primary">Primary</span> <span class="label label-primary">Primary</span>

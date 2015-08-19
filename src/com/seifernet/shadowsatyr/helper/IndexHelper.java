@@ -21,6 +21,7 @@ import com.seifernet.shadowsatyr.persistence.dto.Permission;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.shadowsatyr.util.FormValidator;
+import com.seifernet.shadowsatyr.util.TilesDefinitions;
 
 /**
  * Helper for welcome page, login and register pages
@@ -47,9 +48,9 @@ public class IndexHelper {
 		if( subject.isAuthenticated( ) ) {
 			Account account = ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME );
 			bean.setAccount( account );
-			bean.setLayout( Definitions.INDEX_USER_TILES_DEF );
+			bean.setLayout( TilesDefinitions.INDEX_USER_TILES_DEF );
 		} else {
-			bean.setLayout( Definitions.INDEX_TILES_DEF );
+			bean.setLayout( TilesDefinitions.INDEX_TILES_DEF );
 		}
 		
 		bean.setLatestBlogEntries( BlogManager.getLatestBlogEntries( ) );
@@ -70,7 +71,7 @@ public class IndexHelper {
 			index( request, response );
 		} else {
 			SystemBean bean = new SystemBean( );
-			bean.setLayout( Definitions.LOGIN_TILES_DEF );
+			bean.setLayout( TilesDefinitions.LOGIN_TILES_DEF );
 			request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 		}
 	}

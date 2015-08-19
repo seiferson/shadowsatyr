@@ -36,7 +36,7 @@ public abstract class SessionFactoryManager {
 	 * 
 	 * @return The session factory object
 	 */
-	public static SessionFactory getSessionFactoryInstance( ){
+	public static SessionFactory getSessionFactoryInstance(  ){
 		
 		if( instance == null ){
 			initializeSessionFactory( );
@@ -58,7 +58,7 @@ public abstract class SessionFactoryManager {
 		
 		properties.setProperty( "hibernate.connection.datasource" , Definitions.SHADOW_SATYR_DEFAULT_DATASOURCE );
 		properties.setProperty( "hibernate.dialect" , "org.hibernate.dialect.PostgreSQLDialect" );
-//		properties.setProperty( "hibernate.hbm2ddl.auto" , "create" );
+		properties.setProperty( "hibernate.hbm2ddl.auto" , "create" );
 		properties.setProperty( "hibernate.current_session_context_class", "thread" );
 		 
 		configuration.addAnnotatedClass( Account.class );

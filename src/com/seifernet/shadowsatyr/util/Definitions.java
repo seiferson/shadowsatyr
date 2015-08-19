@@ -2,22 +2,6 @@ package com.seifernet.shadowsatyr.util;
 
 public class Definitions {
 	
-	/* -- Apache Tiles definitions -- */
-	public static final String INDEX_TILES_DEF 			= "system.index";
-	public static final String INDEX_USER_TILES_DEF 	= "system.index_user";
-	public static final String LOGIN_TILES_DEF			= "system.login";
-	public static final String ERROR_404_TILES_DEF 		= "system.error404";
-	public static final String ERROR_500_TILES_DEF		= "system.error500";
-	public static final String ERROR_403_TILES_DEF		= "system.error403";
-	public static final String PROFILE_AUTH_TILES_DEF	= "system.profile_auth";
-	public static final String PROFILE_TILES_DEF		= "system.profile";
-	public static final String DASHBOARD_TILES_DEF		= "system.dashboard";
-	public static final String CREATE_ARTICLE_TILES_DEF = "system.create_article";
-	public static final String ARTICLE_TILES_DEF		= "system.article";
-	public static final String ARTICLE_AUTH_TILES_DEF	= "system.article_auth";
-	public static final String BLOG_LIST_AUTH_TILES_DEF = "system.blog_list_auth";
-	public static final String BLOG_LIST_TILES_DEF 		= "system.blog_list";
-	
 	/* --Logger errors -- */
 	public static final String LOGGER_ERROR_ENCODING 				= "Error setting encoding to request, unsupported enconding";
 	public static final String LOGGER_ERROR_HTTP_CLIENT_ENCONDING 	= "Error on http client, unsupported enconding";

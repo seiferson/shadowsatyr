@@ -5,18 +5,27 @@
 	
 <tiles-definitions>
 	
-	<definition name="system.login" template="/jsp/main_layout.jsp">
-		<put-attribute name="css_includes" value="/jsp/login_css.jsp" />
-		<put-attribute name="navbar" value="/jsp/empty.jsp" />
-		<put-attribute name="body" value="/jsp/login.jsp" />
-		<put-attribute name="js_includes" value="/jsp/login_js.jsp" />
+	<definition name="simple.index" template="/WEB-INF/pages/simple/main_layout.jsp">
+		<put-attribute name="navbar" value="/WEB-INF/pages/simple/navbar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/simple/index.jsp" />
 	</definition>
+
+
+
+
 	
 	<definition name="system.index" template="/jsp/main_layout.jsp">
 		<put-attribute name="css_includes" value="/jsp/empty.jsp" />
 		<put-attribute name="navbar" value="/jsp/navbar.jsp" />
 		<put-attribute name="body" value="/jsp/index.jsp" />
 		<put-attribute name="js_includes" value="/jsp/empty.jsp" />
+	</definition>
+	
+	<definition name="system.login" template="/jsp/main_layout.jsp">
+		<put-attribute name="css_includes" value="/jsp/login_css.jsp" />
+		<put-attribute name="navbar" value="/jsp/empty.jsp" />
+		<put-attribute name="body" value="/jsp/login.jsp" />
+		<put-attribute name="js_includes" value="/jsp/login_js.jsp" />
 	</definition>
 	
 	<definition name="system.error500" template="/jsp/main_layout.jsp">

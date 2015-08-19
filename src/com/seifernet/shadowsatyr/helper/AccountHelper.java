@@ -14,6 +14,7 @@ import com.seifernet.shadowsatyr.persistence.dto.Account;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.shadowsatyr.util.FormValidator;
+import com.seifernet.shadowsatyr.util.TilesDefinitions;
 
 /**
  * Helper for account operations
@@ -44,10 +45,10 @@ public class AccountHelper {
 			ProfileBean bean = new ProfileBean( );
 			
 			if( subject.isAuthenticated( ) ){
-				bean.setLayout( Definitions.PROFILE_AUTH_TILES_DEF );
+				bean.setLayout( TilesDefinitions.PROFILE_AUTH_TILES_DEF );
 				bean.setAccount( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
 			} else {
-				bean.setLayout( Definitions.PROFILE_TILES_DEF );
+				bean.setLayout( TilesDefinitions.PROFILE_TILES_DEF );
 			}
 			
 			bean.setProfile( AccountManager.getAccountByNickname( account ) );

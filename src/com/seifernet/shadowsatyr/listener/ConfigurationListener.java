@@ -32,6 +32,7 @@ public class ConfigurationListener implements ServletContextListener{
 
 	@Override
 	public void contextInitialized( ServletContextEvent event ) {
+		//TODO Handle system configuration on a H2 database based on file
 		
 		logger.info( "Deploying system, starting system configuration" );
 		logger.info( "Testing default database connection: " + Definitions.SHADOW_SATYR_DEFAULT_DATASOURCE );

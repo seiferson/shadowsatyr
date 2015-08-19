@@ -20,6 +20,7 @@ import com.seifernet.shadowsatyr.persistence.dto.Article;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.shadowsatyr.util.FormValidator;
+import com.seifernet.shadowsatyr.util.TilesDefinitions;
 
 /**
  * Helper for article publishing tasks
@@ -43,7 +44,7 @@ public class ArticleHelper {
 		SystemBean 	bean 	= new SystemBean( );
 		Subject 	subject = SecurityUtils.getSubject( );
 		
-		bean.setLayout( Definitions.CREATE_ARTICLE_TILES_DEF );
+		bean.setLayout( TilesDefinitions.CREATE_ARTICLE_TILES_DEF );
 		bean.setAccount( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
 		request.setAttribute( Definitions.BEAN_REQUEST_PARAM_NAME, bean );
 	}
@@ -104,9 +105,9 @@ public class ArticleHelper {
 			ArticleBean bean = new ArticleBean( );
 			
 			if( subject.isAuthenticated( ) ){
-				bean.setLayout( Definitions.ARTICLE_AUTH_TILES_DEF );
+				bean.setLayout( TilesDefinitions.ARTICLE_AUTH_TILES_DEF );
 			} else {
-				bean.setLayout( Definitions.ARTICLE_TILES_DEF );
+				bean.setLayout( TilesDefinitions.ARTICLE_TILES_DEF );
 			}
 			
 			bean.setArticle( ArticleManager.getArticleByHash( hash ) );

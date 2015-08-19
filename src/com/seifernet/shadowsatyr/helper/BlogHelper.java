@@ -24,6 +24,7 @@ import com.seifernet.shadowsatyr.persistence.dto.Hashtag;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.shadowsatyr.util.FormValidator;
+import com.seifernet.shadowsatyr.util.TilesDefinitions;
 
 /**
  * Helper for microblog operations 
@@ -136,10 +137,10 @@ public class BlogHelper {
 		BlogListBean bean = new BlogListBean( );
 		
 		if( subject.isAuthenticated( ) ){
-			bean.setLayout( Definitions.BLOG_LIST_AUTH_TILES_DEF );
+			bean.setLayout( TilesDefinitions.BLOG_LIST_AUTH_TILES_DEF );
 			bean.setAccount( ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME ) );
 		} else {
-			bean.setLayout( Definitions.BLOG_LIST_TILES_DEF );
+			bean.setLayout( TilesDefinitions.BLOG_LIST_TILES_DEF );
 		}
 		
 		bean.setBlogEntries( BlogManager.getBlogEntries( hashtag, 0 ) );
