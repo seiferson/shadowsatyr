@@ -1,6 +1,5 @@
 package com.seifernet.shadowsatyr.helper;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,14 +16,13 @@ import com.seifernet.shadowsatyr.bean.SystemBean;
 import com.seifernet.shadowsatyr.engine.account.AccountManager;
 import com.seifernet.shadowsatyr.engine.microblog.BlogManager;
 import com.seifernet.shadowsatyr.persistence.dto.Account;
-import com.seifernet.shadowsatyr.persistence.dto.Permission;
 import com.seifernet.shadowsatyr.security.SessionManager;
 import com.seifernet.shadowsatyr.util.Definitions;
 import com.seifernet.shadowsatyr.util.FormValidator;
 import com.seifernet.shadowsatyr.util.TilesDefinitions;
 
 /**
- * Helper for welcome page, login and register pages
+ * Helper for welcome page, login and account register
  * 
  * @author Seifer ( Cuauhtemoc Herrera Muñoz )
  * @version 1.0.0
@@ -41,16 +39,16 @@ public class IndexHelper {
 	 * @param request Servlet request
 	 * @param response Servlet response
 	 */
-	public static void index( HttpServletRequest request, HttpServletResponse response ) {
+	public static void index( HttpServletRequest request, HttpServletResponse response, String baseLayout ) {
 		Subject		subject	= SecurityUtils.getSubject( );
 		IndexBean 	bean 	= new IndexBean( );
 		
 		if( subject.isAuthenticated( ) ) {
 			Account account = ( Account )SessionManager.getSession( subject ).getAttribute( Definitions.ACCOUNT_SESSION_PARAM_NAME );
 			bean.setAccount( account );
-			bean.setLayout( TilesDefinitions.INDEX_USER_TILES_DEF );
+			bean.setLayout( baseLayout + TilesDefinitions.INDEX_USER );
 		} else {
-			bean.setLayout( TilesDefinitions.INDEX_TILES_DEF );
+			bean.setLayout( baseLayout + TilesDefinitions.INDEX );
 		}
 		
 		bean.setLatestBlogEntries( BlogManager.getLatestBlogEntries( ) );
@@ -63,12 +61,12 @@ public class IndexHelper {
 	 * @param request Servlet request
 	 * @param response Servlet response
 	 */
-	public static void login( HttpServletRequest request, HttpServletResponse response ) {
+	public static void login( HttpServletRequest request, HttpServletResponse response, String baseLayout ) {
 		Subject	subject	= SecurityUtils.getSubject( );
 		
 		//If subject is authenticated is redirected to home page
 		if( subject.isAuthenticated( ) ){
-			index( request, response );
+			index( request, response, baseLayout );
 		} else {
 			SystemBean bean = new SystemBean( );
 			bean.setLayout( TilesDefinitions.LOGIN_TILES_DEF );

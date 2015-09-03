@@ -14,8 +14,6 @@ public class TilesDefinitions {
 	public static final String INDEX					= "index";
 	public static final String INDEX_USER				= "index_user";
 	
-	public static final String INDEX_TILES_DEF 			= "system.index";
-	public static final String INDEX_USER_TILES_DEF 	= "system.index_user";
 	public static final String LOGIN_TILES_DEF			= "system.login";
 	public static final String ERROR_404_TILES_DEF 		= "system.error404";
 	public static final String ERROR_500_TILES_DEF		= "system.error500";

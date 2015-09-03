@@ -1,7 +1,10 @@
 package com.seifernet.shadowsatyr.dispatcher;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
+import javax.jms.JMSException;
+import javax.jms.QueueReceiver;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +18,11 @@ import com.seifernet.shadowsatyr.helper.ArticleHelper;
 import com.seifernet.shadowsatyr.helper.BlogHelper;
 import com.seifernet.shadowsatyr.helper.ErrorHelper;
 import com.seifernet.shadowsatyr.helper.IndexHelper;
+import com.seifernet.shadowsatyr.jms.Consumer;
+import com.seifernet.shadowsatyr.jms.Producer;
+import com.seifernet.shadowsatyr.jms.QueueManager;
 import com.seifernet.shadowsatyr.util.Definitions;
+import com.seifernet.shadowsatyr.util.TilesDefinitions;
 
 /**
  * 
@@ -49,6 +56,7 @@ public class Dispatcher implements ContextDispatcher{
 	private static final String CREATE_ARTICLE 		= "/user/createarticle";
 	private static final String SAVE_ARTICLE 		= "/user/savearticle";
 	private static final String MARKDOWN_PARSER		= "/markdownparser";
+	private static final String JMS_TEST			= "/jmstest";
 	
 	/**
 	 * Constructor sets responseType to HTTP_RESPONSE
@@ -61,6 +69,8 @@ public class Dispatcher implements ContextDispatcher{
 	@Override
 	public String dispatchAction( HttpServletRequest request, HttpServletResponse response, String action ) {
 		
+		String baseLayout = TilesDefinitions.SIMPLE_LAYOUT;
+		
 		try{ 
 			request.setCharacterEncoding( ContextServlet.UTF8_CHARSET );
 		} catch( UnsupportedEncodingException e ){
@@ -69,10 +79,10 @@ public class Dispatcher implements ContextDispatcher{
 		
 		switch( action ){
 			case DEFAULT_ACTION: case INDEX:
-				IndexHelper.index( request, response );
+				IndexHelper.index( request, response, baseLayout );
 				break;
 			case LOGIN:
-				IndexHelper.login( request, response );
+				IndexHelper.login( request, response, baseLayout );
 				break;
 			case CREATE_ACCOUNT:
 				responseType = ContextServlet.HTTP_REDIRECT;
@@ -110,6 +120,17 @@ public class Dispatcher implements ContextDispatcher{
 			case MARKDOWN_PARSER:
 				responseType = ContextServlet.HTML_RESPONSE;
 				return ArticleHelper.markdownParser( request, response );
+			case JMS_TEST:
+				responseType = ContextServlet.NO_RESPONSE;
+				try {
+					QueueReceiver receiver = QueueManager.getJMSSession( ).createReceiver( QueueManager.getJMSQueue( ) );
+					receiver.setMessageListener( new Consumer( ) );
+					Producer.sendMessage( "Test Message " + new Date( ) );
+					
+				} catch ( JMSException e ) {
+					
+				}
+				break;
 			case ERROR_500:
 				ErrorHelper.error500( request, response );
 				break;
